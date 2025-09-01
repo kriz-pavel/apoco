@@ -1,0 +1,7676 @@
+{
+  "types": [
+    {
+      "id": 1,
+      "name": "Grass"
+    },
+    {
+      "id": 2,
+      "name": "Poison"
+    },
+    {
+      "id": 3,
+      "name": "Water"
+    },
+    {
+      "id": 4,
+      "name": "Electric"
+    },
+    {
+      "id": 5,
+      "name": "Fighting"
+    },
+    {
+      "id": 6,
+      "name": "Fairy"
+    },
+    {
+      "id": 7,
+      "name": "Fire"
+    },
+    {
+      "id": 8,
+      "name": "Ice"
+    },
+    {
+      "id": 9,
+      "name": "Flying"
+    },
+    {
+      "id": 10,
+      "name": "Psychic"
+    },
+    {
+      "id": 11,
+      "name": "Bug"
+    },
+    {
+      "id": 12,
+      "name": "Steel"
+    },
+    {
+      "id": 13,
+      "name": "Ground"
+    },
+    {
+      "id": 14,
+      "name": "Rock"
+    },
+    {
+      "id": 15,
+      "name": "Normal"
+    },
+    {
+      "id": 16,
+      "name": "Ghost"
+    }
+  ],
+  "pokemons": [
+    {
+      "id": 1,
+      "name": "Bulbasaur",
+      "classification": "Seed Pokémon",
+      "max_cp": 951,
+      "max_hp": 1071,
+      "flee_rate": 0.1,
+      "weight_min_kg": 6.04,
+      "weight_max_kg": 7.76,
+      "height_min_m": 0.61,
+      "height_max_m": 0.79
+    },
+    {
+      "id": 2,
+      "name": "Ivysaur",
+      "classification": "Seed Pokémon",
+      "max_cp": 1483,
+      "max_hp": 1632,
+      "flee_rate": 0.07,
+      "weight_min_kg": 11.38,
+      "weight_max_kg": 14.63,
+      "height_min_m": 0.88,
+      "height_max_m": 1.13
+    },
+    {
+      "id": 3,
+      "name": "Venusaur",
+      "classification": "Seed Pokémon",
+      "max_cp": 2392,
+      "max_hp": 2580,
+      "flee_rate": 0.05,
+      "weight_min_kg": 87.5,
+      "weight_max_kg": 112.5,
+      "height_min_m": 1.75,
+      "height_max_m": 2.25
+    },
+    {
+      "id": 4,
+      "name": "Charmander",
+      "classification": "Lizard Pokémon",
+      "max_cp": 841,
+      "max_hp": 955,
+      "flee_rate": 0.1,
+      "weight_min_kg": 7.44,
+      "weight_max_kg": 9.56,
+      "height_min_m": 0.53,
+      "height_max_m": 0.68
+    },
+    {
+      "id": 5,
+      "name": "Charmeleon",
+      "classification": "Flame Pokémon",
+      "max_cp": 1411,
+      "max_hp": 1557,
+      "flee_rate": 0.07,
+      "weight_min_kg": 16.63,
+      "weight_max_kg": 21.38,
+      "height_min_m": 0.96,
+      "height_max_m": 1.24
+    },
+    {
+      "id": 6,
+      "name": "Charizard",
+      "classification": "Flame Pokémon",
+      "max_cp": 2413,
+      "max_hp": 2602,
+      "flee_rate": 0.05,
+      "weight_min_kg": 79.19,
+      "weight_max_kg": 101.81,
+      "height_min_m": 1.49,
+      "height_max_m": 1.91
+    },
+    {
+      "id": 7,
+      "name": "Squirtle",
+      "classification": "Tiny Turtle Pokémon",
+      "max_cp": 891,
+      "max_hp": 1008,
+      "flee_rate": 0.1,
+      "weight_min_kg": 7.88,
+      "weight_max_kg": 10.13,
+      "height_min_m": 0.44,
+      "height_max_m": 0.56
+    },
+    {
+      "id": 8,
+      "name": "Wartortle",
+      "classification": "Turtle Pokémon",
+      "max_cp": 1435,
+      "max_hp": 1582,
+      "flee_rate": 0.07,
+      "weight_min_kg": 19.69,
+      "weight_max_kg": 25.31,
+      "height_min_m": 0.88,
+      "height_max_m": 1.13
+    },
+    {
+      "id": 9,
+      "name": "Blastoise",
+      "classification": "Shellfish Pokémon",
+      "max_cp": 2355,
+      "max_hp": 2542,
+      "flee_rate": 0.05,
+      "weight_min_kg": 74.81,
+      "weight_max_kg": 96.19,
+      "height_min_m": 1.4,
+      "height_max_m": 1.8
+    },
+    {
+      "id": 10,
+      "name": "Caterpie",
+      "classification": "Worm Pokémon",
+      "max_cp": 367,
+      "max_hp": 443,
+      "flee_rate": 0.2,
+      "weight_min_kg": 2.54,
+      "weight_max_kg": 3.26,
+      "height_min_m": 0.26,
+      "height_max_m": 0.34
+    },
+    {
+      "id": 11,
+      "name": "Metapod",
+      "classification": "Cocoon Pokémon",
+      "max_cp": 397,
+      "max_hp": 477,
+      "flee_rate": 0.09,
+      "weight_min_kg": 8.66,
+      "weight_max_kg": 11.14,
+      "height_min_m": 0.61,
+      "height_max_m": 0.79
+    },
+    {
+      "id": 12,
+      "name": "Butterfree",
+      "classification": "Butterfly Pokémon",
+      "max_cp": 1315,
+      "max_hp": 1454,
+      "flee_rate": 0.06,
+      "weight_min_kg": 28.0,
+      "weight_max_kg": 36.0,
+      "height_min_m": 0.96,
+      "height_max_m": 1.24
+    },
+    {
+      "id": 13,
+      "name": "Weedle",
+      "classification": "Hairy Pokémon",
+      "max_cp": 372,
+      "max_hp": 449,
+      "flee_rate": 0.2,
+      "weight_min_kg": 2.8,
+      "weight_max_kg": 3.6,
+      "height_min_m": 0.26,
+      "height_max_m": 0.34
+    },
+    {
+      "id": 14,
+      "name": "Kakuna",
+      "classification": "Cocoon Pokémon",
+      "max_cp": 405,
+      "max_hp": 485,
+      "flee_rate": 0.09,
+      "weight_min_kg": 8.75,
+      "weight_max_kg": 11.25,
+      "height_min_m": 0.53,
+      "height_max_m": 0.68
+    },
+    {
+      "id": 15,
+      "name": "Beedrill",
+      "classification": "Poison Bee Pokémon",
+      "max_cp": 1301,
+      "max_hp": 1439,
+      "flee_rate": 0.06,
+      "weight_min_kg": 25.81,
+      "weight_max_kg": 33.19,
+      "height_min_m": 0.88,
+      "height_max_m": 1.13
+    },
+    {
+      "id": 16,
+      "name": "Pidgey",
+      "classification": "Tiny Bird Pokémon",
+      "max_cp": 585,
+      "max_hp": 679,
+      "flee_rate": 0.2,
+      "weight_min_kg": 1.57,
+      "weight_max_kg": 2.02,
+      "height_min_m": 0.26,
+      "height_max_m": 0.34
+    },
+    {
+      "id": 17,
+      "name": "Pidgeotto",
+      "classification": "Bird Pokémon",
+      "max_cp": 1096,
+      "max_hp": 1223,
+      "flee_rate": 0.09,
+      "weight_min_kg": 26.25,
+      "weight_max_kg": 33.75,
+      "height_min_m": 0.96,
+      "height_max_m": 1.24
+    },
+    {
+      "id": 18,
+      "name": "Pidgeot",
+      "classification": "Bird Pokémon",
+      "max_cp": 1923,
+      "max_hp": 2091,
+      "flee_rate": 0.06,
+      "weight_min_kg": 34.56,
+      "weight_max_kg": 44.44,
+      "height_min_m": 1.31,
+      "height_max_m": 1.69
+    },
+    {
+      "id": 19,
+      "name": "Rattata",
+      "classification": "Mouse Pokémon",
+      "max_cp": 493,
+      "max_hp": 581,
+      "flee_rate": 0.2,
+      "weight_min_kg": 3.06,
+      "weight_max_kg": 3.94,
+      "height_min_m": 0.26,
+      "height_max_m": 0.34
+    },
+    {
+      "id": 20,
+      "name": "Raticate",
+      "classification": "Mouse Pokémon",
+      "max_cp": 1304,
+      "max_hp": 1444,
+      "flee_rate": 0.07,
+      "weight_min_kg": 16.19,
+      "weight_max_kg": 20.81,
+      "height_min_m": 0.61,
+      "height_max_m": 0.79
+    },
+    {
+      "id": 21,
+      "name": "Spearow",
+      "classification": "Tiny Bird Pokémon",
+      "max_cp": 591,
+      "max_hp": 686,
+      "flee_rate": 0.15,
+      "weight_min_kg": 1.75,
+      "weight_max_kg": 2.25,
+      "height_min_m": 0.26,
+      "height_max_m": 0.34
+    },
+    {
+      "id": 22,
+      "name": "Fearow",
+      "classification": "Beak Pokémon",
+      "max_cp": 1592,
+      "max_hp": 1746,
+      "flee_rate": 0.07,
+      "weight_min_kg": 33.25,
+      "weight_max_kg": 42.75,
+      "height_min_m": 1.05,
+      "height_max_m": 1.35
+    },
+    {
+      "id": 23,
+      "name": "Ekans",
+      "classification": "Snake Pokémon",
+      "max_cp": 718,
+      "max_hp": 824,
+      "flee_rate": 0.15,
+      "weight_min_kg": 6.04,
+      "weight_max_kg": 7.76,
+      "height_min_m": 1.75,
+      "height_max_m": 2.25
+    },
+    {
+      "id": 24,
+      "name": "Arbok",
+      "classification": "Cobra Pokémon",
+      "max_cp": 1611,
+      "max_hp": 1767,
+      "flee_rate": 0.07,
+      "weight_min_kg": 56.88,
+      "weight_max_kg": 73.13,
+      "height_min_m": 3.06,
+      "height_max_m": 3.94
+    },
+    {
+      "id": 25,
+      "name": "Pikachu",
+      "classification": "Mouse Pokémon",
+      "max_cp": 777,
+      "max_hp": 887,
+      "flee_rate": 0.1,
+      "weight_min_kg": 5.25,
+      "weight_max_kg": 6.75,
+      "height_min_m": 0.35,
+      "height_max_m": 0.45
+    },
+    {
+      "id": 26,
+      "name": "Raichu",
+      "classification": "Mouse Pokémon",
+      "max_cp": 1859,
+      "max_hp": 2028,
+      "flee_rate": 0.06,
+      "weight_min_kg": 26.25,
+      "weight_max_kg": 33.75,
+      "height_min_m": 0.7,
+      "height_max_m": 0.9
+    },
+    {
+      "id": 27,
+      "name": "Sandshrew",
+      "classification": "Mouse Pokémon",
+      "max_cp": 695,
+      "max_hp": 798,
+      "flee_rate": 0.1,
+      "weight_min_kg": 10.5,
+      "weight_max_kg": 13.5,
+      "height_min_m": 0.53,
+      "height_max_m": 0.68
+    },
+    {
+      "id": 28,
+      "name": "Sandslash",
+      "classification": "Mouse Pokémon",
+      "max_cp": 1654,
+      "max_hp": 1810,
+      "flee_rate": 0.06,
+      "weight_min_kg": 25.81,
+      "weight_max_kg": 33.19,
+      "height_min_m": 0.88,
+      "height_max_m": 1.13
+    },
+    {
+      "id": 29,
+      "name": "Nidoran-F",
+      "classification": "Poison Pin Pokémon",
+      "max_cp": 768,
+      "max_hp": 876,
+      "flee_rate": 0.15,
+      "weight_min_kg": 6.13,
+      "weight_max_kg": 7.88,
+      "height_min_m": 0.35,
+      "height_max_m": 0.45
+    },
+    {
+      "id": 30,
+      "name": "Nidorina",
+      "classification": "Poison Pin Pokémon",
+      "max_cp": 1267,
+      "max_hp": 1404,
+      "flee_rate": 0.07,
+      "weight_min_kg": 17.5,
+      "weight_max_kg": 22.5,
+      "height_min_m": 0.7,
+      "height_max_m": 0.9
+    },
+    {
+      "id": 31,
+      "name": "Nidoqueen",
+      "classification": "Drill Pokémon",
+      "max_cp": 2301,
+      "max_hp": 2485,
+      "flee_rate": 0.05,
+      "weight_min_kg": 52.5,
+      "weight_max_kg": 67.5,
+      "height_min_m": 1.14,
+      "height_max_m": 1.46
+    },
+    {
+      "id": 32,
+      "name": "Nidoran-M",
+      "classification": "Poison Pin Pokémon",
+      "max_cp": 737,
+      "max_hp": 843,
+      "flee_rate": 0.15,
+      "weight_min_kg": 7.88,
+      "weight_max_kg": 10.13,
+      "height_min_m": 0.44,
+      "height_max_m": 0.56
+    },
+    {
+      "id": 33,
+      "name": "Nidorino",
+      "classification": "Poison Pin Pokémon",
+      "max_cp": 1236,
+      "max_hp": 1372,
+      "flee_rate": 0.07,
+      "weight_min_kg": 17.06,
+      "weight_max_kg": 21.94,
+      "height_min_m": 0.79,
+      "height_max_m": 1.01
+    },
+    {
+      "id": 34,
+      "name": "Nidoking",
+      "classification": "Drill Pokémon",
+      "max_cp": 2291,
+      "max_hp": 2475,
+      "flee_rate": 0.05,
+      "weight_min_kg": 54.25,
+      "weight_max_kg": 69.75,
+      "height_min_m": 1.22,
+      "height_max_m": 1.57
+    },
+    {
+      "id": 35,
+      "name": "Clefairy",
+      "classification": "Fairy Pokémon",
+      "max_cp": 1074,
+      "max_hp": 1200,
+      "flee_rate": 0.1,
+      "weight_min_kg": 6.56,
+      "weight_max_kg": 8.44,
+      "height_min_m": 0.53,
+      "height_max_m": 0.68
+    },
+    {
+      "id": 36,
+      "name": "Clefable",
+      "classification": "Fairy Pokémon",
+      "max_cp": 2217,
+      "max_hp": 2397,
+      "flee_rate": 0.06,
+      "weight_min_kg": 35.0,
+      "weight_max_kg": 45.0,
+      "height_min_m": 1.14,
+      "height_max_m": 1.46
+    },
+    {
+      "id": 37,
+      "name": "Vulpix",
+      "classification": "Fox Pokémon",
+      "max_cp": 725,
+      "max_hp": 831,
+      "flee_rate": 0.1,
+      "weight_min_kg": 8.66,
+      "weight_max_kg": 11.14,
+      "height_min_m": 0.53,
+      "height_max_m": 0.68
+    },
+    {
+      "id": 38,
+      "name": "Ninetales",
+      "classification": "Fox Pokémon",
+      "max_cp": 2015,
+      "max_hp": 2188,
+      "flee_rate": 0.06,
+      "weight_min_kg": 17.41,
+      "weight_max_kg": 22.39,
+      "height_min_m": 0.96,
+      "height_max_m": 1.24
+    },
+    {
+      "id": 39,
+      "name": "Jigglypuff",
+      "classification": "Balloon Pokémon",
+      "max_cp": 796,
+      "max_hp": 917,
+      "flee_rate": 0.1,
+      "weight_min_kg": 4.81,
+      "weight_max_kg": 6.19,
+      "height_min_m": 0.44,
+      "height_max_m": 0.56
+    },
+    {
+      "id": 40,
+      "name": "Wigglytuff",
+      "classification": "Balloon Pokémon",
+      "max_cp": 1997,
+      "max_hp": 2177,
+      "flee_rate": 0.06,
+      "weight_min_kg": 10.5,
+      "weight_max_kg": 13.5,
+      "height_min_m": 0.88,
+      "height_max_m": 1.13
+    },
+    {
+      "id": 41,
+      "name": "Zubat",
+      "classification": "Bat Pokémon",
+      "max_cp": 550,
+      "max_hp": 642,
+      "flee_rate": 0.2,
+      "weight_min_kg": 6.56,
+      "weight_max_kg": 8.44,
+      "height_min_m": 0.7,
+      "height_max_m": 0.9
+    },
+    {
+      "id": 42,
+      "name": "Golbat",
+      "classification": "Bat Pokémon",
+      "max_cp": 1760,
+      "max_hp": 1921,
+      "flee_rate": 0.07,
+      "weight_min_kg": 48.13,
+      "weight_max_kg": 61.88,
+      "height_min_m": 1.4,
+      "height_max_m": 1.8
+    },
+    {
+      "id": 43,
+      "name": "Oddish",
+      "classification": "Weed Pokémon",
+      "max_cp": 1023,
+      "max_hp": 1148,
+      "flee_rate": 0.15,
+      "weight_min_kg": 4.73,
+      "weight_max_kg": 6.08,
+      "height_min_m": 0.44,
+      "height_max_m": 0.56
+    },
+    {
+      "id": 44,
+      "name": "Gloom",
+      "classification": "Weed Pokémon",
+      "max_cp": 1537,
+      "max_hp": 1689,
+      "flee_rate": 0.07,
+      "weight_min_kg": 7.53,
+      "weight_max_kg": 9.68,
+      "height_min_m": 0.7,
+      "height_max_m": 0.9
+    },
+    {
+      "id": 45,
+      "name": "Vileplume",
+      "classification": "Flower Pokémon",
+      "max_cp": 2307,
+      "max_hp": 2492,
+      "flee_rate": 0.05,
+      "weight_min_kg": 16.28,
+      "weight_max_kg": 20.93,
+      "height_min_m": 1.05,
+      "height_max_m": 1.35
+    },
+    {
+      "id": 46,
+      "name": "Paras",
+      "classification": "Mushroom Pokémon",
+      "max_cp": 804,
+      "max_hp": 916,
+      "flee_rate": 0.15,
+      "weight_min_kg": 4.73,
+      "weight_max_kg": 6.08,
+      "height_min_m": 0.26,
+      "height_max_m": 0.34
+    },
+    {
+      "id": 47,
+      "name": "Parasect",
+      "classification": "Mushroom Pokémon",
+      "max_cp": 1592,
+      "max_hp": 1747,
+      "flee_rate": 0.07,
+      "weight_min_kg": 25.81,
+      "weight_max_kg": 33.19,
+      "height_min_m": 0.88,
+      "height_max_m": 1.13
+    },
+    {
+      "id": 48,
+      "name": "Venonat",
+      "classification": "Insect Pokémon",
+      "max_cp": 912,
+      "max_hp": 1029,
+      "flee_rate": 0.15,
+      "weight_min_kg": 26.25,
+      "weight_max_kg": 33.75,
+      "height_min_m": 0.88,
+      "height_max_m": 1.13
+    },
+    {
+      "id": 49,
+      "name": "Venomoth",
+      "classification": "Poison Moth Pokémon",
+      "max_cp": 1730,
+      "max_hp": 1890,
+      "flee_rate": 0.07,
+      "weight_min_kg": 10.94,
+      "weight_max_kg": 14.06,
+      "height_min_m": 1.31,
+      "height_max_m": 1.69
+    },
+    {
+      "id": 50,
+      "name": "Diglett",
+      "classification": "Mole Pokémon",
+      "max_cp": 365,
+      "max_hp": 456,
+      "flee_rate": 0.1,
+      "weight_min_kg": 0.7,
+      "weight_max_kg": 0.9,
+      "height_min_m": 0.18,
+      "height_max_m": 0.23
+    },
+    {
+      "id": 51,
+      "name": "Dugtrio",
+      "classification": "Mole Pokémon",
+      "max_cp": 1038,
+      "max_hp": 1168,
+      "flee_rate": 0.06,
+      "weight_min_kg": 29.14,
+      "weight_max_kg": 37.46,
+      "height_min_m": 0.61,
+      "height_max_m": 0.79
+    },
+    {
+      "id": 52,
+      "name": "Meowth",
+      "classification": "Scratch Cat Pokémon",
+      "max_cp": 656,
+      "max_hp": 756,
+      "flee_rate": 0.15,
+      "weight_min_kg": 3.67,
+      "weight_max_kg": 4.72,
+      "height_min_m": 0.35,
+      "height_max_m": 0.45
+    },
+    {
+      "id": 53,
+      "name": "Persian",
+      "classification": "Classy Cat Pokémon",
+      "max_cp": 1483,
+      "max_hp": 1631,
+      "flee_rate": 0.07,
+      "weight_min_kg": 28.0,
+      "weight_max_kg": 36.0,
+      "height_min_m": 0.88,
+      "height_max_m": 1.13
+    },
+    {
+      "id": 54,
+      "name": "Psyduck",
+      "classification": "Duck Pokémon",
+      "max_cp": 987,
+      "max_hp": 1109,
+      "flee_rate": 0.1,
+      "weight_min_kg": 17.15,
+      "weight_max_kg": 22.05,
+      "height_min_m": 0.7,
+      "height_max_m": 0.9
+    },
+    {
+      "id": 55,
+      "name": "Golduck",
+      "classification": "Duck Pokémon",
+      "max_cp": 2206,
+      "max_hp": 2386,
+      "flee_rate": 0.06,
+      "weight_min_kg": 67.02,
+      "weight_max_kg": 86.17,
+      "height_min_m": 1.49,
+      "height_max_m": 1.91
+    },
+    {
+      "id": 56,
+      "name": "Mankey",
+      "classification": "Pig Monkey Pokémon",
+      "max_cp": 769,
+      "max_hp": 878,
+      "flee_rate": 0.1,
+      "weight_min_kg": 24.5,
+      "weight_max_kg": 31.5,
+      "height_min_m": 0.44,
+      "height_max_m": 0.56
+    },
+    {
+      "id": 57,
+      "name": "Primeape",
+      "classification": "Pig Monkey Pokémon",
+      "max_cp": 1704,
+      "max_hp": 1864,
+      "flee_rate": 0.06,
+      "weight_min_kg": 28.0,
+      "weight_max_kg": 36.0,
+      "height_min_m": 0.88,
+      "height_max_m": 1.13
+    },
+    {
+      "id": 58,
+      "name": "Growlithe",
+      "classification": "Puppy Pokémon",
+      "max_cp": 1199,
+      "max_hp": 1335,
+      "flee_rate": 0.1,
+      "weight_min_kg": 16.63,
+      "weight_max_kg": 21.38,
+      "height_min_m": 0.61,
+      "height_max_m": 0.79
+    },
+    {
+      "id": 59,
+      "name": "Arcanine",
+      "classification": "Legendary Pokémon",
+      "max_cp": 2781,
+      "max_hp": 2983,
+      "flee_rate": 0.06,
+      "weight_min_kg": 135.63,
+      "weight_max_kg": 174.38,
+      "height_min_m": 1.66,
+      "height_max_m": 2.14
+    },
+    {
+      "id": 60,
+      "name": "Poliwag",
+      "classification": "Tadpole Pokémon",
+      "max_cp": 693,
+      "max_hp": 795,
+      "flee_rate": 0.15,
+      "weight_min_kg": 10.85,
+      "weight_max_kg": 13.95,
+      "height_min_m": 0.53,
+      "height_max_m": 0.68
+    },
+    {
+      "id": 61,
+      "name": "Poliwhirl",
+      "classification": "Tadpole Pokémon",
+      "max_cp": 1206,
+      "max_hp": 1340,
+      "flee_rate": 0.07,
+      "weight_min_kg": 17.5,
+      "weight_max_kg": 22.5,
+      "height_min_m": 0.88,
+      "height_max_m": 1.13
+    },
+    {
+      "id": 62,
+      "name": "Poliwrath",
+      "classification": "Tadpole Pokémon",
+      "max_cp": 2321,
+      "max_hp": 2505,
+      "flee_rate": 0.05,
+      "weight_min_kg": 47.25,
+      "weight_max_kg": 60.75,
+      "height_min_m": 1.14,
+      "height_max_m": 1.46
+    },
+    {
+      "id": 63,
+      "name": "Abra",
+      "classification": "Psi Pokémon",
+      "max_cp": 508,
+      "max_hp": 600,
+      "flee_rate": 0.99,
+      "weight_min_kg": 17.06,
+      "weight_max_kg": 21.94,
+      "height_min_m": 0.79,
+      "height_max_m": 1.01
+    },
+    {
+      "id": 64,
+      "name": "Kadabra",
+      "classification": "Psi Pokémon",
+      "max_cp": 1005,
+      "max_hp": 1131,
+      "flee_rate": 0.07,
+      "weight_min_kg": 49.44,
+      "weight_max_kg": 63.56,
+      "height_min_m": 1.14,
+      "height_max_m": 1.46
+    },
+    {
+      "id": 65,
+      "name": "Alakazam",
+      "classification": "Psi Pokémon",
+      "max_cp": 1654,
+      "max_hp": 1813,
+      "flee_rate": 0.05,
+      "weight_min_kg": 42.0,
+      "weight_max_kg": 54.0,
+      "height_min_m": 1.31,
+      "height_max_m": 1.69
+    },
+    {
+      "id": 66,
+      "name": "Machop",
+      "classification": "Superpower Pokémon",
+      "max_cp": 968,
+      "max_hp": 1089,
+      "flee_rate": 0.1,
+      "weight_min_kg": 17.06,
+      "weight_max_kg": 21.94,
+      "height_min_m": 0.7,
+      "height_max_m": 0.9
+    },
+    {
+      "id": 67,
+      "name": "Machoke",
+      "classification": "Superpower Pokémon",
+      "max_cp": 1606,
+      "max_hp": 1760,
+      "flee_rate": 0.07,
+      "weight_min_kg": 61.69,
+      "weight_max_kg": 79.31,
+      "height_min_m": 1.31,
+      "height_max_m": 1.69
+    },
+    {
+      "id": 68,
+      "name": "Machamp",
+      "classification": "Superpower Pokémon",
+      "max_cp": 2406,
+      "max_hp": 2594,
+      "flee_rate": 0.05,
+      "weight_min_kg": 113.75,
+      "weight_max_kg": 146.25,
+      "height_min_m": 1.4,
+      "height_max_m": 1.8
+    },
+    {
+      "id": 69,
+      "name": "Bellsprout",
+      "classification": "Flower Pokémon",
+      "max_cp": 990,
+      "max_hp": 1117,
+      "flee_rate": 0.15,
+      "weight_min_kg": 3.5,
+      "weight_max_kg": 4.5,
+      "height_min_m": 0.61,
+      "height_max_m": 0.79
+    },
+    {
+      "id": 70,
+      "name": "Weepinbell",
+      "classification": "Flycatcher Pokémon",
+      "max_cp": 1567,
+      "max_hp": 1723,
+      "flee_rate": 0.07,
+      "weight_min_kg": 5.6,
+      "weight_max_kg": 7.2,
+      "height_min_m": 0.88,
+      "height_max_m": 1.13
+    },
+    {
+      "id": 71,
+      "name": "Victreebel",
+      "classification": "Flycatcher Pokémon",
+      "max_cp": 2342,
+      "max_hp": 2530,
+      "flee_rate": 0.05,
+      "weight_min_kg": 13.56,
+      "weight_max_kg": 17.44,
+      "height_min_m": 1.49,
+      "height_max_m": 1.91
+    },
+    {
+      "id": 72,
+      "name": "Tentacool",
+      "classification": "Jellyfish Pokémon",
+      "max_cp": 794,
+      "max_hp": 905,
+      "flee_rate": 0.15,
+      "weight_min_kg": 39.81,
+      "weight_max_kg": 51.19,
+      "height_min_m": 0.79,
+      "height_max_m": 1.01
+    },
+    {
+      "id": 73,
+      "name": "Tentacruel",
+      "classification": "Jellyfish Pokémon",
+      "max_cp": 2046,
+      "max_hp": 2220,
+      "flee_rate": 0.07,
+      "weight_min_kg": 48.13,
+      "weight_max_kg": 61.88,
+      "height_min_m": 1.4,
+      "height_max_m": 1.8
+    },
+    {
+      "id": 74,
+      "name": "Geodude",
+      "classification": "Rock Pokémon",
+      "max_cp": 742,
+      "max_hp": 849,
+      "flee_rate": 0.1,
+      "weight_min_kg": 17.5,
+      "weight_max_kg": 22.5,
+      "height_min_m": 0.35,
+      "height_max_m": 0.45
+    },
+    {
+      "id": 75,
+      "name": "Graveler",
+      "classification": "Rock Pokémon",
+      "max_cp": 1294,
+      "max_hp": 1433,
+      "flee_rate": 0.07,
+      "weight_min_kg": 91.88,
+      "weight_max_kg": 118.13,
+      "height_min_m": 0.88,
+      "height_max_m": 1.13
+    },
+    {
+      "id": 76,
+      "name": "Golem",
+      "classification": "Megaton Pokémon",
+      "max_cp": 2126,
+      "max_hp": 2303,
+      "flee_rate": 0.05,
+      "weight_min_kg": 262.5,
+      "weight_max_kg": 337.5,
+      "height_min_m": 1.22,
+      "height_max_m": 1.57
+    },
+    {
+      "id": 77,
+      "name": "Ponyta",
+      "classification": "Fire Horse Pokémon",
+      "max_cp": 1370,
+      "max_hp": 1516,
+      "flee_rate": 0.1,
+      "weight_min_kg": 26.25,
+      "weight_max_kg": 33.75,
+      "height_min_m": 0.88,
+      "height_max_m": 1.13
+    },
+    {
+      "id": 78,
+      "name": "Rapidash",
+      "classification": "Fire Horse Pokémon",
+      "max_cp": 2024,
+      "max_hp": 2199,
+      "flee_rate": 0.06,
+      "weight_min_kg": 83.13,
+      "weight_max_kg": 106.88,
+      "height_min_m": 1.49,
+      "height_max_m": 1.91
+    },
+    {
+      "id": 79,
+      "name": "Slowpoke",
+      "classification": "Dopey Pokémon",
+      "max_cp": 1089,
+      "max_hp": 1218,
+      "flee_rate": 0.1,
+      "weight_min_kg": 31.5,
+      "weight_max_kg": 40.5,
+      "height_min_m": 1.05,
+      "height_max_m": 1.35
+    },
+    {
+      "id": 80,
+      "name": "Slowbro",
+      "classification": "Hermit Crab Pokémon",
+      "max_cp": 2409,
+      "max_hp": 2597,
+      "flee_rate": 0.06,
+      "weight_min_kg": 68.69,
+      "weight_max_kg": 88.31,
+      "height_min_m": 1.4,
+      "height_max_m": 1.8
+    },
+    {
+      "id": 81,
+      "name": "Magnemite",
+      "classification": "Magnet Pokémon",
+      "max_cp": 774,
+      "max_hp": 890,
+      "flee_rate": 0.1,
+      "weight_min_kg": 5.25,
+      "weight_max_kg": 6.75,
+      "height_min_m": 0.26,
+      "height_max_m": 0.34
+    },
+    {
+      "id": 82,
+      "name": "Magneton",
+      "classification": "Magnet Pokémon",
+      "max_cp": 1715,
+      "max_hp": 1879,
+      "flee_rate": 0.06,
+      "weight_min_kg": 52.5,
+      "weight_max_kg": 67.5,
+      "height_min_m": 0.88,
+      "height_max_m": 1.13
+    },
+    {
+      "id": 83,
+      "name": "Farfetch'd",
+      "classification": "Wild Duck Pokémon",
+      "max_cp": 1133,
+      "max_hp": 1263,
+      "flee_rate": 0.09,
+      "weight_min_kg": 13.13,
+      "weight_max_kg": 16.88,
+      "height_min_m": 0.7,
+      "height_max_m": 0.9
+    },
+    {
+      "id": 84,
+      "name": "Doduo",
+      "classification": "Twin Bird Pokémon",
+      "max_cp": 746,
+      "max_hp": 855,
+      "flee_rate": 0.1,
+      "weight_min_kg": 34.3,
+      "weight_max_kg": 44.1,
+      "height_min_m": 1.22,
+      "height_max_m": 1.57
+    },
+    {
+      "id": 85,
+      "name": "Dodrio",
+      "classification": "Triple Bird Pokémon",
+      "max_cp": 1677,
+      "max_hp": 1836,
+      "flee_rate": 0.06,
+      "weight_min_kg": 74.55,
+      "weight_max_kg": 95.85,
+      "height_min_m": 1.57,
+      "height_max_m": 2.02
+    },
+    {
+      "id": 86,
+      "name": "Seel",
+      "classification": "Sea Lion Pokémon",
+      "max_cp": 985,
+      "max_hp": 1107,
+      "flee_rate": 0.09,
+      "weight_min_kg": 78.75,
+      "weight_max_kg": 101.25,
+      "height_min_m": 0.96,
+      "height_max_m": 1.24
+    },
+    {
+      "id": 87,
+      "name": "Dewgong",
+      "classification": "Sea Lion Pokémon",
+      "max_cp": 1975,
+      "max_hp": 2145,
+      "flee_rate": 0.06,
+      "weight_min_kg": 105.0,
+      "weight_max_kg": 135.0,
+      "height_min_m": 1.49,
+      "height_max_m": 1.91
+    },
+    {
+      "id": 88,
+      "name": "Grimer",
+      "classification": "Sludge Pokémon",
+      "max_cp": 1152,
+      "max_hp": 1284,
+      "flee_rate": 0.1,
+      "weight_min_kg": 26.25,
+      "weight_max_kg": 33.75,
+      "height_min_m": 0.79,
+      "height_max_m": 1.01
+    },
+    {
+      "id": 89,
+      "name": "Muk",
+      "classification": "Sludge Pokémon",
+      "max_cp": 2414,
+      "max_hp": 2602,
+      "flee_rate": 0.06,
+      "weight_min_kg": 26.25,
+      "weight_max_kg": 33.75,
+      "height_min_m": 1.05,
+      "height_max_m": 1.35
+    },
+    {
+      "id": 90,
+      "name": "Shellder",
+      "classification": "Bivalve Pokémon",
+      "max_cp": 715,
+      "max_hp": 822,
+      "flee_rate": 0.1,
+      "weight_min_kg": 3.5,
+      "weight_max_kg": 4.5,
+      "height_min_m": 0.26,
+      "height_max_m": 0.34
+    },
+    {
+      "id": 91,
+      "name": "Cloyster",
+      "classification": "Bivalve Pokémon",
+      "max_cp": 1879,
+      "max_hp": 2052,
+      "flee_rate": 0.06,
+      "weight_min_kg": 115.94,
+      "weight_max_kg": 149.06,
+      "height_min_m": 1.31,
+      "height_max_m": 1.69
+    },
+    {
+      "id": 92,
+      "name": "Gastly",
+      "classification": "Gas Pokémon",
+      "max_cp": 696,
+      "max_hp": 804,
+      "flee_rate": 0.1,
+      "weight_min_kg": 0.09,
+      "weight_max_kg": 0.11,
+      "height_min_m": 1.14,
+      "height_max_m": 1.46
+    },
+    {
+      "id": 93,
+      "name": "Haunter",
+      "classification": "Gas Pokémon",
+      "max_cp": 1240,
+      "max_hp": 1380,
+      "flee_rate": 0.07,
+      "weight_min_kg": 0.09,
+      "weight_max_kg": 0.11,
+      "height_min_m": 1.4,
+      "height_max_m": 1.8
+    },
+    {
+      "id": 94,
+      "name": "Gengar",
+      "classification": "Shadow Pokémon",
+      "max_cp": 1907,
+      "max_hp": 2078,
+      "flee_rate": 0.05,
+      "weight_min_kg": 35.44,
+      "weight_max_kg": 45.56,
+      "height_min_m": 1.31,
+      "height_max_m": 1.69
+    },
+    {
+      "id": 95,
+      "name": "Onix",
+      "classification": "Rock Snake Pokémon",
+      "max_cp": 745,
+      "max_hp": 857,
+      "flee_rate": 0.09,
+      "weight_min_kg": 183.75,
+      "weight_max_kg": 236.25,
+      "height_min_m": 7.7,
+      "height_max_m": 9.9
+    },
+    {
+      "id": 96,
+      "name": "Drowzee",
+      "classification": "Hypnosis Pokémon",
+      "max_cp": 955,
+      "max_hp": 1075,
+      "flee_rate": 0.1,
+      "weight_min_kg": 28.35,
+      "weight_max_kg": 36.45,
+      "height_min_m": 0.88,
+      "height_max_m": 1.13
+    },
+    {
+      "id": 97,
+      "name": "Hypno",
+      "classification": "Hypnosis Pokémon",
+      "max_cp": 2012,
+      "max_hp": 2184,
+      "flee_rate": 0.06,
+      "weight_min_kg": 66.15,
+      "weight_max_kg": 85.05,
+      "height_min_m": 1.4,
+      "height_max_m": 1.8
+    },
+    {
+      "id": 98,
+      "name": "Krabby",
+      "classification": "River Crab Pokémon",
+      "max_cp": 686,
+      "max_hp": 792,
+      "flee_rate": 0.15,
+      "weight_min_kg": 5.69,
+      "weight_max_kg": 7.31,
+      "height_min_m": 0.35,
+      "height_max_m": 0.45
+    },
+    {
+      "id": 99,
+      "name": "Kingler",
+      "classification": "Pincer Pokémon",
+      "max_cp": 1663,
+      "max_hp": 1823,
+      "flee_rate": 0.07,
+      "weight_min_kg": 52.5,
+      "weight_max_kg": 67.5,
+      "height_min_m": 1.14,
+      "height_max_m": 1.46
+    },
+    {
+      "id": 100,
+      "name": "Voltorb",
+      "classification": "Ball Pokémon",
+      "max_cp": 733,
+      "max_hp": 839,
+      "flee_rate": 0.1,
+      "weight_min_kg": 9.1,
+      "weight_max_kg": 11.7,
+      "height_min_m": 0.44,
+      "height_max_m": 0.56
+    },
+    {
+      "id": 101,
+      "name": "Electrode",
+      "classification": "Ball Pokémon",
+      "max_cp": 1496,
+      "max_hp": 1646,
+      "flee_rate": 0.06,
+      "weight_min_kg": 58.27,
+      "weight_max_kg": 74.92,
+      "height_min_m": 1.05,
+      "height_max_m": 1.35
+    },
+    {
+      "id": 102,
+      "name": "Exeggcute",
+      "classification": "Egg Pokémon",
+      "max_cp": 978,
+      "max_hp": 1099,
+      "flee_rate": 0.1,
+      "weight_min_kg": 2.19,
+      "weight_max_kg": 2.81,
+      "height_min_m": 0.35,
+      "height_max_m": 0.45
+    },
+    {
+      "id": 103,
+      "name": "Exeggutor",
+      "classification": "Coconut Pokémon",
+      "max_cp": 2752,
+      "max_hp": 2955,
+      "flee_rate": 0.06,
+      "weight_min_kg": 105.0,
+      "weight_max_kg": 135.0,
+      "height_min_m": 1.75,
+      "height_max_m": 2.25
+    },
+    {
+      "id": 104,
+      "name": "Cubone",
+      "classification": "Lonely Pokémon",
+      "max_cp": 889,
+      "max_hp": 1006,
+      "flee_rate": 0.1,
+      "weight_min_kg": 5.69,
+      "weight_max_kg": 7.31,
+      "height_min_m": 0.35,
+      "height_max_m": 0.45
+    },
+    {
+      "id": 105,
+      "name": "Marowak",
+      "classification": "Bone Keeper Pokémon",
+      "max_cp": 1505,
+      "max_hp": 1656,
+      "flee_rate": 0.06,
+      "weight_min_kg": 39.38,
+      "weight_max_kg": 50.63,
+      "height_min_m": 0.88,
+      "height_max_m": 1.13
+    },
+    {
+      "id": 106,
+      "name": "Hitmonlee",
+      "classification": "Kicking Pokémon",
+      "max_cp": 1349,
+      "max_hp": 1492,
+      "flee_rate": 0.09,
+      "weight_min_kg": 43.57,
+      "weight_max_kg": 56.02,
+      "height_min_m": 1.31,
+      "height_max_m": 1.69
+    },
+    {
+      "id": 107,
+      "name": "Hitmonchan",
+      "classification": "Punching Pokémon",
+      "max_cp": 1370,
+      "max_hp": 1516,
+      "flee_rate": 0.09,
+      "weight_min_kg": 43.93,
+      "weight_max_kg": 56.48,
+      "height_min_m": 1.22,
+      "height_max_m": 1.57
+    },
+    {
+      "id": 108,
+      "name": "Lickitung",
+      "classification": "Licking Pokémon",
+      "max_cp": 1477,
+      "max_hp": 1626,
+      "flee_rate": 0.09,
+      "weight_min_kg": 57.31,
+      "weight_max_kg": 73.69,
+      "height_min_m": 1.05,
+      "height_max_m": 1.35
+    },
+    {
+      "id": 109,
+      "name": "Koffing",
+      "classification": "Poison Gas Pokémon",
+      "max_cp": 1025,
+      "max_hp": 1151,
+      "flee_rate": 0.1,
+      "weight_min_kg": 0.88,
+      "weight_max_kg": 1.13,
+      "height_min_m": 0.53,
+      "height_max_m": 0.68
+    },
+    {
+      "id": 110,
+      "name": "Weezing",
+      "classification": "Poison Gas Pokémon",
+      "max_cp": 2073,
+      "max_hp": 2250,
+      "flee_rate": 0.06,
+      "weight_min_kg": 8.31,
+      "weight_max_kg": 10.69,
+      "height_min_m": 1.05,
+      "height_max_m": 1.35
+    },
+    {
+      "id": 111,
+      "name": "Rhyhorn",
+      "classification": "Spikes Pokémon",
+      "max_cp": 1055,
+      "max_hp": 1182,
+      "flee_rate": 0.1,
+      "weight_min_kg": 100.63,
+      "weight_max_kg": 129.38,
+      "height_min_m": 0.88,
+      "height_max_m": 1.13
+    },
+    {
+      "id": 112,
+      "name": "Rhydon",
+      "classification": "Drill Pokémon",
+      "max_cp": 2068,
+      "max_hp": 2243,
+      "flee_rate": 0.06,
+      "weight_min_kg": 105.0,
+      "weight_max_kg": 135.0,
+      "height_min_m": 1.66,
+      "height_max_m": 2.14
+    },
+    {
+      "id": 113,
+      "name": "Chansey",
+      "classification": "Egg Pokémon",
+      "max_cp": 549,
+      "max_hp": 675,
+      "flee_rate": 0.09,
+      "weight_min_kg": 30.27,
+      "weight_max_kg": 38.92,
+      "height_min_m": 0.96,
+      "height_max_m": 1.24
+    },
+    {
+      "id": 114,
+      "name": "Tangela",
+      "classification": "Vine Pokémon",
+      "max_cp": 1586,
+      "max_hp": 1739,
+      "flee_rate": 0.09,
+      "weight_min_kg": 30.63,
+      "weight_max_kg": 39.38,
+      "height_min_m": 0.88,
+      "height_max_m": 1.13
+    },
+    {
+      "id": 115,
+      "name": "Kangaskhan",
+      "classification": "Parent Pokémon",
+      "max_cp": 1875,
+      "max_hp": 2043,
+      "flee_rate": 0.09,
+      "weight_min_kg": 70.0,
+      "weight_max_kg": 90.0,
+      "height_min_m": 1.93,
+      "height_max_m": 2.48
+    },
+    {
+      "id": 116,
+      "name": "Horsea",
+      "classification": "Dragon Pokémon",
+      "max_cp": 688,
+      "max_hp": 794,
+      "flee_rate": 0.1,
+      "weight_min_kg": 7.0,
+      "weight_max_kg": 9.0,
+      "height_min_m": 0.35,
+      "height_max_m": 0.45
+    },
+    {
+      "id": 117,
+      "name": "Seadra",
+      "classification": "Dragon Pokémon",
+      "max_cp": 1559,
+      "max_hp": 1713,
+      "flee_rate": 0.06,
+      "weight_min_kg": 21.88,
+      "weight_max_kg": 28.13,
+      "height_min_m": 1.05,
+      "height_max_m": 1.35
+    },
+    {
+      "id": 118,
+      "name": "Goldeen",
+      "classification": "Goldfish Pokémon",
+      "max_cp": 851,
+      "max_hp": 965,
+      "flee_rate": 0.15,
+      "weight_min_kg": 13.13,
+      "weight_max_kg": 16.88,
+      "height_min_m": 0.53,
+      "height_max_m": 0.68
+    },
+    {
+      "id": 119,
+      "name": "Seaking",
+      "classification": "Goldfish Pokémon",
+      "max_cp": 1877,
+      "max_hp": 2043,
+      "flee_rate": 0.07,
+      "weight_min_kg": 34.13,
+      "weight_max_kg": 43.88,
+      "height_min_m": 1.14,
+      "height_max_m": 1.46
+    },
+    {
+      "id": 120,
+      "name": "Staryu",
+      "classification": "Starshape Pokémon",
+      "max_cp": 821,
+      "max_hp": 937,
+      "flee_rate": 0.15,
+      "weight_min_kg": 30.19,
+      "weight_max_kg": 38.81,
+      "height_min_m": 0.7,
+      "height_max_m": 0.9
+    },
+    {
+      "id": 121,
+      "name": "Starmie",
+      "classification": "Mysterious Pokémon",
+      "max_cp": 2007,
+      "max_hp": 2182,
+      "flee_rate": 0.06,
+      "weight_min_kg": 70.0,
+      "weight_max_kg": 90.0,
+      "height_min_m": 0.96,
+      "height_max_m": 1.24
+    },
+    {
+      "id": 122,
+      "name": "Mr. Mime",
+      "classification": "Barrier Pokémon",
+      "max_cp": 1345,
+      "max_hp": 1494,
+      "flee_rate": 0.09,
+      "weight_min_kg": 47.69,
+      "weight_max_kg": 61.31,
+      "height_min_m": 1.14,
+      "height_max_m": 1.46
+    },
+    {
+      "id": 123,
+      "name": "Scyther",
+      "classification": "Mantis Pokémon",
+      "max_cp": 1905,
+      "max_hp": 2073,
+      "flee_rate": 0.09,
+      "weight_min_kg": 49.0,
+      "weight_max_kg": 63.0,
+      "height_min_m": 1.31,
+      "height_max_m": 1.69
+    },
+    {
+      "id": 124,
+      "name": "Jynx",
+      "classification": "Humanshape Pokémon",
+      "max_cp": 1563,
+      "max_hp": 1716,
+      "flee_rate": 0.09,
+      "weight_min_kg": 35.52,
+      "weight_max_kg": 45.67,
+      "height_min_m": 1.22,
+      "height_max_m": 1.57
+    },
+    {
+      "id": 125,
+      "name": "Electabuzz",
+      "classification": "Electric Pokémon",
+      "max_cp": 1947,
+      "max_hp": 2119,
+      "flee_rate": 0.09,
+      "weight_min_kg": 26.25,
+      "weight_max_kg": 33.75,
+      "height_min_m": 0.96,
+      "height_max_m": 1.24
+    },
+    {
+      "id": 126,
+      "name": "Magmar",
+      "classification": "Spitfire Pokémon",
+      "max_cp": 2086,
+      "max_hp": 2265,
+      "flee_rate": 0.09,
+      "weight_min_kg": 38.94,
+      "weight_max_kg": 50.06,
+      "height_min_m": 1.14,
+      "height_max_m": 1.46
+    },
+    {
+      "id": 127,
+      "name": "Pinsir",
+      "classification": "Stagbeetle Pokémon",
+      "max_cp": 1950,
+      "max_hp": 2121,
+      "flee_rate": 0.09,
+      "weight_min_kg": 48.13,
+      "weight_max_kg": 61.88,
+      "height_min_m": 1.31,
+      "height_max_m": 1.69
+    },
+    {
+      "id": 128,
+      "name": "Tauros",
+      "classification": "Wild Bull Pokémon",
+      "max_cp": 1686,
+      "max_hp": 1844,
+      "flee_rate": 0.09,
+      "weight_min_kg": 77.35,
+      "weight_max_kg": 99.45,
+      "height_min_m": 1.22,
+      "height_max_m": 1.57
+    },
+    {
+      "id": 129,
+      "name": "Magikarp",
+      "classification": "Fish Pokémon",
+      "max_cp": 203,
+      "max_hp": 262,
+      "flee_rate": 0.15,
+      "weight_min_kg": 8.75,
+      "weight_max_kg": 11.25,
+      "height_min_m": 0.79,
+      "height_max_m": 1.01
+    },
+    {
+      "id": 130,
+      "name": "Gyarados",
+      "classification": "Atrocious Pokémon",
+      "max_cp": 2498,
+      "max_hp": 2688,
+      "flee_rate": 0.07,
+      "weight_min_kg": 205.63,
+      "weight_max_kg": 264.38,
+      "height_min_m": 5.69,
+      "height_max_m": 7.31
+    },
+    {
+      "id": 131,
+      "name": "Lapras",
+      "classification": "Transport Pokémon",
+      "max_cp": 2777,
+      "max_hp": 2980,
+      "flee_rate": 0.09,
+      "weight_min_kg": 192.5,
+      "weight_max_kg": 247.5,
+      "height_min_m": 2.19,
+      "height_max_m": 2.81
+    },
+    {
+      "id": 132,
+      "name": "Ditto",
+      "classification": "Transform Pokémon",
+      "max_cp": 809,
+      "max_hp": 919,
+      "flee_rate": 0.1,
+      "weight_min_kg": 3.5,
+      "weight_max_kg": 4.5,
+      "height_min_m": 0.26,
+      "height_max_m": 0.34
+    },
+    {
+      "id": 133,
+      "name": "Eevee",
+      "classification": "Evolution Pokémon",
+      "max_cp": 957,
+      "max_hp": 1077,
+      "flee_rate": 0.1,
+      "weight_min_kg": 5.69,
+      "weight_max_kg": 7.31,
+      "height_min_m": 0.26,
+      "height_max_m": 0.34
+    },
+    {
+      "id": 134,
+      "name": "Vaporeon",
+      "classification": "Bubble Jet Pokémon",
+      "max_cp": 2618,
+      "max_hp": 2816,
+      "flee_rate": 0.06,
+      "weight_min_kg": 25.38,
+      "weight_max_kg": 32.63,
+      "height_min_m": 0.88,
+      "height_max_m": 1.13
+    },
+    {
+      "id": 135,
+      "name": "Jolteon",
+      "classification": "Lightning Pokémon",
+      "max_cp": 1968,
+      "max_hp": 2140,
+      "flee_rate": 0.06,
+      "weight_min_kg": 21.44,
+      "weight_max_kg": 27.56,
+      "height_min_m": 0.7,
+      "height_max_m": 0.9
+    },
+    {
+      "id": 136,
+      "name": "Flareon",
+      "classification": "Flame Pokémon",
+      "max_cp": 2448,
+      "max_hp": 2643,
+      "flee_rate": 0.06,
+      "weight_min_kg": 21.88,
+      "weight_max_kg": 28.13,
+      "height_min_m": 0.79,
+      "height_max_m": 1.01
+    },
+    {
+      "id": 137,
+      "name": "Porygon",
+      "classification": "Virtual Pokémon",
+      "max_cp": 1540,
+      "max_hp": 1691,
+      "flee_rate": 0.09,
+      "weight_min_kg": 31.94,
+      "weight_max_kg": 41.06,
+      "height_min_m": 0.7,
+      "height_max_m": 0.9
+    },
+    {
+      "id": 138,
+      "name": "Omanyte",
+      "classification": "Spiral Pokémon",
+      "max_cp": 992,
+      "max_hp": 1119,
+      "flee_rate": 0.09,
+      "weight_min_kg": 6.56,
+      "weight_max_kg": 8.44,
+      "height_min_m": 0.35,
+      "height_max_m": 0.45
+    },
+    {
+      "id": 139,
+      "name": "Omastar",
+      "classification": "Spiral Pokémon",
+      "max_cp": 2058,
+      "max_hp": 2233,
+      "flee_rate": 0.05,
+      "weight_min_kg": 30.63,
+      "weight_max_kg": 39.38,
+      "height_min_m": 0.88,
+      "height_max_m": 1.13
+    },
+    {
+      "id": 140,
+      "name": "Kabuto",
+      "classification": "Shellfish Pokémon",
+      "max_cp": 975,
+      "max_hp": 1104,
+      "flee_rate": 0.09,
+      "weight_min_kg": 10.06,
+      "weight_max_kg": 12.94,
+      "height_min_m": 0.44,
+      "height_max_m": 0.56
+    },
+    {
+      "id": 141,
+      "name": "Kabutops",
+      "classification": "Shellfish Pokémon",
+      "max_cp": 1957,
+      "max_hp": 2130,
+      "flee_rate": 0.05,
+      "weight_min_kg": 35.44,
+      "weight_max_kg": 45.56,
+      "height_min_m": 1.14,
+      "height_max_m": 1.46
+    },
+    {
+      "id": 142,
+      "name": "Aerodactyl",
+      "classification": "Fossil Pokémon",
+      "max_cp": 1994,
+      "max_hp": 2165,
+      "flee_rate": 0.09,
+      "weight_min_kg": 51.63,
+      "weight_max_kg": 66.38,
+      "height_min_m": 1.57,
+      "height_max_m": 2.02
+    },
+    {
+      "id": 143,
+      "name": "Snorlax",
+      "classification": "Sleeping Pokémon",
+      "max_cp": 2901,
+      "max_hp": 3112,
+      "flee_rate": 0.09,
+      "weight_min_kg": 402.5,
+      "weight_max_kg": 517.5,
+      "height_min_m": 1.84,
+      "height_max_m": 2.36
+    },
+    {
+      "id": 144,
+      "name": "Articuno",
+      "classification": "Freeze Pokémon",
+      "max_cp": 2776,
+      "max_hp": 2978,
+      "flee_rate": 0.1,
+      "weight_min_kg": 48.48,
+      "weight_max_kg": 62.33,
+      "height_min_m": 1.49,
+      "height_max_m": 1.91
+    },
+    {
+      "id": 145,
+      "name": "Zapdos",
+      "classification": "Electric Pokémon",
+      "max_cp": 2907,
+      "max_hp": 3114,
+      "flee_rate": 0.1,
+      "weight_min_kg": 46.02,
+      "weight_max_kg": 59.17,
+      "height_min_m": 1.4,
+      "height_max_m": 1.8
+    },
+    {
+      "id": 146,
+      "name": "Moltres",
+      "classification": "Flame Pokémon",
+      "max_cp": 3028,
+      "max_hp": 3240,
+      "flee_rate": 0.1,
+      "weight_min_kg": 52.5,
+      "weight_max_kg": 67.5,
+      "height_min_m": 1.75,
+      "height_max_m": 2.25
+    },
+    {
+      "id": 147,
+      "name": "Dratini",
+      "classification": "Dragon Pokémon",
+      "max_cp": 867,
+      "max_hp": 983,
+      "flee_rate": 0.09,
+      "weight_min_kg": 2.89,
+      "weight_max_kg": 3.71,
+      "height_min_m": 1.57,
+      "height_max_m": 2.02
+    },
+    {
+      "id": 148,
+      "name": "Dragonair",
+      "classification": "Dragon Pokémon",
+      "max_cp": 1593,
+      "max_hp": 1747,
+      "flee_rate": 0.06,
+      "weight_min_kg": 14.44,
+      "weight_max_kg": 18.56,
+      "height_min_m": 3.5,
+      "height_max_m": 4.5
+    },
+    {
+      "id": 149,
+      "name": "Dragonite",
+      "classification": "Dragon Pokémon",
+      "max_cp": 3280,
+      "max_hp": 3500,
+      "flee_rate": 0.05,
+      "weight_min_kg": 183.75,
+      "weight_max_kg": 236.25,
+      "height_min_m": 1.93,
+      "height_max_m": 2.48
+    },
+    {
+      "id": 150,
+      "name": "Mewtwo",
+      "classification": "Genetic Pokémon",
+      "max_cp": 3904,
+      "max_hp": 4144,
+      "flee_rate": 0.1,
+      "weight_min_kg": 106.75,
+      "weight_max_kg": 137.25,
+      "height_min_m": 1.75,
+      "height_max_m": 2.25
+    },
+    {
+      "id": 151,
+      "name": "Mew",
+      "classification": "New Species Pokémon",
+      "max_cp": 3087,
+      "max_hp": 3299,
+      "flee_rate": 0.1,
+      "weight_min_kg": 3.5,
+      "weight_max_kg": 4.5,
+      "height_min_m": 0.35,
+      "height_max_m": 0.45
+    }
+  ],
+  "pokemon_types": [
+    {
+      "pokemon_id": 1,
+      "type_id": 1,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 1,
+      "type_id": 2,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 2,
+      "type_id": 1,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 2,
+      "type_id": 2,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 3,
+      "type_id": 1,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 3,
+      "type_id": 2,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 4,
+      "type_id": 7,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 5,
+      "type_id": 7,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 6,
+      "type_id": 7,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 6,
+      "type_id": 9,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 7,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 8,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 9,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 10,
+      "type_id": 11,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 11,
+      "type_id": 11,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 12,
+      "type_id": 11,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 12,
+      "type_id": 9,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 13,
+      "type_id": 11,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 13,
+      "type_id": 2,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 14,
+      "type_id": 11,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 14,
+      "type_id": 2,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 15,
+      "type_id": 11,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 15,
+      "type_id": 2,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 16,
+      "type_id": 15,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 16,
+      "type_id": 9,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 17,
+      "type_id": 15,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 17,
+      "type_id": 9,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 18,
+      "type_id": 15,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 18,
+      "type_id": 9,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 19,
+      "type_id": 15,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 20,
+      "type_id": 15,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 21,
+      "type_id": 15,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 21,
+      "type_id": 9,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 22,
+      "type_id": 15,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 22,
+      "type_id": 9,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 23,
+      "type_id": 2,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 24,
+      "type_id": 2,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 25,
+      "type_id": 4,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 26,
+      "type_id": 4,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 27,
+      "type_id": 13,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 28,
+      "type_id": 13,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 29,
+      "type_id": 2,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 30,
+      "type_id": 2,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 31,
+      "type_id": 2,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 31,
+      "type_id": 13,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 32,
+      "type_id": 2,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 33,
+      "type_id": 2,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 34,
+      "type_id": 2,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 34,
+      "type_id": 13,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 35,
+      "type_id": 6,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 36,
+      "type_id": 6,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 37,
+      "type_id": 7,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 38,
+      "type_id": 7,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 39,
+      "type_id": 15,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 39,
+      "type_id": 6,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 40,
+      "type_id": 15,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 40,
+      "type_id": 6,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 41,
+      "type_id": 2,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 41,
+      "type_id": 9,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 42,
+      "type_id": 2,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 42,
+      "type_id": 9,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 43,
+      "type_id": 1,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 43,
+      "type_id": 2,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 44,
+      "type_id": 1,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 44,
+      "type_id": 2,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 45,
+      "type_id": 1,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 45,
+      "type_id": 2,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 46,
+      "type_id": 11,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 46,
+      "type_id": 1,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 47,
+      "type_id": 11,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 47,
+      "type_id": 1,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 48,
+      "type_id": 11,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 48,
+      "type_id": 2,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 49,
+      "type_id": 11,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 49,
+      "type_id": 2,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 50,
+      "type_id": 13,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 51,
+      "type_id": 13,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 52,
+      "type_id": 15,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 53,
+      "type_id": 15,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 54,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 55,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 56,
+      "type_id": 5,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 57,
+      "type_id": 5,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 58,
+      "type_id": 7,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 59,
+      "type_id": 7,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 60,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 61,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 62,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 62,
+      "type_id": 5,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 63,
+      "type_id": 10,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 64,
+      "type_id": 10,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 65,
+      "type_id": 10,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 66,
+      "type_id": 5,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 67,
+      "type_id": 5,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 68,
+      "type_id": 5,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 69,
+      "type_id": 1,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 69,
+      "type_id": 2,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 70,
+      "type_id": 1,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 70,
+      "type_id": 2,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 71,
+      "type_id": 1,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 71,
+      "type_id": 2,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 72,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 72,
+      "type_id": 2,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 73,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 73,
+      "type_id": 2,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 74,
+      "type_id": 14,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 74,
+      "type_id": 13,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 75,
+      "type_id": 14,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 75,
+      "type_id": 13,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 76,
+      "type_id": 14,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 76,
+      "type_id": 13,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 77,
+      "type_id": 7,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 78,
+      "type_id": 7,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 79,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 79,
+      "type_id": 10,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 80,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 80,
+      "type_id": 10,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 81,
+      "type_id": 4,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 81,
+      "type_id": 12,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 82,
+      "type_id": 4,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 82,
+      "type_id": 12,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 83,
+      "type_id": 15,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 83,
+      "type_id": 9,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 84,
+      "type_id": 15,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 84,
+      "type_id": 9,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 85,
+      "type_id": 15,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 85,
+      "type_id": 9,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 86,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 87,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 87,
+      "type_id": 8,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 88,
+      "type_id": 2,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 89,
+      "type_id": 2,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 90,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 91,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 91,
+      "type_id": 8,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 92,
+      "type_id": 16,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 92,
+      "type_id": 2,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 93,
+      "type_id": 16,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 93,
+      "type_id": 2,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 94,
+      "type_id": 16,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 94,
+      "type_id": 2,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 95,
+      "type_id": 14,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 95,
+      "type_id": 13,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 96,
+      "type_id": 10,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 97,
+      "type_id": 10,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 98,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 99,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 100,
+      "type_id": 4,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 101,
+      "type_id": 4,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 102,
+      "type_id": 1,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 102,
+      "type_id": 10,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 103,
+      "type_id": 1,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 103,
+      "type_id": 10,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 104,
+      "type_id": 13,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 105,
+      "type_id": 13,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 106,
+      "type_id": 5,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 107,
+      "type_id": 5,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 108,
+      "type_id": 15,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 109,
+      "type_id": 2,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 110,
+      "type_id": 2,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 111,
+      "type_id": 13,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 111,
+      "type_id": 14,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 112,
+      "type_id": 13,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 112,
+      "type_id": 14,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 113,
+      "type_id": 15,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 114,
+      "type_id": 1,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 115,
+      "type_id": 15,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 116,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 117,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 118,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 119,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 120,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 121,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 121,
+      "type_id": 10,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 122,
+      "type_id": 10,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 122,
+      "type_id": 6,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 123,
+      "type_id": 11,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 123,
+      "type_id": 9,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 124,
+      "type_id": 8,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 124,
+      "type_id": 10,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 125,
+      "type_id": 4,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 126,
+      "type_id": 7,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 127,
+      "type_id": 11,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 128,
+      "type_id": 15,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 129,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 130,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 130,
+      "type_id": 9,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 131,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 131,
+      "type_id": 8,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 132,
+      "type_id": 15,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 133,
+      "type_id": 15,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 134,
+      "type_id": 3,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 135,
+      "type_id": 4,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 136,
+      "type_id": 7,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 137,
+      "type_id": 15,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 138,
+      "type_id": 14,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 138,
+      "type_id": 3,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 139,
+      "type_id": 14,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 139,
+      "type_id": 3,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 140,
+      "type_id": 14,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 140,
+      "type_id": 3,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 141,
+      "type_id": 14,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 141,
+      "type_id": 3,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 142,
+      "type_id": 14,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 142,
+      "type_id": 9,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 143,
+      "type_id": 15,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 144,
+      "type_id": 8,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 144,
+      "type_id": 9,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 145,
+      "type_id": 4,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 145,
+      "type_id": 9,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 146,
+      "type_id": 7,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 146,
+      "type_id": 9,
+      "slot": 2
+    },
+    {
+      "pokemon_id": 149,
+      "type_id": 9,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 150,
+      "type_id": 10,
+      "slot": 1
+    },
+    {
+      "pokemon_id": 151,
+      "type_id": 10,
+      "slot": 1
+    }
+  ],
+  "pokemon_resistances": [
+    {
+      "pokemon_id": 1,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 1,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 1,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 1,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 1,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 2,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 2,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 2,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 2,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 2,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 3,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 3,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 3,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 3,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 3,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 4,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 4,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 4,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 4,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 4,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 4,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 5,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 5,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 5,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 5,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 5,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 5,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 6,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 6,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 6,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 6,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 6,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 6,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 7,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 7,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 7,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 7,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 8,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 8,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 8,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 8,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 9,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 9,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 9,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 9,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 10,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 10,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 10,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 11,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 11,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 11,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 12,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 12,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 12,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 12,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 13,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 13,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 13,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 13,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 13,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 14,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 14,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 14,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 14,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 14,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 15,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 15,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 15,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 15,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 15,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 16,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 16,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 16,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 16,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 17,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 17,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 17,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 17,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 18,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 18,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 18,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 18,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 19,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 20,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 21,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 21,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 21,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 21,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 22,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 22,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 22,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 22,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 23,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 23,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 23,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 23,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 23,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 24,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 24,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 24,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 24,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 24,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 25,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 25,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 25,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 26,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 26,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 26,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 27,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 27,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 27,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 28,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 28,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 28,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 29,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 29,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 29,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 29,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 29,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 30,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 30,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 30,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 30,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 30,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 31,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 31,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 31,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 31,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 31,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 31,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 32,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 32,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 32,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 32,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 32,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 33,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 33,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 33,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 33,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 33,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 34,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 34,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 34,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 34,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 34,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 34,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 35,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 35,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 36,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 36,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 37,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 37,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 37,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 37,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 37,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 37,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 38,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 38,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 38,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 38,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 38,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 38,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 39,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 39,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 40,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 40,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 41,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 41,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 41,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 41,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 41,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 42,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 42,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 42,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 42,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 42,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 43,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 43,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 43,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 43,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 43,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 44,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 44,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 44,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 44,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 44,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 45,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 45,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 45,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 45,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 45,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 46,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 46,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 46,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 46,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 46,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 47,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 47,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 47,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 47,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 47,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 48,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 48,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 48,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 48,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 48,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 49,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 49,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 49,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 49,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 49,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 50,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 50,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 50,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 51,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 51,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 51,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 52,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 53,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 54,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 54,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 54,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 54,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 55,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 55,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 55,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 55,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 56,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 56,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 57,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 57,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 58,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 58,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 58,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 58,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 58,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 58,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 59,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 59,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 59,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 59,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 59,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 59,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 60,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 60,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 60,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 60,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 61,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 61,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 61,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 61,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 62,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 62,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 62,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 62,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 62,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 62,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 63,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 63,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 64,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 64,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 65,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 65,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 66,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 66,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 67,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 67,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 68,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 68,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 69,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 69,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 69,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 69,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 69,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 70,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 70,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 70,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 70,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 70,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 71,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 71,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 71,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 71,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 71,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 72,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 72,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 72,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 72,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 72,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 72,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 72,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 72,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 73,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 73,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 73,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 73,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 73,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 73,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 73,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 73,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 74,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 74,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 74,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 74,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 74,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 74,
+      "type_id": 15
+    },
+    {
+      "pokemon_id": 75,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 75,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 75,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 75,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 75,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 75,
+      "type_id": 15
+    },
+    {
+      "pokemon_id": 76,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 76,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 76,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 76,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 76,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 76,
+      "type_id": 15
+    },
+    {
+      "pokemon_id": 77,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 77,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 77,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 77,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 77,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 77,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 78,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 78,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 78,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 78,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 78,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 78,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 79,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 79,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 79,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 79,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 79,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 79,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 80,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 80,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 80,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 80,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 80,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 80,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 81,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 81,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 81,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 81,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 81,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 81,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 81,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 81,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 81,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 81,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 81,
+      "type_id": 15
+    },
+    {
+      "pokemon_id": 82,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 82,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 82,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 82,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 82,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 82,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 82,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 82,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 82,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 82,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 82,
+      "type_id": 15
+    },
+    {
+      "pokemon_id": 83,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 83,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 83,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 83,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 84,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 84,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 84,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 84,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 85,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 85,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 85,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 85,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 86,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 86,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 86,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 86,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 87,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 87,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 88,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 88,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 88,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 88,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 88,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 89,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 89,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 89,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 89,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 89,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 90,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 90,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 90,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 90,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 91,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 91,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 92,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 92,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 92,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 92,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 92,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 92,
+      "type_id": 15
+    },
+    {
+      "pokemon_id": 93,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 93,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 93,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 93,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 93,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 93,
+      "type_id": 15
+    },
+    {
+      "pokemon_id": 94,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 94,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 94,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 94,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 94,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 94,
+      "type_id": 15
+    },
+    {
+      "pokemon_id": 95,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 95,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 95,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 95,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 95,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 95,
+      "type_id": 15
+    },
+    {
+      "pokemon_id": 96,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 96,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 97,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 97,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 98,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 98,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 98,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 98,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 99,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 99,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 99,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 99,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 100,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 100,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 100,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 101,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 101,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 101,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 102,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 102,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 102,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 102,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 102,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 102,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 103,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 103,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 103,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 103,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 103,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 103,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 104,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 104,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 104,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 105,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 105,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 105,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 106,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 106,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 107,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 107,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 108,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 109,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 109,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 109,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 109,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 109,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 110,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 110,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 110,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 110,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 110,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 111,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 111,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 111,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 111,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 111,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 111,
+      "type_id": 15
+    },
+    {
+      "pokemon_id": 112,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 112,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 112,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 112,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 112,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 112,
+      "type_id": 15
+    },
+    {
+      "pokemon_id": 113,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 114,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 114,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 114,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 114,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 115,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 116,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 116,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 116,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 116,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 117,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 117,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 117,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 117,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 118,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 118,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 118,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 118,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 119,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 119,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 119,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 119,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 120,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 120,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 120,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 120,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 121,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 121,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 121,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 121,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 121,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 121,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 122,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 122,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 123,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 123,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 123,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 123,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 124,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 124,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 125,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 125,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 125,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 126,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 126,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 126,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 126,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 126,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 126,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 127,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 127,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 127,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 128,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 129,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 129,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 129,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 129,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 130,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 130,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 130,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 130,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 130,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 130,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 131,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 131,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 132,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 133,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 134,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 134,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 134,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 134,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 135,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 135,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 135,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 136,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 136,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 136,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 136,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 136,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 136,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 137,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 138,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 138,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 138,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 138,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 138,
+      "type_id": 15
+    },
+    {
+      "pokemon_id": 139,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 139,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 139,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 139,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 139,
+      "type_id": 15
+    },
+    {
+      "pokemon_id": 140,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 140,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 140,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 140,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 140,
+      "type_id": 15
+    },
+    {
+      "pokemon_id": 141,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 141,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 141,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 141,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 141,
+      "type_id": 15
+    },
+    {
+      "pokemon_id": 142,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 142,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 142,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 142,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 142,
+      "type_id": 15
+    },
+    {
+      "pokemon_id": 143,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 144,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 144,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 144,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 145,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 145,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 145,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 145,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 145,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 146,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 146,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 146,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 146,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 146,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 146,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 147,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 147,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 147,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 147,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 148,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 148,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 148,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 148,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 149,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 149,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 149,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 149,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 149,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 149,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 150,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 150,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 151,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 151,
+      "type_id": 10
+    }
+  ],
+  "pokemon_weaknesses": [
+    {
+      "pokemon_id": 1,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 1,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 1,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 1,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 2,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 2,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 2,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 2,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 3,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 3,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 3,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 3,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 4,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 4,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 4,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 5,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 5,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 5,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 6,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 6,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 6,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 7,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 7,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 8,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 8,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 9,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 9,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 10,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 10,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 10,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 11,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 11,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 11,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 12,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 12,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 12,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 12,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 12,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 13,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 13,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 13,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 13,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 14,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 14,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 14,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 14,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 15,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 15,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 15,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 15,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 16,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 16,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 16,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 17,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 17,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 17,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 18,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 18,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 18,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 19,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 20,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 21,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 21,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 21,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 22,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 22,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 22,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 23,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 23,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 24,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 24,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 25,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 26,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 27,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 27,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 27,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 28,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 28,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 28,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 29,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 29,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 30,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 30,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 31,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 31,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 31,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 31,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 32,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 32,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 33,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 33,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 34,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 34,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 34,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 34,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 35,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 35,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 36,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 36,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 37,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 37,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 37,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 38,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 38,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 38,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 39,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 39,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 40,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 40,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 41,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 41,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 41,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 41,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 42,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 42,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 42,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 42,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 43,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 43,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 43,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 43,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 44,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 44,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 44,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 44,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 45,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 45,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 45,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 45,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 46,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 46,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 46,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 46,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 46,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 46,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 47,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 47,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 47,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 47,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 47,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 47,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 48,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 48,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 48,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 48,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 49,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 49,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 49,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 49,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 50,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 50,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 50,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 51,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 51,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 51,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 52,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 53,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 54,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 54,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 55,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 55,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 56,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 56,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 56,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 57,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 57,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 57,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 58,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 58,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 58,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 59,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 59,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 59,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 60,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 60,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 61,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 61,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 62,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 62,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 62,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 62,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 62,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 63,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 63,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 64,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 64,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 65,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 65,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 66,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 66,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 66,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 67,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 67,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 67,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 68,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 68,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 68,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 69,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 69,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 69,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 69,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 70,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 70,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 70,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 70,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 71,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 71,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 71,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 71,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 72,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 72,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 72,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 73,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 73,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 73,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 74,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 74,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 74,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 74,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 74,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 74,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 75,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 75,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 75,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 75,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 75,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 75,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 76,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 76,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 76,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 76,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 76,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 76,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 77,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 77,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 77,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 78,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 78,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 78,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 79,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 79,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 79,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 79,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 80,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 80,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 80,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 80,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 81,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 81,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 81,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 82,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 82,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 82,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 83,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 83,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 83,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 84,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 84,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 84,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 85,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 85,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 85,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 86,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 86,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 87,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 87,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 87,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 87,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 88,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 88,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 89,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 89,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 90,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 90,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 91,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 91,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 91,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 91,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 92,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 92,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 92,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 93,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 93,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 93,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 94,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 94,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 94,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 95,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 95,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 95,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 95,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 95,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 95,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 96,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 96,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 97,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 97,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 98,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 98,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 99,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 99,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 100,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 101,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 102,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 102,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 102,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 102,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 102,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 102,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 103,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 103,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 103,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 103,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 103,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 103,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 104,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 104,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 104,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 105,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 105,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 105,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 106,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 106,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 106,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 107,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 107,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 107,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 108,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 109,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 109,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 110,
+      "type_id": 10
+    },
+    {
+      "pokemon_id": 110,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 111,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 111,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 111,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 111,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 111,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 111,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 112,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 112,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 112,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 112,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 112,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 112,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 113,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 114,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 114,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 114,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 114,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 114,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 115,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 116,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 116,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 117,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 117,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 118,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 118,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 119,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 119,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 120,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 120,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 121,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 121,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 121,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 121,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 122,
+      "type_id": 2
+    },
+    {
+      "pokemon_id": 122,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 122,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 123,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 123,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 123,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 123,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 123,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 124,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 124,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 124,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 124,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 124,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 125,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 126,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 126,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 126,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 127,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 127,
+      "type_id": 9
+    },
+    {
+      "pokemon_id": 127,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 128,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 129,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 129,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 130,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 130,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 131,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 131,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 131,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 131,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 132,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 133,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 134,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 134,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 135,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 136,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 136,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 136,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 137,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 138,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 138,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 138,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 138,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 139,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 139,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 139,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 139,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 140,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 140,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 140,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 140,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 141,
+      "type_id": 1
+    },
+    {
+      "pokemon_id": 141,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 141,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 141,
+      "type_id": 13
+    },
+    {
+      "pokemon_id": 142,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 142,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 142,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 142,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 142,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 143,
+      "type_id": 5
+    },
+    {
+      "pokemon_id": 144,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 144,
+      "type_id": 7
+    },
+    {
+      "pokemon_id": 144,
+      "type_id": 12
+    },
+    {
+      "pokemon_id": 144,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 145,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 145,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 146,
+      "type_id": 3
+    },
+    {
+      "pokemon_id": 146,
+      "type_id": 4
+    },
+    {
+      "pokemon_id": 146,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 147,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 147,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 148,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 148,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 149,
+      "type_id": 6
+    },
+    {
+      "pokemon_id": 149,
+      "type_id": 8
+    },
+    {
+      "pokemon_id": 149,
+      "type_id": 14
+    },
+    {
+      "pokemon_id": 150,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 150,
+      "type_id": 16
+    },
+    {
+      "pokemon_id": 151,
+      "type_id": 11
+    },
+    {
+      "pokemon_id": 151,
+      "type_id": 16
+    }
+  ],
+  "evolution_edges": [
+    {
+      "from_pokemon_id": 1,
+      "to_pokemon_id": 2,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 1,
+      "to_pokemon_id": 3,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 2,
+      "to_pokemon_id": 3,
+      "candy_amount": 100
+    },
+    {
+      "from_pokemon_id": 4,
+      "to_pokemon_id": 5,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 4,
+      "to_pokemon_id": 6,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 5,
+      "to_pokemon_id": 6,
+      "candy_amount": 100
+    },
+    {
+      "from_pokemon_id": 7,
+      "to_pokemon_id": 8,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 7,
+      "to_pokemon_id": 9,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 8,
+      "to_pokemon_id": 9,
+      "candy_amount": 100
+    },
+    {
+      "from_pokemon_id": 10,
+      "to_pokemon_id": 11,
+      "candy_amount": 12
+    },
+    {
+      "from_pokemon_id": 10,
+      "to_pokemon_id": 12,
+      "candy_amount": 12
+    },
+    {
+      "from_pokemon_id": 11,
+      "to_pokemon_id": 12,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 13,
+      "to_pokemon_id": 14,
+      "candy_amount": 12
+    },
+    {
+      "from_pokemon_id": 13,
+      "to_pokemon_id": 15,
+      "candy_amount": 12
+    },
+    {
+      "from_pokemon_id": 14,
+      "to_pokemon_id": 15,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 16,
+      "to_pokemon_id": 17,
+      "candy_amount": 12
+    },
+    {
+      "from_pokemon_id": 16,
+      "to_pokemon_id": 18,
+      "candy_amount": 12
+    },
+    {
+      "from_pokemon_id": 17,
+      "to_pokemon_id": 18,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 19,
+      "to_pokemon_id": 20,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 21,
+      "to_pokemon_id": 22,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 23,
+      "to_pokemon_id": 24,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 25,
+      "to_pokemon_id": 26,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 27,
+      "to_pokemon_id": 28,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 29,
+      "to_pokemon_id": 30,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 29,
+      "to_pokemon_id": 31,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 30,
+      "to_pokemon_id": 31,
+      "candy_amount": 100
+    },
+    {
+      "from_pokemon_id": 32,
+      "to_pokemon_id": 33,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 32,
+      "to_pokemon_id": 34,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 33,
+      "to_pokemon_id": 34,
+      "candy_amount": 100
+    },
+    {
+      "from_pokemon_id": 35,
+      "to_pokemon_id": 36,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 37,
+      "to_pokemon_id": 38,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 39,
+      "to_pokemon_id": 39,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 41,
+      "to_pokemon_id": 42,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 43,
+      "to_pokemon_id": 44,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 43,
+      "to_pokemon_id": 45,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 44,
+      "to_pokemon_id": 45,
+      "candy_amount": 100
+    },
+    {
+      "from_pokemon_id": 46,
+      "to_pokemon_id": 47,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 48,
+      "to_pokemon_id": 49,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 50,
+      "to_pokemon_id": 51,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 52,
+      "to_pokemon_id": 53,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 54,
+      "to_pokemon_id": 55,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 56,
+      "to_pokemon_id": 57,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 58,
+      "to_pokemon_id": 59,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 60,
+      "to_pokemon_id": 61,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 60,
+      "to_pokemon_id": 62,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 61,
+      "to_pokemon_id": 62,
+      "candy_amount": 100
+    },
+    {
+      "from_pokemon_id": 63,
+      "to_pokemon_id": 64,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 63,
+      "to_pokemon_id": 65,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 64,
+      "to_pokemon_id": 65,
+      "candy_amount": 100
+    },
+    {
+      "from_pokemon_id": 66,
+      "to_pokemon_id": 67,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 66,
+      "to_pokemon_id": 68,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 67,
+      "to_pokemon_id": 68,
+      "candy_amount": 100
+    },
+    {
+      "from_pokemon_id": 69,
+      "to_pokemon_id": 70,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 69,
+      "to_pokemon_id": 71,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 70,
+      "to_pokemon_id": 71,
+      "candy_amount": 100
+    },
+    {
+      "from_pokemon_id": 72,
+      "to_pokemon_id": 73,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 74,
+      "to_pokemon_id": 75,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 74,
+      "to_pokemon_id": 76,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 75,
+      "to_pokemon_id": 76,
+      "candy_amount": 100
+    },
+    {
+      "from_pokemon_id": 77,
+      "to_pokemon_id": 78,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 79,
+      "to_pokemon_id": 80,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 81,
+      "to_pokemon_id": 82,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 84,
+      "to_pokemon_id": 85,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 86,
+      "to_pokemon_id": 87,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 88,
+      "to_pokemon_id": 89,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 90,
+      "to_pokemon_id": 91,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 92,
+      "to_pokemon_id": 93,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 92,
+      "to_pokemon_id": 94,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 93,
+      "to_pokemon_id": 94,
+      "candy_amount": 100
+    },
+    {
+      "from_pokemon_id": 96,
+      "to_pokemon_id": 97,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 98,
+      "to_pokemon_id": 99,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 100,
+      "to_pokemon_id": 101,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 102,
+      "to_pokemon_id": 103,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 104,
+      "to_pokemon_id": 105,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 109,
+      "to_pokemon_id": 110,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 111,
+      "to_pokemon_id": 112,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 116,
+      "to_pokemon_id": 117,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 118,
+      "to_pokemon_id": 119,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 120,
+      "to_pokemon_id": 121,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 129,
+      "to_pokemon_id": 130,
+      "candy_amount": 400
+    },
+    {
+      "from_pokemon_id": 133,
+      "to_pokemon_id": 134,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 133,
+      "to_pokemon_id": 135,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 133,
+      "to_pokemon_id": 136,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 138,
+      "to_pokemon_id": 139,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 140,
+      "to_pokemon_id": 141,
+      "candy_amount": 50
+    },
+    {
+      "from_pokemon_id": 147,
+      "to_pokemon_id": 148,
+      "candy_amount": 25
+    },
+    {
+      "from_pokemon_id": 148,
+      "to_pokemon_id": 149,
+      "candy_amount": 100
+    }
+  ]
+}
