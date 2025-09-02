@@ -1,5 +1,6 @@
 import { defineConfig } from '@mikro-orm/postgresql';
 import { TsMorphMetadataProvider } from '@mikro-orm/reflection';
+import { SeedManager } from '@mikro-orm/seeder';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
@@ -12,4 +13,9 @@ export default defineConfig({
     path: 'dist/migrations',
     pathTs: 'src/migrations',
   },
+  seeder: {
+    path: './src/seeders',
+    defaultSeeder: 'MainSeeder',
+  },
+  extensions: [SeedManager],
 });
