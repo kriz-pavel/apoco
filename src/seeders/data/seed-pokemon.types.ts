@@ -1,72 +1,79 @@
-export type TypeName =
-  | 'Grass'
-  | 'Poison'
-  | 'Water'
-  | 'Electric'
-  | 'Fighting'
-  | 'Fairy'
-  | 'Fire'
-  | 'Ice'
-  | 'Flying'
-  | 'Psychic'
+/**
+ * Type definitions based on the structure of seed-pokemon.json
+ */
+
+export type PokemonTypeName =
   | 'Bug'
-  | 'Steel'
+  | 'Dark'
+  | 'Dragon'
+  | 'Electric'
+  | 'Fairy'
+  | 'Fighting'
+  | 'Fire'
+  | 'Flying'
+  | 'Ghost'
+  | 'Grass'
   | 'Ground'
-  | 'Rock'
+  | 'Ice'
   | 'Normal'
-  | 'Ghost';
+  | 'Poison'
+  | 'Psychic'
+  | 'Rock'
+  | 'Steel'
+  | 'Water';
 
-export interface TypeRow {
-  id: number;
-  name: TypeName; // názvy jsou omezené výše
-}
+export type PokemonWeight = {
+  minimum: string; // e.g., "6.04kg"
+  maximum: string; // e.g., "7.76kg"
+};
 
-// Tabulka s pokémony
-export interface PokemonRow {
-  id: number;
+export type PokemonHeight = {
+  minimum: string; // e.g., "0.61m"
+  maximum: string; // e.g., "0.79m"
+};
+
+export type EvolutionRequirements = {
+  amount: number;
+  name: string; // e.g., "Bulbasaur candies"
+};
+
+export type Evolution = {
+  id: string;
   name: string;
-  classification: string; // např. "Seed Pokémon"
-  max_cp: number;
-  max_hp: number;
-  flee_rate: number; // 0–1
-  weight_min_kg: number;
-  weight_max_kg: number;
-  height_min_m: number;
-  height_max_m: number;
-}
+};
 
-// Relace Pokémon ↔ Typ (slot 1/2)
-export interface PokemonTypeRow {
-  pokemon_id: number; // navazuje na PokemonRow.id
-  type_id: number; // navazuje na TypeRow.id
-  slot: 1 | 2;
-}
+export type Attack = {
+  name: string;
+  type: PokemonTypeName;
+  damage: number;
+};
 
-// Rezistence pokémona na typy
-export interface PokemonResistanceRow {
-  pokemon_id: number;
-  type_id: number;
-}
+export type PokemonAttacks = {
+  fast: Attack[];
+  special: Attack[];
+};
 
-// Slabiny pokémona na typy
-export interface PokemonWeaknessRow {
-  pokemon_id: number;
-  type_id: number;
-}
+export type Pokemon = {
+  id: string;
+  name: string;
+  classification: string; // e.g., "Seed Pokémon"
+  types: PokemonTypeName[];
+  resistant: PokemonTypeName[];
+  weaknesses: PokemonTypeName[];
+  weight: PokemonWeight;
+  height: PokemonHeight;
+  LEGENDARY?: string;
+  MYTHIC?: string;
+  'Common Capture Area'?: string;
+  fleeRate: number; // 0-1 range
+  evolutionRequirements?: EvolutionRequirements;
+  evolutions?: Evolution[];
+  maxCP: number;
+  maxHP: number;
+  attacks: PokemonAttacks;
+};
 
-// Evoluční hrany (směr + cena v candy)
-export interface EvolutionEdgeRow {
-  from_pokemon_id: number;
-  to_pokemon_id: number;
-  candy_amount: number;
-}
-
-// Kořenový objekt JSONu
-export interface SeedPokemonData {
-  types: TypeRow[];
-  pokemons: PokemonRow[];
-  pokemon_types: PokemonTypeRow[];
-  pokemon_resistances: PokemonResistanceRow[];
-  pokemon_weaknesses: PokemonWeaknessRow[];
-  evolution_edges: EvolutionEdgeRow[];
-}
+/**
+ * Root type for the seed-pokemon.json file
+ */
+export type PokemonSeedData = Pokemon[];

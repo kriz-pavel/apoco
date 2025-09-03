@@ -1,4 +1,4 @@
 import data from './seed-pokemon.json';
-import { SeedPokemonData } from './seed-pokemon.types';
+import { PokemonSeedData } from './seed-pokemon.types';
 
-export const seedPokemonData = data as SeedPokemonData;
+export const seedPokemonData = data as unknown as PokemonSeedData;

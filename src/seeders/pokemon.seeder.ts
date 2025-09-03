@@ -1,11 +1,10 @@
 import { EntityManager } from '@mikro-orm/core';
 import { Seeder } from '@mikro-orm/seeder';
-import { Pokemon } from '../pokemon/pokemon.entity';
-import { seedPokemonData } from './data/data';
+import { Pokemon } from '../pokemon/entities/pokemon.entity';
+import { seedPokemonData as pokemons } from './data/data';
 
 export class PokemonSeeder extends Seeder {
   async run(em: EntityManager): Promise<void> {
-    const pokemons = seedPokemonData.pokemons;
     console.log(`Seeding ${pokemons.length} Pokemon...`);
 
     // Extract Pokemon names from the data
