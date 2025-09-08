@@ -6,6 +6,7 @@ import { PokemonType } from '../pokemon-type/pokemon-type.entity';
 import { Classification } from '../pokemon/entities/classification.entity';
 import { PokemonTypeName } from './data/seed-pokemon.types';
 import { Attack } from '../pokemon/entities/attack.entity';
+import { Preconditions } from '../common/preconditions';
 
 export class PokemonSeeder extends Seeder {
   async run(em: EntityManager): Promise<void> {
@@ -27,15 +28,37 @@ export class PokemonSeeder extends Seeder {
 
     let createdCount = 0;
     for (const pokemon of pokemons) {
-      const types = pokemon.types.map((type) => typesMap.get(type)!);
-      const resistant = pokemon.resistant.map((type) => typesMap.get(type)!);
-      const weaknesses = pokemon.weaknesses.map((type) => typesMap.get(type)!);
-      const attacks = [
-        ...pokemon.attacks.fast.map((attack) => attacksMap.get(attack.name)!),
-        ...pokemon.attacks.special.map(
-          (attack) => attacksMap.get(attack.name)!,
+      const types = pokemon.types.map((type) =>
+        Preconditions.checkExists(
+          typesMap.get(type),
+          `Pokemon type ${type} not found`,
         ),
-      ];
+      );
+      const resistant = pokemon.resistant.map((type) =>
+        Preconditions.checkExists(
+          typesMap.get(type),
+          `Pokemon type ${type} not found`,
+        ),
+      );
+      const weaknesses = pokemon.weaknesses.map((type) =>
+        Preconditions.checkExists(
+          typesMap.get(type),
+          `Pokemon type ${type} not found`,
+        ),
+      );
+      const fastAttacks = pokemon.attacks.fast.map((attack) =>
+        Preconditions.checkExists(
+          attacksMap.get(attack.name),
+          `Attack ${attack.name} not found`,
+        ),
+      );
+      const specialAttacks = pokemon.attacks.special.map((attack) =>
+        Preconditions.checkExists(
+          attacksMap.get(attack.name),
+          `Attack ${attack.name} not found`,
+        ),
+      );
+      const attacks = [...fastAttacks, ...specialAttacks];
 
       const pokemonData = em.create(Pokemon, {
         name: pokemon.name,

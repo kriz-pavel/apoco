@@ -4,6 +4,9 @@ import { seedPokemonData } from './data/data';
 import { Attack, AttackCategory } from '../pokemon/entities/attack.entity';
 import { PokemonType } from '../pokemon-type/pokemon-type.entity';
 import { PokemonTypeName } from './data/seed-pokemon.types';
+import { Preconditions } from '../common/preconditions';
+
+type AttackData = Pick<Attack, 'name' | 'type' | 'damage' | 'category'>;
 
 export class AttackSeeder extends Seeder {
   async run(em: EntityManager): Promise<void> {
@@ -17,30 +20,42 @@ export class AttackSeeder extends Seeder {
     const attacksByNameMap = seedPokemonData.reduce((map, current) => {
       if (current.attacks.fast) {
         current.attacks.fast.forEach((attack) => {
-          const obj: Pick<Attack, 'name' | 'type' | 'damage' | 'category'> = {
+          const obj: AttackData = {
             name: attack.name,
-            type: typesMap.get(attack.type)!,
+            type: Preconditions.checkExists(
+              typesMap.get(attack.type),
+              `Attack type ${attack.type} not found`,
+            ),
             damage: attack.damage,
             category: AttackCategory.FAST,
           };
-          if (!map.has(obj.name)) map.set(obj.name, obj);
+
+          if (!map.has(obj.name)) {
+            map.set(obj.name, obj);
+          }
         });
       }
 
       if (current.attacks.special) {
         current.attacks.special.forEach((attack) => {
-          const obj: Pick<Attack, 'name' | 'type' | 'damage' | 'category'> = {
+          const obj: AttackData = {
             name: attack.name,
-            type: typesMap.get(attack.type)!,
+            type: Preconditions.checkExists(
+              typesMap.get(attack.type),
+              `Attack type ${attack.type} not found`,
+            ),
             damage: attack.damage,
             category: AttackCategory.SPECIAL,
           };
-          if (!map.has(obj.name)) map.set(obj.name, obj);
+
+          if (!map.has(obj.name)) {
+            map.set(obj.name, obj);
+          }
         });
       }
 
       return map;
-    }, new Map<string, Pick<Attack, 'name' | 'type' | 'damage' | 'category'>>());
+    }, new Map<string, AttackData>());
     const uniqueAttacks = Array.from(attacksByNameMap.values());
 
     await em.insertMany(Attack, uniqueAttacks);
