@@ -20,7 +20,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "mikro:create": "mikro-orm migration:create",
     "mikro:migrate": "mikro-orm migration:up",
-    "seed": "mikro-orm seeder:run"
+    "seed": "mikro-orm schema:fresh --run --seed=MainSeeder"
   },
   "dependencies": {
     "@mikro-orm/core": "^6.5.1",

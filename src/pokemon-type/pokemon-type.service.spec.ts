@@ -11,11 +11,36 @@ describe('PokemonTypeService', () => {
   let repository: jest.Mocked<EntityRepository<PokemonType>>;
 
   const mockPokemonTypes: PokemonType[] = [
-    { id: 1, name: 'Grass', slug: 'grass', setSlug: jest.fn() },
-    { id: 2, name: 'Fire', slug: 'fire', setSlug: jest.fn() },
-    { id: 3, name: 'Water', slug: 'water', setSlug: jest.fn() },
-    { id: 4, name: 'Electric', slug: 'electric', setSlug: jest.fn() },
-    { id: 5, name: 'Psychic', slug: 'psychic', setSlug: jest.fn() },
+    {
+      id: 1,
+      name: 'Grass',
+      slug: 'grass',
+      setSlug: jest.fn(),
+    } as unknown as PokemonType,
+    {
+      id: 2,
+      name: 'Fire',
+      slug: 'fire',
+      setSlug: jest.fn(),
+    } as unknown as PokemonType,
+    {
+      id: 3,
+      name: 'Water',
+      slug: 'water',
+      setSlug: jest.fn(),
+    } as unknown as PokemonType,
+    {
+      id: 4,
+      name: 'Electric',
+      slug: 'electric',
+      setSlug: jest.fn(),
+    } as unknown as PokemonType,
+    {
+      id: 5,
+      name: 'Psychic',
+      slug: 'psychic',
+      setSlug: jest.fn(),
+    } as unknown as PokemonType,
   ];
 
   beforeEach(async () => {

@@ -5,6 +5,8 @@ import { Classification } from '../pokemon/entities/classification.entity';
 
 export class ClassificationSeeder extends Seeder {
   async run(em: EntityManager): Promise<void> {
+    console.log(`Seeding Classifications...`);
+
     const classificationNames = seedPokemonData.reduce(
       (result, current) => {
         if (current.classification) {
@@ -15,19 +17,14 @@ export class ClassificationSeeder extends Seeder {
       <string[]>[],
     );
     const uniqueClassificationNames = [...new Set(classificationNames)];
+
+    await em.insertMany(
+      Classification,
+      uniqueClassificationNames.map((name) => ({ name })),
+    );
+
     console.log(
-      `Seeding ${uniqueClassificationNames.length} Classifications...`,
+      `Created ${uniqueClassificationNames.length} new Classification entries`,
     );
-
-    em.persist(
-      await em.upsertMany(
-        Classification,
-        uniqueClassificationNames.map((name) => ({ name })),
-      ),
-    );
-
-    await em.flush();
-
-    console.log(`Seeding Classifications completed`);
   }
 }

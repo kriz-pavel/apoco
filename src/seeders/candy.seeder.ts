@@ -5,6 +5,8 @@ import { Candy } from '../pokemon/entities/candy.entity';
 
 export class CandySeeder extends Seeder {
   async run(em: EntityManager): Promise<void> {
+    console.log(`Seeding Candies...`);
+
     const candyNames = seedPokemonData.reduce(
       (result, current) => {
         if (current.evolutionRequirements) {
@@ -15,17 +17,12 @@ export class CandySeeder extends Seeder {
       <string[]>[],
     );
     const uniqueCandyNames = [...new Set(candyNames)];
-    console.log(`Seeding ${uniqueCandyNames.length} Candies...`);
 
-    em.persist(
-      await em.upsertMany(
-        Candy,
-        uniqueCandyNames.map((name) => ({ name })),
-      ),
+    await em.insertMany(
+      Candy,
+      uniqueCandyNames.map((name) => ({ name })),
     );
 
-    await em.flush();
-
-    console.log(`Seeding Candies completed`);
+    console.log(`Created ${uniqueCandyNames.length} new Candy entries`);
   }
 }
