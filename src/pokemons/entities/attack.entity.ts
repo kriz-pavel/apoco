@@ -7,7 +7,7 @@ import {
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
-import { PokemonType } from '../../pokemon-type/pokemon-type.entity';
+import { PokemonType } from '../../pokemon-types/entities/pokemon-type.entity';
 import { Pokemon } from './pokemon.entity';
 
 export enum AttackCategory {

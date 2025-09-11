@@ -1,8 +1,8 @@
 import { EntityManager } from '@mikro-orm/core';
 import { Seeder } from '@mikro-orm/seeder';
 import { seedPokemonData } from './data/data';
-import { Attack, AttackCategory } from '../pokemon/entities/attack.entity';
-import { PokemonType } from '../pokemon-type/pokemon-type.entity';
+import { Attack, AttackCategory } from '../pokemons/entities/attack.entity';
+import { PokemonType } from '../pokemon-types/entities/pokemon-type.entity';
 import { PokemonTypeName } from './data/seed-pokemon.types';
 import { Preconditions } from '../common/preconditions';
 

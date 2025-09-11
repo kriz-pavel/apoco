@@ -1,7 +1,7 @@
 import { EntityManager } from '@mikro-orm/core';
 import { Seeder } from '@mikro-orm/seeder';
 import { seedPokemonData } from './data/data';
-import { Classification } from '../pokemon/entities/classification.entity';
+import { Classification } from '../pokemons/entities/classification.entity';
 
 export class ClassificationSeeder extends Seeder {
   async run(em: EntityManager): Promise<void> {

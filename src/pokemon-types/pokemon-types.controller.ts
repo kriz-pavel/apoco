@@ -1,7 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
-import { PokemonTypeService } from './pokemon-type.service';
+import { PokemonTypeService } from './pokemon-types.service';
 
-@Controller('pokemon-type')
+@Controller('types')
 export class PokemonTypeController {
   constructor(private readonly pokemonTypeService: PokemonTypeService) {}
 

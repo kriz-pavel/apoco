@@ -9,7 +9,7 @@ import {
   Property,
 } from '@mikro-orm/core';
 import { Classification } from './classification.entity';
-import { PokemonType } from 'src/pokemon-type/pokemon-type.entity';
+import { PokemonType } from 'src/pokemon-types/entities/pokemon-type.entity';
 import { Attack } from './attack.entity';
 import { Evolution } from './evolution.entity';
 

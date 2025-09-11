@@ -1,6 +1,6 @@
 import { EntityManager } from '@mikro-orm/core';
 import { Seeder } from '@mikro-orm/seeder';
-import { PokemonType } from '../pokemon-type/pokemon-type.entity';
+import { PokemonType } from '../pokemon-types/entities/pokemon-type.entity';
 import { seedPokemonData } from './data/data';
 import { PokemonTypeName } from './data/seed-pokemon.types';
 

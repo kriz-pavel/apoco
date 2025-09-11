@@ -7,7 +7,7 @@ import {
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
-import { Pokemon } from 'src/pokemon/entities/pokemon.entity';
+import { Pokemon } from 'src/pokemons/entities/pokemon.entity';
 
 @Entity()
 export class User extends BaseEntity {

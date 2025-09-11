@@ -1,7 +1,7 @@
 import { Controller, Get, Param } from '@nestjs/common';
-import { PokemonService } from './pokemon.service';
+import { PokemonService } from './pokemons.service';
 
-@Controller('pokemon')
+@Controller('pokemons')
 export class PokemonController {
   constructor(private readonly pokemonService: PokemonService) {}
 

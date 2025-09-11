@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@mikro-orm/nestjs';
 import { EntityRepository } from '@mikro-orm/postgresql';
-import { PokemonTypeService } from './pokemon-type.service';
-import { PokemonType } from './pokemon-type.entity';
+import { PokemonTypeService } from './pokemon-types.service';
+import { PokemonType } from './entities/pokemon-type.entity';
 
 /* eslint-disable @typescript-eslint/unbound-method */
 

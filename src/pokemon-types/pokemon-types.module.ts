@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { PokemonTypeService } from './pokemon-type.service';
-import { PokemonTypeController } from './pokemon-type.controller';
+import { PokemonTypeService } from './pokemon-types.service';
+import { PokemonTypeController } from './pokemon-types.controller';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
-import { PokemonType } from './pokemon-type.entity';
+import { PokemonType } from './entities/pokemon-type.entity';
 
 @Module({
   imports: [MikroOrmModule.forFeature([PokemonType])],

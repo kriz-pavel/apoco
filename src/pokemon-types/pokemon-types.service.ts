@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { PokemonType } from './pokemon-type.entity';
+import { PokemonType } from './entities/pokemon-type.entity';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { EntityRepository } from '@mikro-orm/postgresql';
 

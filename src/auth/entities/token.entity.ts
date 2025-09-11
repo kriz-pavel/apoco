@@ -6,7 +6,7 @@ import {
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
-import { User } from '../../user/entities/user.entity';
+import { User } from '../../users/entities/user.entity';
 
 @Entity()
 export class Token extends BaseEntity {
