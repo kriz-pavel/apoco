@@ -68,6 +68,7 @@ export type Pokemon = {
   fleeRate: number; // 0-1 range
   evolutionRequirements?: EvolutionRequirements;
   evolutions?: Evolution[];
+  'Previous evolution(s)'?: Evolution[];
   maxCP: number;
   maxHP: number;
   attacks: PokemonAttacks;

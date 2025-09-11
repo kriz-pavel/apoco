@@ -12,8 +12,15 @@ export class PokemonService {
 
   findAll(): Promise<Pokemon[]> {
     return this.repo.findAll({
-      populate: ['types', 'resistant', 'weaknesses', 'attacks'],
-      limit: 10,
+      populate: [
+        'types',
+        'resistant',
+        'weaknesses',
+        'attacks',
+        'evolutions',
+        'previousEvolutions',
+      ],
+      // limit: 10,
     });
   }
 

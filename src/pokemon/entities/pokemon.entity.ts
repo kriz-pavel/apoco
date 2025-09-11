@@ -4,12 +4,14 @@ import {
   Entity,
   ManyToMany,
   ManyToOne,
+  OneToMany,
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
 import { Classification } from './classification.entity';
 import { PokemonType } from 'src/pokemon-type/pokemon-type.entity';
 import { Attack } from './attack.entity';
+import { Evolution } from './evolution.entity';
 
 @Entity()
 export class Pokemon extends BaseEntity {
@@ -34,14 +36,34 @@ export class Pokemon extends BaseEntity {
   @ManyToMany({ mappedBy: 'pokemon' })
   attacks = new Collection<Attack>(this);
 
-  @ManyToMany({ mappedBy: 'pokemon' })
+  @ManyToMany({
+    pivotTable: 'pokemon_types_pivot',
+    joinColumn: 'pokemon_id',
+    inverseJoinColumn: 'type_id',
+  })
   types = new Collection<PokemonType>(this);
 
-  @ManyToMany({ mappedBy: 'pokemon' })
+  @ManyToMany({
+    pivotTable: 'pokemon_resistant',
+    joinColumn: 'pokemon_id',
+    inverseJoinColumn: 'type_id',
+  })
   resistant = new Collection<PokemonType>(this);
 
-  @ManyToMany({ mappedBy: 'pokemon' })
+  @ManyToMany({
+    pivotTable: 'pokemon_weaknesses',
+    joinColumn: 'pokemon_id',
+    inverseJoinColumn: 'type_id',
+  })
   weaknesses = new Collection<PokemonType>(this);
+
+  // evolutions from this pokemon
+  @OneToMany(() => Evolution, (e) => e.fromPokemon)
+  evolutions = new Collection<Evolution>(this);
+
+  // previous evolutions of this pokemon
+  @OneToMany(() => Evolution, (e) => e.toPokemon)
+  previousEvolutions = new Collection<Evolution>(this);
 
   // weight in grams
   @Property({
