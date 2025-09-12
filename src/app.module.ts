@@ -6,6 +6,7 @@ import { PokemonModule } from './pokemons/pokemons.module';
 import { UserModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { FavoritePokemonsModule } from './favorite-pokemons/favorite-pokemons.module';
+import { CommonModule } from './common/common.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { FavoritePokemonsModule } from './favorite-pokemons/favorite-pokemons.mo
     UserModule,
     AuthModule,
     FavoritePokemonsModule,
+    CommonModule,
   ],
   controllers: [],
   providers: [],
