@@ -47,6 +47,22 @@ export class AuthService {
       });
   }
 
+  async validateToken(token: string) {
+    const validToken = await this.tokenRepository.findOne(
+      {
+        tokenHash: this.hashToken(token),
+        isRevoked: false,
+      },
+      { populate: ['user'] },
+    );
+
+    if (!validToken || validToken.expiresAt <= new Date()) {
+      return null;
+    }
+
+    return validToken;
+  }
+
   generateToken() {
     return crypto.randomBytes(32).toString('hex');
   }

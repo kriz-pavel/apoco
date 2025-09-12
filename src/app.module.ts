@@ -5,6 +5,7 @@ import mikroOrmConfig from '../mikro-orm.config';
 import { PokemonModule } from './pokemons/pokemons.module';
 import { UserModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { FavoritePokemonsModule } from './favorite-pokemons/favorite-pokemons.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { AuthModule } from './auth/auth.module';
     PokemonModule,
     UserModule,
     AuthModule,
+    FavoritePokemonsModule,
   ],
   controllers: [],
   providers: [],

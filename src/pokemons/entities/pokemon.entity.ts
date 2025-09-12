@@ -12,6 +12,7 @@ import { Classification } from './classification.entity';
 import { PokemonType } from 'src/pokemon-types/entities/pokemon-type.entity';
 import { Attack } from './attack.entity';
 import { Evolution } from './evolution.entity';
+import { FavoritePokemon } from '../../favorite-pokemons/entities/favorite-pokemon.entity';
 
 @Entity()
 export class Pokemon extends BaseEntity {
@@ -35,6 +36,9 @@ export class Pokemon extends BaseEntity {
 
   @ManyToMany({ mappedBy: 'pokemon' })
   attacks = new Collection<Attack>(this);
+
+  @OneToMany(() => FavoritePokemon, (fav) => fav.pokemon)
+  favorites = new Collection<FavoritePokemon>(this);
 
   @ManyToMany({
     pivotTable: 'pokemon_types_pivot',

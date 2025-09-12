@@ -1,7 +1,7 @@
 import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './entities/user.entity';
-import { EntityRepository } from '@mikro-orm/postgresql';
+import { EntityManager, EntityRepository } from '@mikro-orm/postgresql';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { Token } from '../auth/entities/token.entity';
 import { AuthService } from '../auth/auth.service';
@@ -18,28 +18,31 @@ export class UserService {
   ) {}
 
   async create(createUserDto: CreateUserDto) {
-    const existingUser = await this.userRepository.findOne({
-      email: createUserDto.email,
-    });
+    return this.userRepository.getEntityManager().transactional(async (em) => {
+      await this.checkIfUserExists(em, createUserDto.email);
 
+      const user = em.create(User, createUserDto);
+      const token = this.authService.generateToken();
+      const tokenEntity = em.create(Token, {
+        user,
+        tokenHash: this.authService.hashToken(token),
+        expiresAt: this.authService.getTokenExpirationTime(),
+      });
+
+      await em.persistAndFlush([user, tokenEntity]);
+
+      return {
+        token,
+      };
+    });
+  }
+
+  private async checkIfUserExists(em: EntityManager, email: string) {
+    const existingUser = await em.findOne(User, {
+      email,
+    });
     if (existingUser) {
       throw new BadRequestException('User already exists');
     }
-
-    const user = this.userRepository.create(createUserDto);
-    const token = this.authService.generateToken();
-    const tokenEntity = this.tokenRepository.create({
-      tokenHash: this.authService.hashToken(token),
-      user,
-      expiresAt: this.authService.getTokenExpirationTime(),
-    });
-    tokenEntity.user = user;
-
-    await this.tokenRepository.getEntityManager().persistAndFlush(tokenEntity);
-    await this.userRepository.getEntityManager().persistAndFlush(user);
-
-    return {
-      token,
-    };
   }
 }

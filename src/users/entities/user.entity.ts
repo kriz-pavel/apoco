@@ -2,12 +2,12 @@ import {
   BaseEntity,
   Collection,
   Entity,
-  ManyToMany,
+  OneToMany,
   OptionalProps,
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
-import { Pokemon } from 'src/pokemons/entities/pokemon.entity';
+import { FavoritePokemon } from '../../favorite-pokemons/entities/favorite-pokemon.entity';
 
 @Entity()
 export class User extends BaseEntity {
@@ -22,12 +22,8 @@ export class User extends BaseEntity {
   @Property()
   name!: string;
 
-  @ManyToMany({
-    pivotTable: 'pokemon_user_pivot',
-    joinColumn: 'user_id',
-    inverseJoinColumn: 'pokemon_id',
-  })
-  favorites = new Collection<Pokemon>(this);
+  @OneToMany(() => FavoritePokemon, (fav) => fav.user)
+  favorites = new Collection<FavoritePokemon>(this);
 
   @Property({ type: Date, defaultRaw: 'now()' })
   createdAt!: Date;
