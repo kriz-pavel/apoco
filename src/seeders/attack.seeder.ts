@@ -4,14 +4,13 @@ import { seedPokemonData } from './data/data';
 import { Attack, AttackCategory } from '../pokemons/entities/attack.entity';
 import { PokemonType } from '../pokemon-types/entities/pokemon-type.entity';
 import { PokemonTypeName } from './data/seed-pokemon.types';
-import { PreconditionsService } from '../common/preconditions/preconditions.service';
+import { checkExists } from '../common/preconditions/preconditions';
 
 type AttackData = Pick<Attack, 'name' | 'type' | 'damage' | 'category'>;
 
 export class AttackSeeder extends Seeder {
   async run(em: EntityManager): Promise<void> {
     console.log(`Seeding Attacks...`);
-    const preconditionsService = new PreconditionsService();
 
     const types = await em.find(PokemonType, {});
     const typesMap = new Map(
@@ -23,7 +22,7 @@ export class AttackSeeder extends Seeder {
         current.attacks.fast.forEach((attack) => {
           const obj: AttackData = {
             name: attack.name,
-            type: preconditionsService.checkExists(
+            type: checkExists(
               typesMap.get(attack.type),
               `Attack type ${attack.type} not found`,
             ),
@@ -41,7 +40,7 @@ export class AttackSeeder extends Seeder {
         current.attacks.special.forEach((attack) => {
           const obj: AttackData = {
             name: attack.name,
-            type: preconditionsService.checkExists(
+            type: checkExists(
               typesMap.get(attack.type),
               `Attack type ${attack.type} not found`,
             ),

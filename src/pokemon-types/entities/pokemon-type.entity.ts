@@ -8,6 +8,7 @@ import {
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
+import { convertTextToSlug } from 'src/common/conversions/conversions';
 
 @Entity()
 export class PokemonType extends BaseEntity {
@@ -26,13 +27,6 @@ export class PokemonType extends BaseEntity {
   @BeforeUpdate()
   @BeforeUpsert()
   setSlug() {
-    this.slug = convertToSlug(this.name);
+    this.slug = convertTextToSlug(this.name);
   }
-}
-
-function convertToSlug(text: string) {
-  return text
-    .toLowerCase()
-    .replace(/[^\w ]+/g, '')
-    .replace(/ +/g, '-');
 }

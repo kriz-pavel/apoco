@@ -7,13 +7,16 @@ import { PokemonController } from './pokemons.controller';
 import { Candy } from './entities/candy.entity';
 import { Classification } from './entities/classification.entity';
 import { Attack } from './entities/attack.entity';
+import { PokemonFilterBuilder } from './pokemon-filter-builder/pokemon-filter.builder';
+import { AuthModule } from '../auth/auth.module';
 
 @Module({
   imports: [
     MikroOrmModule.forFeature([Pokemon, Candy, Classification, Attack]),
+    AuthModule,
   ],
-  providers: [PokemonService],
+  providers: [PokemonService, PokemonFilterBuilder],
   controllers: [PokemonController],
-  exports: [PokemonService],
+  exports: [PokemonService, PokemonFilterBuilder],
 })
 export class PokemonModule {}

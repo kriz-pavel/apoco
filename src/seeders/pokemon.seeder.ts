@@ -9,14 +9,13 @@ import {
   PokemonTypeName,
 } from './data/seed-pokemon.types';
 import { Attack } from '../pokemons/entities/attack.entity';
-import { PreconditionsService } from '../common/preconditions/preconditions.service';
+import { checkExists } from '../common/preconditions/preconditions';
 import { Evolution } from '../pokemons/entities/evolution.entity';
 import { Candy } from '../pokemons/entities/candy.entity';
 
 export class PokemonSeeder extends Seeder {
   async run(em: EntityManager): Promise<void> {
     console.log(`Seeding ${seedPokemonData.length} Pokemon...`);
-    const preconditionsService = new PreconditionsService();
 
     const types = await em.find(PokemonType, {});
     const typesMap = new Map(
@@ -40,31 +39,22 @@ export class PokemonSeeder extends Seeder {
     let createdCount = 0;
     for (const pokemon of seedPokemonData) {
       const types = pokemon.types.map((type) =>
-        preconditionsService.checkExists(
-          typesMap.get(type),
-          `Pokemon type ${type} not found`,
-        ),
+        checkExists(typesMap.get(type), `Pokemon type ${type} not found`),
       );
       const resistant = pokemon.resistant.map((type) =>
-        preconditionsService.checkExists(
-          typesMap.get(type),
-          `Pokemon type ${type} not found`,
-        ),
+        checkExists(typesMap.get(type), `Pokemon type ${type} not found`),
       );
       const weaknesses = pokemon.weaknesses.map((type) =>
-        preconditionsService.checkExists(
-          typesMap.get(type),
-          `Pokemon type ${type} not found`,
-        ),
+        checkExists(typesMap.get(type), `Pokemon type ${type} not found`),
       );
       const fastAttacks = pokemon.attacks.fast.map((attack) =>
-        preconditionsService.checkExists(
+        checkExists(
           attacksMap.get(attack.name),
           `Attack ${attack.name} not found`,
         ),
       );
       const specialAttacks = pokemon.attacks.special.map((attack) =>
-        preconditionsService.checkExists(
+        checkExists(
           attacksMap.get(attack.name),
           `Attack ${attack.name} not found`,
         ),
@@ -105,7 +95,7 @@ export class PokemonSeeder extends Seeder {
     );
 
     for (const pokemon of seedPokemonData) {
-      const currentPokemonEntity = preconditionsService.checkExists(
+      const currentPokemonEntity = checkExists(
         pokemonEntityMap.get(Number(pokemon.id)),
         `Pokemon ${pokemon.name} not found`,
       );
@@ -114,11 +104,10 @@ export class PokemonSeeder extends Seeder {
       if (pokemon.evolutions) {
         const directFollowingEvolutions = pokemon.evolutions.filter(
           (currentPokemonEvolution) => {
-            const potentialDirectEvolutionPokemon =
-              preconditionsService.checkExists(
-                pokemonDataByPokedexId.get(Number(currentPokemonEvolution.id)),
-                `Pokemon ${currentPokemonEvolution.name} not found`,
-              );
+            const potentialDirectEvolutionPokemon = checkExists(
+              pokemonDataByPokedexId.get(Number(currentPokemonEvolution.id)),
+              `Pokemon ${currentPokemonEvolution.name} not found`,
+            );
 
             const pokemonPreviousEvolutionsCount =
               pokemon['Previous evolution(s)']?.length || 0;
@@ -133,22 +122,21 @@ export class PokemonSeeder extends Seeder {
           },
         );
 
-        const evolutionRequirements = preconditionsService.checkExists(
+        const evolutionRequirements = checkExists(
           pokemon.evolutionRequirements,
           `Evolution requirements not found for ${pokemon.name}`,
         );
 
-        const candyEntity = preconditionsService.checkExists(
+        const candyEntity = checkExists(
           candiesMap.get(evolutionRequirements.name),
           `Candy ${evolutionRequirements.name} not found`,
         );
 
         for (const directFollowingEvolution of directFollowingEvolutions) {
-          const directFollowingEvolutionEntity =
-            preconditionsService.checkExists(
-              pokemonEntityMap.get(Number(directFollowingEvolution.id)),
-              `Direct following evolution ${directFollowingEvolution.name} not found`,
-            );
+          const directFollowingEvolutionEntity = checkExists(
+            pokemonEntityMap.get(Number(directFollowingEvolution.id)),
+            `Direct following evolution ${directFollowingEvolution.name} not found`,
+          );
 
           const evolution = em.create(Evolution, {
             fromPokemon: currentPokemonEntity,
