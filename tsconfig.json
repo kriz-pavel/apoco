@@ -21,6 +21,12 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "plugins": [
+      {
+        "name": "@nestjs/swagger",
+        "dtoFileNameSuffix": [".dto.ts", ".entity.ts"]
+      }
+    ]
   }
 }

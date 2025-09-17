@@ -15,9 +15,9 @@ export class PokemonFilterBuilder {
         ...(type ? { types: { slug: type } } : {}),
       },
       options: {
-        ...(page ? { offset: (page - 1) * limit } : {}),
-        ...(limit ? { limit } : {}),
-        ...(sortBy ? { [sortBy]: sortDir } : {}),
+        offset: (page - 1) * limit,
+        limit,
+        orderBy: { [sortBy]: sortDir },
       },
     };
   }

@@ -1,5 +1,4 @@
 import {
-  Inject,
   Injectable,
   NotFoundException,
   UnauthorizedException,
@@ -8,10 +7,6 @@ import { InjectRepository } from '@mikro-orm/nestjs';
 import { Pokemon } from './entities/pokemon.entity';
 import { EntityRepository, FilterQuery } from '@mikro-orm/postgresql';
 import { FilterPokemonQueryDto } from './pokemon-filter-builder/dto/filter-pokemon-query.dto';
-import {
-  FilterPokemonQueryObject,
-  PokemonFilterBuilder,
-} from './pokemon-filter-builder/pokemon-filter.builder';
 import { PokemonDetailResponseDto } from './dto/pokemon-detail-response.dto';
 import {
   convertIdToPokedexIdString,
@@ -26,8 +21,6 @@ export class PokemonService {
   constructor(
     @InjectRepository(Pokemon)
     private readonly pokemonRepository: EntityRepository<Pokemon>,
-    @Inject(PokemonFilterBuilder)
-    private readonly pokemonFilterBuilder: PokemonFilterBuilder,
   ) {}
 
   async getAllFilteredPokemon({
@@ -37,28 +30,27 @@ export class PokemonService {
     user?: AuthenticatedUser;
     query: FilterPokemonQueryDto;
   }) {
-    const filterQuery = this.pokemonFilterBuilder.buildPokemonFilterQueryObject(
-      {
-        filter: query,
-      },
-    );
+    const { data, recordCount } = query.favorites
+      ? await this.getFavoritePokemon({ user, query })
+      : await this.getAllPokemons({ query });
 
-    if (query.favorites) {
-      const { pokemon, total } = await this.getFavoritePokemon({
-        user,
-        filterQuery,
-      });
-      return {
-        pokemon: this.mapPokemonListResponse({ pokemon }),
-        total,
-      };
-    }
-
-    const { pokemon, total } = await this.getAllPokemons({ filterQuery });
-
+    const pageCount = this.getPageCount({
+      recordCount,
+      limit: query.limit,
+    });
     return {
-      pokemon: this.mapPokemonListResponse({ pokemon }),
-      total,
+      data: this.mapPokemonListResponse({ pokemon: data }),
+      recordCount,
+      currentPage: query.page,
+      nextPage: this.getNextPage({
+        page: query.page,
+        pageCount,
+      }),
+      previousPage: this.getPreviousPage({
+        page: query.page,
+        pageCount,
+      }),
+      pageCount,
     };
   }
 
@@ -86,12 +78,12 @@ export class PokemonService {
     return this.mapPokemonDetailResponse({ pokemon });
   }
 
-  private async getAllPokemons({
-    filterQuery,
-  }: {
-    filterQuery: FilterPokemonQueryObject;
-  }) {
-    const [pokemon, total] = await this.pokemonRepository.findAndCount(
+  private async getAllPokemons({ query }: { query: FilterPokemonQueryDto }) {
+    const filterQuery = this.buildDbQueryOptions({
+      filter: query,
+    });
+
+    const [pokemon, recordCount] = await this.pokemonRepository.findAndCount(
       filterQuery.where,
       {
         ...filterQuery.options,
@@ -107,53 +99,58 @@ export class PokemonService {
     );
 
     return {
-      pokemon,
-      total,
+      data: pokemon,
+      recordCount,
     };
   }
 
   private async getFavoritePokemon({
     user,
-    filterQuery,
+    query,
   }: {
     user?: AuthenticatedUser;
-    filterQuery: FilterPokemonQueryObject;
+    query: FilterPokemonQueryDto;
   }) {
     if (!user) {
       throw new UnauthorizedException('User not authenticated');
     }
 
-    const [favoritePokemon, total] = await this.pokemonRepository.findAndCount(
-      {
-        ...filterQuery.where,
-        favorites: {
-          user: {
-            id: user.id,
+    const filterQuery = this.buildDbQueryOptions({
+      filter: query,
+    });
+
+    const [favoritePokemon, recordCount] =
+      await this.pokemonRepository.findAndCount(
+        {
+          ...filterQuery.where,
+          favorites: {
+            user: {
+              id: user.id,
+            },
           },
         },
-      },
-      {
-        ...filterQuery.options,
-        populate: [
-          'types',
-          'classification',
-          'resistant',
-          'weaknesses',
-          'attacks',
-          'evolutions',
-          'evolutions.candy',
-          'evolutions.toPokemon',
-          'previousEvolutions',
-          'previousEvolutions.fromPokemon',
-          'favorites',
-          'favorites.user',
-        ],
-      },
-    );
+        {
+          ...filterQuery.options,
+          populate: [
+            'types',
+            'classification',
+            'resistant',
+            'weaknesses',
+            'attacks',
+            'evolutions',
+            'evolutions.candy',
+            'evolutions.toPokemon',
+            'previousEvolutions',
+            'previousEvolutions.fromPokemon',
+            'favorites',
+            'favorites.user',
+          ],
+        },
+      );
 
     return {
-      pokemon: favoritePokemon,
-      total,
+      data: favoritePokemon,
+      recordCount,
     };
   }
 
@@ -292,6 +289,56 @@ export class PokemonService {
       evolutionRequirements,
       evolutions,
       previousEvolutions,
+    };
+  }
+
+  private getNextPage({
+    page,
+    pageCount,
+  }: {
+    page: number;
+    pageCount: number;
+  }) {
+    const nextPage = page + 1;
+    return nextPage <= pageCount ? nextPage : null;
+  }
+
+  private getPreviousPage({
+    page,
+    pageCount,
+  }: {
+    page: number;
+    pageCount: number;
+  }) {
+    const previousPage = page - 1;
+    if (previousPage - 1 > pageCount || previousPage < 1) {
+      return null;
+    }
+    return previousPage;
+  }
+
+  private getPageCount({
+    recordCount,
+    limit,
+  }: {
+    recordCount: number;
+    limit: number;
+  }) {
+    return Math.ceil(recordCount / limit);
+  }
+
+  private buildDbQueryOptions({ filter }: { filter: FilterPokemonQueryDto }) {
+    const { page, limit, sortBy, sortDir, type, q } = filter;
+    return {
+      where: {
+        ...(q ? { name: { $ilike: `%${q}%` } } : {}),
+        ...(type ? { types: { slug: type } } : {}),
+      },
+      options: {
+        offset: (page - 1) * limit,
+        limit,
+        orderBy: { [sortBy]: sortDir },
+      },
     };
   }
 }

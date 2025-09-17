@@ -12,7 +12,7 @@ import { Transform, Type } from 'class-transformer';
 import { convertTextToSlug } from 'src/common/conversions/conversions';
 
 export enum PokemonSortBy {
-  id = 'id',
+  pokedexId = 'pokedexId',
   name = 'name',
 }
 
@@ -34,11 +34,15 @@ export class FilterPokemonQueryDto {
   @Min(1)
   limit = 20;
 
-  @ApiPropertyOptional({ enum: PokemonSortBy, default: PokemonSortBy.id })
+  @ApiPropertyOptional({
+    enum: PokemonSortBy,
+    default: PokemonSortBy.pokedexId,
+  })
   @IsEnum(PokemonSortBy)
-  sortBy: PokemonSortBy = PokemonSortBy.id;
+  sortBy: PokemonSortBy = PokemonSortBy.pokedexId;
 
   @ApiPropertyOptional({ enum: PokemonSortDir, default: PokemonSortDir.asc })
+  @IsEnum(PokemonSortDir)
   sortDir: PokemonSortDir = PokemonSortDir.asc;
 
   @ApiPropertyOptional({ description: 'fulltext search by name (ILIKE %q%)' })
@@ -56,6 +60,30 @@ export class FilterPokemonQueryDto {
 
   @ApiPropertyOptional({ description: 'favorite pokemon' })
   @IsOptional()
+  @Transform(
+    ({ value, obj, key }) => {
+      const rawValue = (obj as unknown)?.[key] as unknown;
+
+      if (typeof rawValue === 'boolean') {
+        return rawValue;
+      }
+      if (typeof rawValue === 'string') {
+        const v = rawValue.trim().toLowerCase();
+        if (['true', '1', 'yes'].includes(v)) {
+          return true;
+        }
+        if (['false', '0', 'no'].includes(v)) {
+          return false;
+        }
+        return undefined;
+      }
+      if (typeof value === 'boolean') {
+        return value;
+      }
+      return undefined;
+    },
+    { toClassOnly: true },
+  )
   @IsBoolean()
   favorites?: boolean;
 }

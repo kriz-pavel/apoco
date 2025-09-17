@@ -24,6 +24,17 @@ export class AuthTokenGuard implements CanActivate {
 
   async canActivate(ctx: ExecutionContext): Promise<boolean> {
     const req = ctx.switchToHttp().getRequest<AuthRequest>();
+    const favoritesParam = Array.isArray(req.query.favorites)
+      ? req.query.favorites[0]
+      : (req.query.favorites ?? '');
+    const shouldCheckBearerToken =
+      typeof favoritesParam === 'string' &&
+      favoritesParam.toLowerCase() === 'true';
+
+    if (!shouldCheckBearerToken) {
+      return true;
+    }
+
     const header = req.header('authorization') || '';
     const [scheme, token] = header.split(' ');
 

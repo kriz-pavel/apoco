@@ -41,12 +41,12 @@ export class FavoritePokemonsService {
   }: {
     userId: number;
     pokedexId: number;
-  }): Promise<number> {
+  }): Promise<void> {
     const em = this.favoritePokemonRepository.getEntityManager();
     return em.transactional(async (em) => {
       const user = await this.findUserById({ id: userId, em });
       const pokemon = await this.findPokemonByPokedexId({ pokedexId, em });
-      return this.favoritePokemonRepository.nativeDelete({
+      return void this.favoritePokemonRepository.nativeDelete({
         user,
         pokemon,
       });

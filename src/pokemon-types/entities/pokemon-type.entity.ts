@@ -8,18 +8,22 @@ import {
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
+import { ApiProperty } from '@nestjs/swagger';
 import { convertTextToSlug } from 'src/common/conversions/conversions';
 
 @Entity()
 export class PokemonType extends BaseEntity {
   [OptionalProps]?: 'slug';
 
-  @PrimaryKey({ hidden: true })
+  @ApiProperty({ description: 'The ID of the Pokemon type', example: 1 })
+  @PrimaryKey({ type: 'smallint', hidden: true })
   id!: number;
 
-  @Property({ unique: true, index: true })
+  @ApiProperty({ description: 'The slug of the Pokemon type', example: 'fire' })
+  @Property({ unique: true })
   slug!: string;
 
+  @ApiProperty({ description: 'The name of the Pokemon type', example: 'Fire' })
   @Property({ unique: true })
   name!: string;
 
