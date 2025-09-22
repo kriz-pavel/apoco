@@ -1,12 +1,13 @@
 import {
   Injectable,
   NotFoundException,
+  ServiceUnavailableException,
   UnauthorizedException,
 } from '@nestjs/common';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { Pokemon } from './entities/pokemon.entity';
 import { EntityRepository, FilterQuery } from '@mikro-orm/postgresql';
-import { FilterPokemonQueryDto } from './pokemon-filter-builder/dto/filter-pokemon-query.dto';
+import { FilterPokemonQueryDto } from './dto/filter-pokemon-query.dto';
 import { PokemonDetailResponseDto } from './dto/pokemon-detail-response.dto';
 import {
   convertIdToPokedexIdString,
@@ -78,30 +79,38 @@ export class PokemonService {
     return this.mapPokemonDetailResponse({ pokemon });
   }
 
-  private async getAllPokemons({ query }: { query: FilterPokemonQueryDto }) {
+  private async getAllPokemons({
+    query,
+  }: {
+    query: FilterPokemonQueryDto;
+  }): Promise<{ data: Pokemon[]; recordCount: number }> {
     const filterQuery = this.buildDbQueryOptions({
       filter: query,
     });
 
-    const [pokemon, recordCount] = await this.pokemonRepository.findAndCount(
-      filterQuery.where,
-      {
-        ...filterQuery.options,
-        populate: [
-          'types',
-          'resistant',
-          'weaknesses',
-          'attacks',
-          'evolutions',
-          'previousEvolutions',
-        ],
-      },
-    );
+    try {
+      const [pokemon, recordCount] = await this.pokemonRepository.findAndCount(
+        filterQuery.where,
+        {
+          ...filterQuery.options,
+          populate: [
+            'types',
+            'resistant',
+            'weaknesses',
+            'attacks',
+            'evolutions',
+            'previousEvolutions',
+          ],
+        },
+      );
 
-    return {
-      data: pokemon,
-      recordCount,
-    };
+      return {
+        data: pokemon,
+        recordCount,
+      };
+    } catch {
+      throw new ServiceUnavailableException();
+    }
   }
 
   private async getFavoritePokemon({
@@ -110,7 +119,7 @@ export class PokemonService {
   }: {
     user?: AuthenticatedUser;
     query: FilterPokemonQueryDto;
-  }) {
+  }): Promise<{ data: Pokemon[]; recordCount: number }> {
     if (!user) {
       throw new UnauthorizedException('User not authenticated');
     }
@@ -119,39 +128,43 @@ export class PokemonService {
       filter: query,
     });
 
-    const [favoritePokemon, recordCount] =
-      await this.pokemonRepository.findAndCount(
-        {
-          ...filterQuery.where,
-          favorites: {
-            user: {
-              id: user.id,
+    try {
+      const [favoritePokemon, recordCount] =
+        await this.pokemonRepository.findAndCount(
+          {
+            ...filterQuery.where,
+            favorites: {
+              user: {
+                id: user.id,
+              },
             },
           },
-        },
-        {
-          ...filterQuery.options,
-          populate: [
-            'types',
-            'classification',
-            'resistant',
-            'weaknesses',
-            'attacks',
-            'evolutions',
-            'evolutions.candy',
-            'evolutions.toPokemon',
-            'previousEvolutions',
-            'previousEvolutions.fromPokemon',
-            'favorites',
-            'favorites.user',
-          ],
-        },
-      );
+          {
+            ...filterQuery.options,
+            populate: [
+              'types',
+              'classification',
+              'resistant',
+              'weaknesses',
+              'attacks',
+              'evolutions',
+              'evolutions.candy',
+              'evolutions.toPokemon',
+              'previousEvolutions',
+              'previousEvolutions.fromPokemon',
+              'favorites',
+              'favorites.user',
+            ],
+          },
+        );
 
-    return {
-      data: favoritePokemon,
-      recordCount,
-    };
+      return {
+        data: favoritePokemon,
+        recordCount,
+      };
+    } catch {
+      throw new ServiceUnavailableException();
+    }
   }
 
   private async findPokemonDetail({
@@ -328,11 +341,11 @@ export class PokemonService {
   }
 
   private buildDbQueryOptions({ filter }: { filter: FilterPokemonQueryDto }) {
-    const { page, limit, sortBy, sortDir, type, q } = filter;
+    const { page, limit, sortBy, sortDir, types, q } = filter;
     return {
       where: {
         ...(q ? { name: { $ilike: `%${q}%` } } : {}),
-        ...(type ? { types: { slug: type } } : {}),
+        ...(types ? { types: { slug: { $in: types } } } : {}),
       },
       options: {
         offset: (page - 1) * limit,

@@ -3,10 +3,12 @@ import {
   CanActivate,
   ExecutionContext,
   Injectable,
+  ServiceUnavailableException,
   UnauthorizedException,
 } from '@nestjs/common';
 import { Request } from 'express';
 import { AuthService } from '../auth.service';
+import { Token } from '../entities/token.entity';
 
 export interface AuthenticatedUser {
   id: number;
@@ -36,17 +38,21 @@ export class AuthTokenGuard implements CanActivate {
     }
 
     const header = req.header('authorization') || '';
-    const [scheme, token] = header.split(' ');
+    const [scheme, token] = header.trim().replace(/  +/g, ' ').split(' ');
 
     if (scheme?.toLowerCase() !== 'bearer' || !token) {
-      throw new UnauthorizedException(
-        'Missing or invalid Authorization header',
-      );
+      throw new UnauthorizedException();
     }
 
-    const validToken = await this.authService.validateToken(token);
+    let validToken: Token | null = null;
+    try {
+      validToken = await this.authService.getTokenRecord(token);
+    } catch {
+      throw new ServiceUnavailableException();
+    }
+
     if (!validToken) {
-      throw new UnauthorizedException('Invalid, revoked, or expired token');
+      throw new UnauthorizedException();
     }
 
     req.user = {

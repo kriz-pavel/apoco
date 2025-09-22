@@ -1,6 +1,6 @@
 import { Controller, Get, Param, Query, UseGuards } from '@nestjs/common';
 import { PokemonService } from './pokemons.service';
-import { FilterPokemonQueryDto } from '../pokemons/pokemon-filter-builder/dto/filter-pokemon-query.dto';
+import { FilterPokemonQueryDto } from './dto/filter-pokemon-query.dto';
 import { GetPokemonByIdDto } from './dto/get-pokemon-by-id.dto';
 import { GetPokemonByNameDto } from './dto/get-pokemon-by-name.dto';
 import { AuthTokenGuard } from '../auth/guards/auth-token.guard';
@@ -8,10 +8,7 @@ import type { AuthenticatedUser } from '../auth/guards/auth-token.guard';
 import { AuthUser } from '../auth/decorators/auth-user.decorator';
 import { ApiOperation, ApiResponse, ApiQuery, ApiParam } from '@nestjs/swagger';
 import { Pokemon } from './entities/pokemon.entity';
-import {
-  PokemonSortDir,
-  PokemonSortBy,
-} from './pokemon-filter-builder/dto/filter-pokemon-query.dto';
+import { PokemonSortDir, PokemonSortBy } from './dto/filter-pokemon-query.dto';
 
 @Controller('pokemon')
 export class PokemonController {

@@ -1,10 +1,11 @@
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { EntityManager, EntityRepository } from '@mikro-orm/postgresql';
-import { Injectable } from '@nestjs/common';
 import { User } from '../users/entities/user.entity';
 import { Pokemon } from '../pokemons/entities/pokemon.entity';
 import { FavoritePokemon } from './entities/favorite-pokemon.entity';
-import { checkExists } from '../common/preconditions/preconditions';
+import { checkFound } from '../common/preconditions/preconditions';
+import { Injectable } from '@nestjs/common';
+
 @Injectable()
 export class FavoritePokemonsService {
   constructor(
@@ -60,12 +61,11 @@ export class FavoritePokemonsService {
     id: number;
     em?: EntityManager;
   }): Promise<User> {
-    return checkExists(
-      await (em
-        ? em.findOne(User, { id })
-        : this.userRepository.findOne({ id })),
-      'User not found',
-    );
+    const user = await (em
+      ? em.findOne(User, { id })
+      : this.userRepository.findOne({ id }));
+
+    return checkFound(user, 'User not found');
   }
 
   private async findPokemonByPokedexId({
@@ -75,11 +75,10 @@ export class FavoritePokemonsService {
     pokedexId: number;
     em?: EntityManager;
   }): Promise<Pokemon> {
-    return checkExists(
-      await (em
-        ? em.findOne(Pokemon, { pokedexId })
-        : this.pokemonRepository.findOne({ pokedexId })),
-      'Pokemon not found',
-    );
+    const pokemon = await (em
+      ? em.findOne(Pokemon, { pokedexId })
+      : this.pokemonRepository.findOne({ pokedexId }));
+
+    return checkFound(pokemon, 'Pokemon not found');
   }
 }

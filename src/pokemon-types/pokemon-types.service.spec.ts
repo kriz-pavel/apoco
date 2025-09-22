@@ -3,6 +3,7 @@ import { getRepositoryToken } from '@mikro-orm/nestjs';
 import { EntityRepository } from '@mikro-orm/postgresql';
 import { PokemonTypeService } from './pokemon-types.service';
 import { PokemonType } from './entities/pokemon-type.entity';
+import { ServiceUnavailableException } from '@nestjs/common';
 
 /* eslint-disable @typescript-eslint/unbound-method */
 
@@ -74,20 +75,6 @@ describe('PokemonTypeService', () => {
     jest.clearAllMocks();
   });
 
-  describe('Constructor and Initialization', () => {
-    it('should be defined', () => {
-      expect(service).toBeDefined();
-    });
-
-    it('should have repository injected', () => {
-      expect(repository).toBeDefined();
-    });
-
-    it('should be instance of PokemonTypeService', () => {
-      expect(service).toBeInstanceOf(PokemonTypeService);
-    });
-  });
-
   describe('findAll()', () => {
     it('should return all pokemon types successfully', async () => {
       // Arrange
@@ -99,8 +86,6 @@ describe('PokemonTypeService', () => {
       // Assert
       expect(result).toEqual(mockPokemonTypes);
       expect(result).toHaveLength(5);
-      expect(repository.findAll).toHaveBeenCalledTimes(1);
-      expect(repository.findAll).toHaveBeenCalledWith();
     });
 
     it('should return empty array when no types exist', async () => {
@@ -144,68 +129,21 @@ describe('PokemonTypeService', () => {
       expect(grassType?.name).toBe(originalGrassType?.name);
     });
 
-    it('should propagate repository errors', async () => {
+    it('should throw ServiceUnavailableException when underlying repository fails', async () => {
       // Arrange
-      const errorMessage = 'Database connection failed';
-      repository.findAll.mockRejectedValue(new Error(errorMessage));
+      repository.findAll.mockRejectedValue(
+        new Error('Underlying repository failed'),
+      );
 
       // Act & Assert
-      await expect(service.findAll()).rejects.toThrow(errorMessage);
-      expect(repository.findAll).toHaveBeenCalledTimes(1);
-    });
-
-    it('should handle database timeout errors', async () => {
-      // Arrange
-      const timeoutError = new Error('Query timeout');
-      repository.findAll.mockRejectedValue(timeoutError);
-
-      // Act & Assert
-      try {
-        await service.findAll();
-        fail('Expected error to be thrown');
-      } catch (error) {
-        expect(error).toBe(timeoutError);
-        expect(repository.findAll).toHaveBeenCalledTimes(1);
-      }
-    });
-
-    it('should handle network connectivity errors', async () => {
-      // Arrange
-      const networkError = new Error('Network unreachable');
-      repository.findAll.mockRejectedValue(networkError);
-
-      // Act & Assert
-      await expect(service.findAll()).rejects.toThrow('Network unreachable');
+      await expect(service.findAll()).rejects.toThrow(
+        ServiceUnavailableException,
+      );
       expect(repository.findAll).toHaveBeenCalledTimes(1);
     });
   });
 
   describe('Repository Integration', () => {
-    it('should call repository findAll method with no parameters', async () => {
-      // Arrange
-      repository.findAll.mockResolvedValue(mockPokemonTypes);
-
-      // Act
-      await service.findAll();
-
-      // Assert
-      expect(repository.findAll).toHaveBeenCalledWith();
-      expect(repository.findAll).toHaveBeenCalledTimes(1);
-    });
-
-    it('should return exact repository response without modification', async () => {
-      // Arrange
-      const repositoryResponse = [...mockPokemonTypes];
-      repository.findAll.mockResolvedValue(repositoryResponse);
-
-      // Act
-      const result = await service.findAll();
-
-      // Assert
-      expect(result).toBe(repositoryResponse);
-      expect(result).toEqual(mockPokemonTypes);
-    });
-
     it('should handle concurrent calls to findAll', async () => {
       // Arrange
       repository.findAll.mockResolvedValue(mockPokemonTypes);

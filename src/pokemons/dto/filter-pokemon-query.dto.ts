@@ -9,7 +9,7 @@ import {
   IsBoolean,
 } from 'class-validator';
 import { Transform, Type } from 'class-transformer';
-import { convertTextToSlug } from 'src/common/conversions/conversions';
+import { convertTextToSlug } from '../../common/conversions/conversions';
 
 export enum PokemonSortBy {
   pokedexId = 'pokedexId',
@@ -51,12 +51,16 @@ export class FilterPokemonQueryDto {
   q?: string;
 
   @ApiPropertyOptional({
-    description: 'type of pokemon; comma-separated: fire,water',
+    description: 'types of pokemon; comma-separated: fire,water',
+    type: [String],
+    example: 'fire,water',
   })
   @IsOptional()
-  @IsString()
-  @Transform(({ value }: { value: string }) => convertTextToSlug(value))
-  type?: string;
+  @IsString({ each: true })
+  @Transform(({ value }: { value: string }) =>
+    value.split(',').map((t) => convertTextToSlug(t.trim())),
+  )
+  types?: string[];
 
   @ApiPropertyOptional({ description: 'favorite pokemon' })
   @IsOptional()

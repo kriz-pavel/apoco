@@ -9,7 +9,7 @@ import {
   Property,
 } from '@mikro-orm/core';
 import { ApiProperty } from '@nestjs/swagger';
-import { convertTextToSlug } from 'src/common/conversions/conversions';
+import { convertTextToSlug } from '../../common/conversions/conversions';
 
 @Entity()
 export class PokemonType extends BaseEntity {

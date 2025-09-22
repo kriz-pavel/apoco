@@ -1,8 +1,4 @@
-import {
-  BadRequestException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { RotateTokenDto } from './dto/rotate-token.dto';
 import * as crypto from 'crypto';
 import {
@@ -13,7 +9,7 @@ import {
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { Token } from './entities/token.entity';
 
-const TOKEN_EXPIRATION_TIME = 1000 * 60 * 60 * 24 * 30; // 30 days
+export const TOKEN_EXPIRATION_TIME = 1000 * 60 * 60 * 24 * 30; // 30 days
 
 @Injectable()
 export class AuthService {
@@ -32,10 +28,13 @@ export class AuthService {
           { lockMode: LockMode.PESSIMISTIC_WRITE },
         );
         if (!token) {
-          throw new NotFoundException('Token not found');
+          throw new UnauthorizedException();
         }
         if (token.isRevoked) {
-          throw new BadRequestException('Token has been revoked');
+          throw new UnauthorizedException();
+        }
+        if (token.expiresAt <= new Date()) {
+          throw new UnauthorizedException();
         }
 
         await this.revokeToken(token, tem);
@@ -47,7 +46,7 @@ export class AuthService {
       });
   }
 
-  async validateToken(token: string) {
+  async getTokenRecord(token: string) {
     const validToken = await this.tokenRepository.findOne(
       {
         tokenHash: this.hashToken(token),
