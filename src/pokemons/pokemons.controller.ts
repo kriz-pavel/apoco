@@ -1,7 +1,7 @@
 import { Controller, Get, Param, Query, UseGuards } from '@nestjs/common';
 import { PokemonService } from './pokemons.service';
 import { FilterPokemonQueryDto } from './dto/filter-pokemon-query.dto';
-import { GetPokemonByIdDto } from './dto/get-pokemon-by-id.dto';
+import { PokedexIdDto } from './dto/pokedex-id.dto';
 import { GetPokemonByNameDto } from './dto/get-pokemon-by-name.dto';
 import { AuthTokenGuard } from '../auth/guards/auth-token.guard';
 import type { AuthenticatedUser } from '../auth/guards/auth-token.guard';
@@ -68,7 +68,7 @@ export class PokemonController {
     description: 'The Pokedex ID of the Pokemon',
     type: String,
   })
-  getPokemonByPokedexId(@Param() params: GetPokemonByIdDto) {
+  getPokemonByPokedexId(@Param() params: PokedexIdDto) {
     return this.pokemonService.getPokemonByPokedexId({
       pokedexId: params.pokedexId,
     });

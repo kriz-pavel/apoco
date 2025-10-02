@@ -10,7 +10,7 @@ export default defineConfig({
   entitiesTs: ['src/**/*.entity.ts'],
   metadataProvider: TsMorphMetadataProvider,
   migrations: {
-    path: 'dist/migrations',
+    // path: 'dist/migrations',
     pathTs: 'src/migrations',
   },
   seeder: {

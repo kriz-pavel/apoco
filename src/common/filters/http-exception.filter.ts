@@ -5,11 +5,16 @@ import {
   HttpException,
   HttpStatus,
   ServiceUnavailableException,
+  Logger,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
 
 @Catch()
 export class HttpExceptionFilter implements ExceptionFilter {
+  constructor(
+    private readonly logger: Logger = new Logger(HttpExceptionFilter.name),
+  ) {}
+
   catch(exception: unknown, host: ArgumentsHost): void {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<Response>();
@@ -61,6 +66,10 @@ export class HttpExceptionFilter implements ExceptionFilter {
       timestamp: new Date().toISOString(),
       path: request.url,
     };
+
+    this.logger.error(
+      `[${request.method}] ${request.url} - ${errorDetails.status} - ${errorDetails.error} - ${errorDetails.message}, Original error: ${exception as Error}`,
+    );
 
     response.status(errorDetails.status).json(errorResponse);
   }

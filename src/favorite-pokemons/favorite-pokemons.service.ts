@@ -4,7 +4,11 @@ import { User } from '../users/entities/user.entity';
 import { Pokemon } from '../pokemons/entities/pokemon.entity';
 import { FavoritePokemon } from './entities/favorite-pokemon.entity';
 import { checkFound } from '../common/preconditions/preconditions';
-import { Injectable } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  ServiceUnavailableException,
+} from '@nestjs/common';
 
 @Injectable()
 export class FavoritePokemonsService {
@@ -24,16 +28,23 @@ export class FavoritePokemonsService {
     userId: number;
     pokedexId: number;
   }): Promise<void> {
-    const em = this.favoritePokemonRepository.getEntityManager();
-    return em.transactional(async (em) => {
-      const user = await this.findUserById({ id: userId, em });
-      const pokemon = await this.findPokemonByPokedexId({ pokedexId, em });
-      const favoritePokemon = em.create(FavoritePokemon, {
-        user,
-        pokemon,
+    try {
+      const em = this.favoritePokemonRepository.getEntityManager();
+      return em.transactional(async (em) => {
+        const user = await this.findUserById({ id: userId, em });
+        const pokemon = await this.findPokemonByPokedexId({ pokedexId, em });
+        const favoritePokemon = em.create(FavoritePokemon, {
+          user,
+          pokemon,
+        });
+        await em.persistAndFlush(favoritePokemon);
       });
-      await em.persistAndFlush(favoritePokemon);
-    });
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        throw error;
+      }
+      throw ServiceUnavailableException;
+    }
   }
 
   removeFavoritePokemon({
@@ -43,15 +54,22 @@ export class FavoritePokemonsService {
     userId: number;
     pokedexId: number;
   }): Promise<void> {
-    const em = this.favoritePokemonRepository.getEntityManager();
-    return em.transactional(async (em) => {
-      const user = await this.findUserById({ id: userId, em });
-      const pokemon = await this.findPokemonByPokedexId({ pokedexId, em });
-      return void this.favoritePokemonRepository.nativeDelete({
-        user,
-        pokemon,
+    try {
+      const em = this.favoritePokemonRepository.getEntityManager();
+      return em.transactional(async (em) => {
+        const user = await this.findUserById({ id: userId, em });
+        const pokemon = await this.findPokemonByPokedexId({ pokedexId, em });
+        return void this.favoritePokemonRepository.nativeDelete({
+          user,
+          pokemon,
+        });
       });
-    });
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        throw error;
+      }
+      throw ServiceUnavailableException;
+    }
   }
 
   private async findUserById({

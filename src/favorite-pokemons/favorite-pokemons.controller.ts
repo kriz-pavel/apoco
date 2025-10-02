@@ -4,7 +4,7 @@ import { AuthTokenGuard } from '../auth/guards/auth-token.guard';
 import type { AuthenticatedUser } from '../auth/guards/auth-token.guard';
 import { UseGuards } from '@nestjs/common';
 import { AuthUser } from '../auth/decorators/auth-user.decorator';
-import { GetPokemonByIdDto } from 'src/pokemons/dto/get-pokemon-by-id.dto';
+import { PokedexIdDto } from '../pokemons/dto/pokedex-id.dto';
 import { ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger';
 
 @UseGuards(AuthTokenGuard)
@@ -38,11 +38,11 @@ export class FavoritePokemonsController {
   @ApiParam({
     name: 'pokedexId',
     description: 'The Pokedex ID of the Pokemon',
-    type: GetPokemonByIdDto,
+    type: PokedexIdDto,
   })
   addToFavorites(
     @AuthUser() user: AuthenticatedUser,
-    @Param() params: GetPokemonByIdDto,
+    @Param() params: PokedexIdDto,
   ): Promise<void> {
     return this.favoritePokemonsService.addToFavorites({
       userId: user.id,
@@ -73,7 +73,7 @@ export class FavoritePokemonsController {
   })
   removeFavoritePokemon(
     @AuthUser() user: AuthenticatedUser,
-    @Param() params: GetPokemonByIdDto,
+    @Param() params: PokedexIdDto,
   ): Promise<void> {
     return this.favoritePokemonsService.removeFavoritePokemon({
       userId: user.id,

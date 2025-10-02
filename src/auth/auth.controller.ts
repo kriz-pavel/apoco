@@ -1,4 +1,4 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, HttpCode } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { RotateTokenDto } from './dto/rotate-token.dto';
 import { ApiOperation, ApiResponse, ApiBody } from '@nestjs/swagger';
@@ -8,6 +8,7 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('rotate-token')
+  @HttpCode(200)
   @ApiOperation({
     summary: 'Rotate a token',
   })

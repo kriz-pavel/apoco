@@ -29,29 +29,34 @@ export class AuthTokenGuard implements CanActivate {
     const favoritesParam = Array.isArray(req.query.favorites)
       ? req.query.favorites[0]
       : (req.query.favorites ?? '');
+    const isFavoriteEndpoint = req.url?.includes('/me/');
     const shouldCheckBearerToken =
-      typeof favoritesParam === 'string' &&
-      favoritesParam.toLowerCase() === 'true';
-
+      isFavoriteEndpoint ||
+      (typeof favoritesParam === 'string' &&
+        favoritesParam.toLowerCase() === 'true');
+    console.log('jeste pred?', shouldCheckBearerToken);
     if (!shouldCheckBearerToken) {
+      console.log('ono to vyskočí?');
       return true;
     }
 
-    const header = req.header('authorization') || '';
+    const header = req.header('Authorization') || '';
     const [scheme, token] = header.trim().replace(/  +/g, ' ').split(' ');
-
+    console.log(scheme?.toLowerCase(), token, header, 'to už tady xxx??');
     if (scheme?.toLowerCase() !== 'bearer' || !token) {
+      console.log(scheme?.toLowerCase(), token, header, 'to už tady??');
       throw new UnauthorizedException();
     }
 
-    let validToken: Token | null = null;
-    try {
-      validToken = await this.authService.getTokenRecord(token);
-    } catch {
-      throw new ServiceUnavailableException();
-    }
-
+    const validToken = await this.authService.getTokenRecord(token);
     if (!validToken) {
+      console.log(
+        validToken,
+        token,
+        scheme?.toLowerCase(),
+        header,
+        'validToken',
+      );
       throw new UnauthorizedException();
     }
 

@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
-import { ValidationPipe } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 async function bootstrap() {
@@ -18,6 +18,8 @@ async function bootstrap() {
   );
   app.useGlobalFilters(new HttpExceptionFilter());
 
+  app.useLogger(app.get(Logger));
+
   // --- OpenAPI / Swagger ---
   const config = new DocumentBuilder()
     .setTitle('Pokédex API')
@@ -33,17 +35,14 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/docs', app, document);
-  // surový JSON (přímý export specifikace)
+
   app.getHttpAdapter().get('/openapi.json', (req, res) => res.json(document));
 
   const port = process.env.PORT || 3000;
   await app.listen(port);
 
   const base = `http://localhost:${port}`;
-  // viditelné po `docker compose up`
-  // (v Compose si můžeš přemapovat na host)
-  // ať je to nepřehlédnutelné:
-  // eslint-disable-next-line no-console
+
   console.log('\n===========================================');
   console.log(`API:            ${base}/api`);
   console.log(`Swagger UI:     ${base}/docs`);

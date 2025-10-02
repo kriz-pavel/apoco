@@ -45,7 +45,10 @@ export class UserService {
             token,
           };
         });
-    } catch {
+    } catch (error) {
+      if (error instanceof BadRequestException) {
+        throw error;
+      }
       throw new ServiceUnavailableException();
     }
   }
