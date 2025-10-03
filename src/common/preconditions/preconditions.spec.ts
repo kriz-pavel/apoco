@@ -29,15 +29,12 @@ describe('Preconditions', () => {
     });
 
     it('should throw an error with the provided message when value is null or undefined', () => {
-      // Arrange
-      const errorMessage = 'Value cannot be null';
-
       // Act & Assert
       expect(() => checkExists(null, 'Value cannot be null')).toThrow(
-        errorMessage,
+        'Value cannot be null',
       );
       expect(() => checkExists(undefined, 'Value cannot be undefined')).toThrow(
-        errorMessage,
+        'Value cannot be undefined',
       );
     });
 
@@ -78,15 +75,12 @@ describe('Preconditions', () => {
     });
 
     it('should throw an error with the provided message when value is null or undefined', () => {
-      // Arrange
-      const errorMessage = 'Value cannot be null';
-
       // Act & Assert
       expect(() => checkFound(null, 'Value cannot be null')).toThrow(
-        errorMessage,
+        'Value cannot be null',
       );
       expect(() => checkFound(undefined, 'Value cannot be undefined')).toThrow(
-        errorMessage,
+        'Value cannot be undefined',
       );
     });
   });

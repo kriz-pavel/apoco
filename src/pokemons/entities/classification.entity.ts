@@ -13,4 +13,18 @@ export class Classification {
   })
   @Property({ unique: true })
   name!: string;
+
+  @ApiProperty({
+    description: 'The date and time the classification was created',
+    example: '2021-01-01T00:00:00.000Z',
+  })
+  @Property({ type: Date, defaultRaw: 'now()' })
+  createdAt!: Date;
+
+  @ApiProperty({
+    description: 'The date and time the classification was updated',
+    example: '2021-01-01T00:00:00.000Z',
+  })
+  @Property({ type: Date, defaultRaw: 'now()', onUpdate: () => new Date() })
+  updatedAt!: Date;
 }

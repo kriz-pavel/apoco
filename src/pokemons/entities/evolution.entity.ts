@@ -37,4 +37,11 @@ export class Evolution {
   })
   @Property({ columnType: 'smallint' })
   candyAmount!: number;
+
+  @ApiProperty({
+    description: 'The date and time the evolution was created',
+    example: '2021-01-01T00:00:00.000Z',
+  })
+  @Property({ type: Date, defaultRaw: 'now()' })
+  createdAt!: Date;
 }

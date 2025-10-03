@@ -285,7 +285,7 @@ describe('AuthTokenGuard', () => {
         { favorites: 'true' },
         { authorization: 'Bearer some-token' },
       );
-      const serviceError = new Error('Database connection failed');
+      const serviceError = new ServiceUnavailableException();
       authService.getTokenRecord.mockRejectedValue(serviceError);
 
       // Act & Assert

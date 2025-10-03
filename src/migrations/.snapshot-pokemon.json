@@ -8,12 +8,12 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "serial",
+          "type": "smallint",
           "unsigned": false,
           "autoincrement": true,
           "primary": true,
           "nullable": false,
-          "mappedType": "integer"
+          "mappedType": "smallint"
         },
         "name": {
           "name": "name",
@@ -24,6 +24,28 @@
           "nullable": false,
           "length": 255,
           "mappedType": "string"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "default": "now()",
+          "mappedType": "datetime"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "default": "now()",
+          "mappedType": "datetime"
         }
       },
       "name": "candy",
@@ -58,12 +80,12 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "serial",
+          "type": "smallint",
           "unsigned": false,
           "autoincrement": true,
           "primary": true,
           "nullable": false,
-          "mappedType": "integer"
+          "mappedType": "smallint"
         },
         "name": {
           "name": "name",
@@ -74,6 +96,28 @@
           "nullable": false,
           "length": 255,
           "mappedType": "string"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "default": "now()",
+          "mappedType": "datetime"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "default": "now()",
+          "mappedType": "datetime"
         }
       },
       "name": "classification",
@@ -136,12 +180,12 @@
         },
         "classification_id": {
           "name": "classification_id",
-          "type": "int",
+          "type": "smallint",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "mappedType": "integer"
+          "mappedType": "smallint"
         },
         "weight_max": {
           "name": "weight_max",
@@ -267,30 +311,10 @@
             "pokedex_id"
           ],
           "composite": false,
-          "keyName": "pokemon_pokedex_id_index",
-          "constraint": false,
-          "primary": false,
-          "unique": false
-        },
-        {
-          "columnNames": [
-            "pokedex_id"
-          ],
-          "composite": false,
           "keyName": "pokemon_pokedex_id_unique",
           "constraint": true,
           "primary": false,
           "unique": true
-        },
-        {
-          "columnNames": [
-            "name"
-          ],
-          "composite": false,
-          "keyName": "pokemon_name_index",
-          "constraint": false,
-          "primary": false,
-          "unique": false
         },
         {
           "columnNames": [
@@ -405,12 +429,12 @@
         },
         "candy_id": {
           "name": "candy_id",
-          "type": "int",
+          "type": "smallint",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "mappedType": "integer"
+          "mappedType": "smallint"
         },
         "candy_amount": {
           "name": "candy_amount",
@@ -420,6 +444,17 @@
           "primary": false,
           "nullable": false,
           "mappedType": "smallint"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "default": "now()",
+          "mappedType": "datetime"
         }
       },
       "name": "evolution",
@@ -431,16 +466,6 @@
           ],
           "composite": false,
           "keyName": "evolution_from_pokemon_id_index",
-          "constraint": false,
-          "primary": false,
-          "unique": false
-        },
-        {
-          "columnNames": [
-            "to_pokemon_id"
-          ],
-          "composite": false,
-          "keyName": "evolution_to_pokemon_id_index",
           "constraint": false,
           "primary": false,
           "unique": false
@@ -516,12 +541,12 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "serial",
+          "type": "smallint",
           "unsigned": false,
           "autoincrement": true,
           "primary": true,
           "nullable": false,
-          "mappedType": "integer"
+          "mappedType": "smallint"
         },
         "slug": {
           "name": "slug",
@@ -547,16 +572,6 @@
       "name": "pokemon_type",
       "schema": "public",
       "indexes": [
-        {
-          "columnNames": [
-            "slug"
-          ],
-          "composite": false,
-          "keyName": "pokemon_type_slug_index",
-          "constraint": false,
-          "primary": false,
-          "unique": false
-        },
         {
           "columnNames": [
             "slug"
@@ -605,12 +620,12 @@
         },
         "type_id": {
           "name": "type_id",
-          "type": "int",
+          "type": "smallint",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "mappedType": "integer"
+          "mappedType": "smallint"
         }
       },
       "name": "pokemon_weaknesses",
@@ -674,12 +689,12 @@
         },
         "type_id": {
           "name": "type_id",
-          "type": "int",
+          "type": "smallint",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "mappedType": "integer"
+          "mappedType": "smallint"
         }
       },
       "name": "pokemon_types_pivot",
@@ -743,12 +758,12 @@
         },
         "type_id": {
           "name": "type_id",
-          "type": "int",
+          "type": "smallint",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "mappedType": "integer"
+          "mappedType": "smallint"
         }
       },
       "name": "pokemon_resistant",
@@ -803,21 +818,21 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "serial",
+          "type": "smallint",
           "unsigned": false,
           "autoincrement": true,
           "primary": true,
           "nullable": false,
-          "mappedType": "integer"
+          "mappedType": "smallint"
         },
         "type_id": {
           "name": "type_id",
-          "type": "int",
+          "type": "smallint",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "mappedType": "integer"
+          "mappedType": "smallint"
         },
         "name": {
           "name": "name",
@@ -927,12 +942,12 @@
       "columns": {
         "attack_id": {
           "name": "attack_id",
-          "type": "int",
+          "type": "smallint",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "mappedType": "integer"
+          "mappedType": "smallint"
         },
         "pokemon_id": {
           "name": "pokemon_id",

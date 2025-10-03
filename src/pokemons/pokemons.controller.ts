@@ -1,4 +1,11 @@
-import { Controller, Get, Param, Query, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Header,
+  Param,
+  Query,
+  UseGuards,
+} from '@nestjs/common';
 import { PokemonService } from './pokemons.service';
 import { FilterPokemonQueryDto } from './dto/filter-pokemon-query.dto';
 import { PokedexIdDto } from './dto/pokedex-id.dto';
@@ -47,6 +54,11 @@ export class PokemonController {
   }
 
   @Get(':pokedexId')
+  @Header(
+    'Cache-Control',
+    'public, max-age=3600, s-maxage=604800, stale-while-revalidate=86400, stale-if-error=604800',
+  )
+  @Header('Vary', 'Accept-Encoding')
   @ApiOperation({
     summary: 'Get a Pokemon by its Pokedex ID',
   })
@@ -75,6 +87,11 @@ export class PokemonController {
   }
 
   @Get('/by-name/:name')
+  @Header(
+    'Cache-Control',
+    'public, max-age=3600, s-maxage=604800, stale-while-revalidate=86400, stale-if-error=604800',
+  )
+  @Header('Vary', 'Accept-Encoding')
   @ApiOperation({
     summary: 'Get a Pokemon by its name',
   })

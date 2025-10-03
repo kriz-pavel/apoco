@@ -39,7 +39,7 @@ export class PokemonService {
       recordCount,
       limit: query.limit,
     });
-    console.log(data, query, 'data');
+
     return {
       data: this.mapPokemonListResponse({ pokemon: data }),
       recordCount,
@@ -61,7 +61,6 @@ export class PokemonService {
   }: {
     name: string;
   }): Promise<PokemonDetailResponseDto> {
-    console.log(name, 'name');
     const pokemon = await this.findPokemonDetail({
       filterQuery: { name: { $ilike: name } },
     });

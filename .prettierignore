@@ -1,0 +1,16 @@
+# Build output
+dist/
+build/
+
+# Node modules
+node_modules/
+
+# Env files
+.env
+.env.*
+
+# Migrace – nechceme je formátovat
+src/migrations/**
+
+# Test coverage
+coverage/

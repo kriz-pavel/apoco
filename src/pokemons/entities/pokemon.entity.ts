@@ -5,6 +5,7 @@ import {
   ManyToMany,
   ManyToOne,
   OneToMany,
+  OptionalProps,
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
@@ -17,6 +18,8 @@ import { ApiProperty } from '@nestjs/swagger';
 
 @Entity()
 export class Pokemon extends BaseEntity {
+  [OptionalProps]?: 'createdAt' | 'updatedAt';
+
   @ApiProperty({ description: 'The ID of the Pokemon', example: 1 })
   @PrimaryKey({ hidden: true })
   id!: number;

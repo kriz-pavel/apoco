@@ -10,8 +10,6 @@ type AttackData = Pick<Attack, 'name' | 'type' | 'damage' | 'category'>;
 
 export class AttackSeeder extends Seeder {
   async run(em: EntityManager): Promise<void> {
-    console.log(`Seeding Attacks...`);
-
     const types = await em.find(PokemonType, {});
     const typesMap = new Map(
       types.map((type) => [type.name as PokemonTypeName, type]),
@@ -59,7 +57,5 @@ export class AttackSeeder extends Seeder {
     const uniqueAttacks = Array.from(attacksByNameMap.values());
 
     await em.insertMany(Attack, uniqueAttacks);
-
-    console.log(`Created ${uniqueAttacks.length} new Attack entries`);
   }
 }

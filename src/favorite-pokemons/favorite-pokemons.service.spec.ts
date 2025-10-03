@@ -301,9 +301,7 @@ describe('FavoritePokemonsService', () => {
         .mockResolvedValueOnce(mockUser) // findUserById
         .mockResolvedValueOnce(mockPokemon); // findPokemonByPokedexId
 
-      favoritePokemonRepository.nativeDelete.mockResolvedValue(
-        undefined as any,
-      );
+      favoritePokemonRepository.nativeDelete.mockResolvedValue(0);
 
       // Act
       await service.removeFavoritePokemon({ userId, pokedexId });

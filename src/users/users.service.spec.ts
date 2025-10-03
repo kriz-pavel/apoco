@@ -1,7 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@mikro-orm/nestjs';
 import { EntityRepository, EntityManager } from '@mikro-orm/postgresql';
-import { ServiceUnavailableException } from '@nestjs/common';
+import {
+  BadRequestException,
+  ServiceUnavailableException,
+} from '@nestjs/common';
 import { UserService } from './users.service';
 import { User } from './entities/user.entity';
 import { Token } from '../auth/entities/token.entity';
@@ -130,7 +133,7 @@ describe('UserService', () => {
       ]);
     });
 
-    it('should throw ServiceUnavailableException when user already exists', async () => {
+    it('should throw BadRequestException when user already exists', async () => {
       // Arrange
       const existingUser = {
         id: 2,
@@ -146,7 +149,7 @@ describe('UserService', () => {
 
       // Act & Assert
       await expect(service.create(mockCreateUserDto)).rejects.toThrow(
-        new ServiceUnavailableException(),
+        new BadRequestException('User already exists'),
       );
       expect(entityManager.create).not.toHaveBeenCalled();
       expect(entityManager.persistAndFlush).not.toHaveBeenCalled();

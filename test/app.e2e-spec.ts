@@ -30,7 +30,6 @@ describe('Pokemon API (e2e)', () => {
       testUser = createUserResponse.body.user;
       // Use the actual token returned from user creation
       authToken = createUserResponse.body.token;
-      console.log(authToken, 'authToken');
     }
   });
 
@@ -61,9 +60,9 @@ describe('Pokemon API (e2e)', () => {
         .expect((res) => {
           expect(Array.isArray(res.body)).toBe(true);
           expect(res.body.length).toBeGreaterThanOrEqual(1);
-          // Check that types have expected structure
           if (res.body.length > 0) {
             expect(res.body[0]).toHaveProperty('name');
+            expect(res.body[0]).toHaveProperty('slug');
           }
         });
     });
@@ -124,8 +123,7 @@ describe('Pokemon API (e2e)', () => {
         name: 'Duplicate User',
         email: testUser?.email,
       };
-      console.log(duplicateUser);
-      console.log(testUser);
+
       return request(API_BASE_URL)
         .post('/api/user')
         .send(duplicateUser)
@@ -372,7 +370,6 @@ describe('Pokemon API (e2e)', () => {
         .expect((res) => {
           expect(res.body).toHaveProperty('data');
           expect(Array.isArray(res.body.data)).toBe(true);
-          // Should return user's favorite Pokemon (likely empty initially)
         });
     });
 

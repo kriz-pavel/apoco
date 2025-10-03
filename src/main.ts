@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { Response } from 'express';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -36,7 +37,9 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/docs', app, document);
 
-  app.getHttpAdapter().get('/openapi.json', (req, res) => res.json(document));
+  app.getHttpAdapter().get('/openapi.json', (_, res: Response) => {
+    res.json(document);
+  });
 
   const port = process.env.PORT || 3000;
   await app.listen(port);

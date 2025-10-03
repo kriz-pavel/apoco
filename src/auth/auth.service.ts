@@ -59,7 +59,6 @@ export class AuthService {
         },
         { populate: ['user'] },
       );
-      // console.log(validToken, 'a tady co?');
       if (!validToken || validToken.expiresAt <= new Date()) {
         return null;
       }

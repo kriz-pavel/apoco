@@ -9,7 +9,7 @@ export function convertTextToSlug(text: string) {
   return text
     .toLowerCase()
     .replace(/[čšřžďňťéáíúóýů]/g, (char) => {
-      return char.charCodeAt(0).toString(16);
+      return char.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     })
     .replace(/[^\w ]+/g, '')
     .replace(/ +/g, '-');

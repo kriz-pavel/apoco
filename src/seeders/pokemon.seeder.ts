@@ -79,8 +79,6 @@ export class PokemonSeeder extends Seeder {
         resistant,
         weaknesses,
         attacks,
-        createdAt: new Date(),
-        updatedAt: new Date(),
       });
 
       em.persist(pokemonData);
@@ -143,10 +141,10 @@ export class PokemonSeeder extends Seeder {
             toPokemon: directFollowingEvolutionEntity,
             candy: candyEntity,
             candyAmount: evolutionRequirements.amount,
+            createdAt: new Date(),
           });
           em.persist(evolution);
         }
-        //em.persist(evo);
       }
     }
     await em.flush();

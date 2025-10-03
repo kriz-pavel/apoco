@@ -3,12 +3,10 @@ import {
   CanActivate,
   ExecutionContext,
   Injectable,
-  ServiceUnavailableException,
   UnauthorizedException,
 } from '@nestjs/common';
 import { Request } from 'express';
 import { AuthService } from '../auth.service';
-import { Token } from '../entities/token.entity';
 
 export interface AuthenticatedUser {
   id: number;
@@ -34,29 +32,20 @@ export class AuthTokenGuard implements CanActivate {
       isFavoriteEndpoint ||
       (typeof favoritesParam === 'string' &&
         favoritesParam.toLowerCase() === 'true');
-    console.log('jeste pred?', shouldCheckBearerToken);
+
     if (!shouldCheckBearerToken) {
-      console.log('ono to vyskočí?');
       return true;
     }
 
-    const header = req.header('Authorization') || '';
+    const header =
+      req.header('Authorization') || req.header('authorization') || '';
     const [scheme, token] = header.trim().replace(/  +/g, ' ').split(' ');
-    console.log(scheme?.toLowerCase(), token, header, 'to už tady xxx??');
     if (scheme?.toLowerCase() !== 'bearer' || !token) {
-      console.log(scheme?.toLowerCase(), token, header, 'to už tady??');
       throw new UnauthorizedException();
     }
 
     const validToken = await this.authService.getTokenRecord(token);
     if (!validToken) {
-      console.log(
-        validToken,
-        token,
-        scheme?.toLowerCase(),
-        header,
-        'validToken',
-      );
       throw new UnauthorizedException();
     }
 
