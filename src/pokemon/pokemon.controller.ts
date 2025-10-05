@@ -6,7 +6,7 @@ import {
   Query,
   UseGuards,
 } from '@nestjs/common';
-import { PokemonService } from './pokemons.service';
+import { PokemonService } from './pokemon.service';
 import { FilterPokemonQueryDto } from './dto/filter-pokemon-query.dto';
 import { PokedexIdDto } from './dto/pokedex-id.dto';
 import { GetPokemonByNameDto } from './dto/get-pokemon-by-name.dto';
@@ -36,10 +36,10 @@ export class PokemonController {
   @ApiBearerAuth('access-token')
   @Get()
   @ApiOperation({
-    summary: 'Get all Pokemons with filtering, searching and pagination',
+    summary: 'Get all Pokemon with filtering, searching and pagination',
   })
   @ApiOkResponse({
-    description: 'All Pokemons with filtering, searching and pagination',
+    description: 'All Pokemon with filtering, searching and pagination',
     type: PokemonListResponseDto,
   })
   @ApiUnauthorizedResponse({
@@ -55,7 +55,7 @@ export class PokemonController {
     description: 'Service unavailable',
     type: ErrorResponseDto,
   })
-  getAllPokemons(
+  getAllPokemon(
     @AuthUser() user: AuthenticatedUser,
     @Query() query: FilterPokemonQueryDto,
   ) {

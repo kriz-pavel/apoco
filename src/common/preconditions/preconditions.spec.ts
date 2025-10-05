@@ -51,7 +51,7 @@ describe('Preconditions', () => {
             },
           },
         },
-        pokemons: [
+        pokemon: [
           { name: 'Pikachu', type: 'Electric' },
           { name: 'Charizard', type: 'Fire' },
         ],
@@ -61,7 +61,7 @@ describe('Preconditions', () => {
       const result = checkExists(complexObject, 'Complex object should exist');
       expect(result).toBe(complexObject);
       expect(result.user.profile.name).toBe('John Doe');
-      expect(result.pokemons).toHaveLength(2);
+      expect(result.pokemon).toHaveLength(2);
     });
   });
 

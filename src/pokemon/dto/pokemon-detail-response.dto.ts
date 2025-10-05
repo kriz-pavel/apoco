@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { AttackCategory } from '../../pokemons/entities/attack.entity';
+import { AttackCategory } from '../entities/attack.entity';
 
 export class EvolutionRequirementsDto {
   @ApiProperty({

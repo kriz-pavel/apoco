@@ -7,7 +7,7 @@ import {
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
-import { FavoritePokemon } from '../../favorite-pokemons/entities/favorite-pokemon.entity';
+import { FavoritePokemon } from '../../favorite-pokemon/entities/favorite-pokemon.entity';
 
 @Entity()
 export class User extends BaseEntity {

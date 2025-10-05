@@ -1,10 +1,10 @@
 import { Controller, Post, Param, Delete, HttpCode } from '@nestjs/common';
-import { FavoritePokemonsService } from './favorite-pokemons.service';
+import { FavoritePokemonService } from './favorite-pokemon.service';
 import { AuthTokenGuard } from '../auth/guards/auth-token.guard';
 import type { AuthenticatedUser } from '../auth/guards/auth-token.guard';
 import { UseGuards } from '@nestjs/common';
 import { AuthUser } from '../auth/decorators/auth-user.decorator';
-import { PokedexIdDto } from '../pokemons/dto/pokedex-id.dto';
+import { PokedexIdDto } from '../pokemon/dto/pokedex-id.dto';
 import {
   ApiBadRequestResponse,
   ApiNoContentResponse,
@@ -18,9 +18,9 @@ import { ErrorResponseDto } from 'src/common/dto/error-response.dto';
 @UseGuards(AuthTokenGuard)
 @ApiBearerAuth('access-token')
 @Controller('me/favorite-pokemon')
-export class FavoritePokemonsController {
+export class FavoritePokemonController {
   constructor(
-    private readonly favoritePokemonsService: FavoritePokemonsService,
+    private readonly favoritePokemonService: FavoritePokemonService,
   ) {}
 
   @Post(':pokedexId')
@@ -48,7 +48,7 @@ export class FavoritePokemonsController {
     @AuthUser() user: AuthenticatedUser,
     @Param() params: PokedexIdDto,
   ): Promise<void> {
-    return this.favoritePokemonsService.addToFavorites({
+    return this.favoritePokemonService.addToFavorites({
       userId: user.id,
       pokedexId: params.pokedexId,
     });
@@ -78,7 +78,7 @@ export class FavoritePokemonsController {
     @AuthUser() user: AuthenticatedUser,
     @Param() params: PokedexIdDto,
   ): Promise<void> {
-    return this.favoritePokemonsService.removeFavoritePokemon({
+    return this.favoritePokemonService.removeFavoritePokemon({
       userId: user.id,
       pokedexId: params.pokedexId,
     });

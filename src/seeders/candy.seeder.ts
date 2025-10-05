@@ -1,7 +1,7 @@
 import { EntityManager } from '@mikro-orm/core';
 import { Seeder } from '@mikro-orm/seeder';
 import { seedPokemonData } from './data/data';
-import { Candy } from '../pokemons/entities/candy.entity';
+import { Candy } from '../pokemon/entities/candy.entity';
 
 export class CandySeeder extends Seeder {
   async run(em: EntityManager): Promise<void> {

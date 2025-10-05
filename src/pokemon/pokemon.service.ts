@@ -33,7 +33,7 @@ export class PokemonService {
   }) {
     const { data, recordCount } = query.favorites
       ? await this.getFavoritePokemon({ user, query })
-      : await this.getAllPokemons({ query });
+      : await this.getAllPokemon({ query });
 
     const pageCount = this.getPageCount({
       recordCount,
@@ -80,7 +80,7 @@ export class PokemonService {
     return this.mapPokemonDetailResponse({ pokemon });
   }
 
-  private async getAllPokemons({
+  private async getAllPokemon({
     query,
   }: {
     query: FilterPokemonQueryDto;

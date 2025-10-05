@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
-import { FavoritePokemonsService } from './favorite-pokemons.service';
-import { FavoritePokemonsController } from './favorite-pokemons.controller';
+import { FavoritePokemonService } from './favorite-pokemon.service';
+import { FavoritePokemonController } from './favorite-pokemon.controller';
 import { AuthModule } from '../auth/auth.module';
-import { PokemonModule } from '../pokemons/pokemons.module';
+import { PokemonModule } from '../pokemon/pokemon.module';
 import { FavoritePokemon } from './entities/favorite-pokemon.entity';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
-import { Pokemon } from '../pokemons/entities/pokemon.entity';
+import { Pokemon } from '../pokemon/entities/pokemon.entity';
 import { User } from '../users/entities/user.entity';
 
 @Module({
@@ -14,7 +14,7 @@ import { User } from '../users/entities/user.entity';
     AuthModule,
     PokemonModule,
   ],
-  controllers: [FavoritePokemonsController],
-  providers: [FavoritePokemonsService],
+  controllers: [FavoritePokemonController],
+  providers: [FavoritePokemonService],
 })
-export class FavoritePokemonsModule {}
+export class FavoritePokemonModule {}

@@ -84,7 +84,7 @@ export class PokemonListDto {
 export class PokemonListResponseDto {
   @ApiProperty({
     type: [PokemonListDto],
-    description: 'The list of Pokemons',
+    description: 'The list of Pokemon',
     example: [PokemonListDto],
   })
   data: PokemonListDto[];

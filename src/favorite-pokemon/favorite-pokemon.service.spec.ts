@@ -1,16 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@mikro-orm/nestjs';
 import { EntityRepository, EntityManager } from '@mikro-orm/postgresql';
-import { FavoritePokemonsService } from './favorite-pokemons.service';
+import { FavoritePokemonService } from './favorite-pokemon.service';
 import { FavoritePokemon } from './entities/favorite-pokemon.entity';
-import { Pokemon } from '../pokemons/entities/pokemon.entity';
+import { Pokemon } from '../pokemon/entities/pokemon.entity';
 import { User } from '../users/entities/user.entity';
 import { NotFoundException } from '@nestjs/common';
 
 /* eslint-disable @typescript-eslint/unbound-method */
 
-describe('FavoritePokemonsService', () => {
-  let service: FavoritePokemonsService;
+describe('FavoritePokemonService', () => {
+  let service: FavoritePokemonService;
   let pokemonRepository: jest.Mocked<EntityRepository<Pokemon>>;
   let favoritePokemonRepository: jest.Mocked<EntityRepository<FavoritePokemon>>;
   let entityManager: jest.Mocked<EntityManager>;
@@ -66,7 +66,7 @@ describe('FavoritePokemonsService', () => {
 
     const module: TestingModule = await Test.createTestingModule({
       providers: [
-        FavoritePokemonsService,
+        FavoritePokemonService,
         {
           provide: getRepositoryToken(Pokemon),
           useValue: mockPokemonRepository,
@@ -82,7 +82,7 @@ describe('FavoritePokemonsService', () => {
       ],
     }).compile();
 
-    service = module.get<FavoritePokemonsService>(FavoritePokemonsService);
+    service = module.get<FavoritePokemonService>(FavoritePokemonService);
     pokemonRepository = module.get<EntityRepository<Pokemon>>(
       getRepositoryToken(Pokemon),
     ) as jest.Mocked<EntityRepository<Pokemon>>;

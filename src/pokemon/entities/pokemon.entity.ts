@@ -13,7 +13,7 @@ import { Classification } from './classification.entity';
 import { PokemonType } from 'src/pokemon-types/entities/pokemon-type.entity';
 import { Attack } from './attack.entity';
 import { Evolution } from './evolution.entity';
-import { FavoritePokemon } from '../../favorite-pokemons/entities/favorite-pokemon.entity';
+import { FavoritePokemon } from '../../favorite-pokemon/entities/favorite-pokemon.entity';
 
 @Entity()
 export class Pokemon extends BaseEntity {

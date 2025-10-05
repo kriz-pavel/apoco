@@ -3,10 +3,10 @@ import { ConfigModule } from '@nestjs/config';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { PokemonTypeModule } from './pokemon-types/pokemon-types.module';
 import mikroOrmConfig from '../mikro-orm.config';
-import { PokemonModule } from './pokemons/pokemons.module';
+import { PokemonModule } from './pokemon/pokemon.module';
 import { UserModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
-import { FavoritePokemonsModule } from './favorite-pokemons/favorite-pokemons.module';
+import { FavoritePokemonModule } from './favorite-pokemon/favorite-pokemon.module';
 import { HealthModule } from './health/health.module';
 import { TerminusModule } from '@nestjs/terminus';
 import { ConfigurationService, validate } from './config';
@@ -25,7 +25,7 @@ import { ConfigurationService, validate } from './config';
     PokemonModule,
     UserModule,
     AuthModule,
-    FavoritePokemonsModule,
+    FavoritePokemonModule,
     HealthModule,
     TerminusModule,
   ],

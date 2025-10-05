@@ -1,5 +1,5 @@
 import { Entity, PrimaryKey, ManyToOne, Unique } from '@mikro-orm/core';
-import { Pokemon } from '../../pokemons/entities/pokemon.entity';
+import { Pokemon } from '../../pokemon/entities/pokemon.entity';
 import { User } from '../../users/entities/user.entity';
 
 @Entity()

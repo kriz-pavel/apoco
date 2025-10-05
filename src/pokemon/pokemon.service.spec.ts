@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@mikro-orm/nestjs';
 import { EntityRepository } from '@mikro-orm/postgresql';
-import { PokemonService } from './pokemons.service';
+import { PokemonService } from './pokemon.service';
 import { Pokemon } from './entities/pokemon.entity';
 import {
   FilterPokemonQueryDto,
@@ -249,7 +249,7 @@ describe('PokemonService', () => {
       );
     });
 
-    it('should calculate page count correctly when there are more pokemons', async () => {
+    it('should calculate page count correctly when there are more pokemon', async () => {
       // Arrange
       const queryWithPagination = {
         ...baseQuery,

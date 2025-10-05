@@ -1,17 +1,17 @@
 import { EntityManager } from '@mikro-orm/core';
 import { Seeder } from '@mikro-orm/seeder';
-import { Pokemon } from '../pokemons/entities/pokemon.entity';
+import { Pokemon } from '../pokemon/entities/pokemon.entity';
 import { seedPokemonData } from './data/data';
 import { PokemonType } from '../pokemon-types/entities/pokemon-type.entity';
-import { Classification } from '../pokemons/entities/classification.entity';
+import { Classification } from '../pokemon/entities/classification.entity';
 import {
   Pokemon as PokemonData,
   PokemonTypeName,
 } from './data/seed-pokemon.types';
-import { Attack } from '../pokemons/entities/attack.entity';
+import { Attack } from '../pokemon/entities/attack.entity';
 import { checkExists } from '../common/preconditions/preconditions';
-import { Evolution } from '../pokemons/entities/evolution.entity';
-import { Candy } from '../pokemons/entities/candy.entity';
+import { Evolution } from '../pokemon/entities/evolution.entity';
+import { Candy } from '../pokemon/entities/candy.entity';
 
 export class PokemonSeeder extends Seeder {
   async run(em: EntityManager): Promise<void> {

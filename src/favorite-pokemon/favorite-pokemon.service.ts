@@ -1,7 +1,7 @@
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { EntityManager, EntityRepository } from '@mikro-orm/postgresql';
 import { User } from '../users/entities/user.entity';
-import { Pokemon } from '../pokemons/entities/pokemon.entity';
+import { Pokemon } from '../pokemon/entities/pokemon.entity';
 import { FavoritePokemon } from './entities/favorite-pokemon.entity';
 import { checkFound } from '../common/preconditions/preconditions';
 import {
@@ -11,7 +11,7 @@ import {
 } from '@nestjs/common';
 
 @Injectable()
-export class FavoritePokemonsService {
+export class FavoritePokemonService {
   constructor(
     @InjectRepository(Pokemon)
     private readonly pokemonRepository: EntityRepository<Pokemon>,
