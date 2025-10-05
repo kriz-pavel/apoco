@@ -6,13 +6,19 @@ import {
   HttpStatus,
   ServiceUnavailableException,
   Logger,
+  Inject,
+  Optional,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
+import { ConfigurationService } from '../../config';
 
 @Catch()
 export class HttpExceptionFilter implements ExceptionFilter {
   constructor(
     private readonly logger: Logger = new Logger(HttpExceptionFilter.name),
+    @Optional()
+    @Inject(ConfigurationService)
+    private readonly configService?: ConfigurationService,
   ) {}
 
   catch(exception: unknown, host: ArgumentsHost): void {
@@ -46,7 +52,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
         message: ['Service unavailable'],
       };
     } else {
-      if (process.env.NODE_ENV === 'development') {
+      if (this.configService?.isDevelopment) {
         errorDetails = {
           status: HttpStatus.INTERNAL_SERVER_ERROR,
           error: (exception as Error)?.name || 'Error',

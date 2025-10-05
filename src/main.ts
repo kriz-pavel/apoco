@@ -4,6 +4,7 @@ import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { Response } from 'express';
+import { ConfigurationService } from './config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -45,13 +46,13 @@ async function bootstrap() {
     res.json(document);
   });
 
-  const port = process.env.PORT || 3000;
+  const configService = app.get<ConfigurationService>(ConfigurationService);
+  const port = configService.port;
   await app.listen(port);
 
   const base = `http://localhost:${port}`;
 
   console.log('\n===========================================');
-  console.log(`API:            ${base}/api`);
   console.log(`Swagger UI:     ${base}/docs`);
   console.log(`OpenAPI JSON:   ${base}/openapi.json`);
   console.log('===========================================\n');
