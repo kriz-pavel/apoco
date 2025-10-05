@@ -13,39 +13,48 @@ import { GetPokemonByNameDto } from './dto/get-pokemon-by-name.dto';
 import { AuthTokenGuard } from '../auth/guards/auth-token.guard';
 import type { AuthenticatedUser } from '../auth/guards/auth-token.guard';
 import { AuthUser } from '../auth/decorators/auth-user.decorator';
-import { ApiOperation, ApiResponse, ApiQuery, ApiParam } from '@nestjs/swagger';
-import { Pokemon } from './entities/pokemon.entity';
-import { PokemonSortDir, PokemonSortBy } from './dto/filter-pokemon-query.dto';
+import {
+  ApiOperation,
+  ApiParam,
+  ApiOkResponse,
+  ApiInternalServerErrorResponse,
+  ApiUnauthorizedResponse,
+  ApiServiceUnavailableResponse,
+  ApiNotFoundResponse,
+  ApiBadRequestResponse,
+  ApiBearerAuth,
+} from '@nestjs/swagger';
+import { PokemonDetailResponseDto } from './dto/pokemon-detail-response.dto';
+import { PokemonListResponseDto } from './dto/pokemon-list-response.dto';
+import { ErrorResponseDto } from 'src/common/dto/error-response.dto';
 
 @Controller('pokemon')
 export class PokemonController {
   constructor(private readonly pokemonService: PokemonService) {}
 
   @UseGuards(AuthTokenGuard)
+  @ApiBearerAuth('access-token')
   @Get()
   @ApiOperation({
     summary: 'Get all Pokemons with filtering, searching and pagination',
   })
-  @ApiResponse({
-    status: 200,
+  @ApiOkResponse({
     description: 'All Pokemons with filtering, searching and pagination',
+    type: PokemonListResponseDto,
   })
-  @ApiResponse({
-    status: 401,
+  @ApiUnauthorizedResponse({
     description:
       'Unauthorized if "favorites=true" is present in the query and the user is not authenticated',
+    type: ErrorResponseDto,
   })
-  @ApiResponse({
-    status: 500,
+  @ApiInternalServerErrorResponse({
     description: 'Internal server error',
+    type: ErrorResponseDto,
   })
-  @ApiQuery({ name: 'page', type: Number, required: false })
-  @ApiQuery({ name: 'limit', type: Number, required: false })
-  @ApiQuery({ name: 'sortBy', enum: PokemonSortBy, required: false })
-  @ApiQuery({ name: 'sortDir', enum: PokemonSortDir, required: false })
-  @ApiQuery({ name: 'q', type: String, required: false })
-  @ApiQuery({ name: 'type', type: String, required: false })
-  @ApiQuery({ name: 'favorites', type: Boolean, required: false })
+  @ApiServiceUnavailableResponse({
+    description: 'Service unavailable',
+    type: ErrorResponseDto,
+  })
   getAllPokemons(
     @AuthUser() user: AuthenticatedUser,
     @Query() query: FilterPokemonQueryDto,
@@ -62,18 +71,21 @@ export class PokemonController {
   @ApiOperation({
     summary: 'Get a Pokemon by its Pokedex ID',
   })
-  @ApiResponse({
-    status: 200,
+  @ApiOkResponse({
     description: 'The Pokemon with the given Pokedex ID',
-    type: Pokemon,
+    type: PokemonDetailResponseDto,
   })
-  @ApiResponse({
-    status: 404,
+  @ApiNotFoundResponse({
     description: 'Pokemon not found',
+    type: ErrorResponseDto,
   })
-  @ApiResponse({
-    status: 500,
+  @ApiBadRequestResponse({
+    description: 'Invalid Pokedex ID',
+    type: ErrorResponseDto,
+  })
+  @ApiInternalServerErrorResponse({
     description: 'Internal server error',
+    type: ErrorResponseDto,
   })
   @ApiParam({
     name: 'pokedexId',
@@ -95,18 +107,21 @@ export class PokemonController {
   @ApiOperation({
     summary: 'Get a Pokemon by its name',
   })
-  @ApiResponse({
-    status: 200,
+  @ApiOkResponse({
     description: 'The Pokemon with the given name',
-    type: Pokemon,
+    type: PokemonDetailResponseDto,
   })
-  @ApiResponse({
-    status: 404,
+  @ApiNotFoundResponse({
     description: 'Pokemon not found',
+    type: ErrorResponseDto,
   })
-  @ApiResponse({
-    status: 500,
+  @ApiBadRequestResponse({
+    description: 'Invalid name',
+    type: ErrorResponseDto,
+  })
+  @ApiInternalServerErrorResponse({
     description: 'Internal server error',
+    type: ErrorResponseDto,
   })
   @ApiParam({
     name: 'name',

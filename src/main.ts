@@ -25,17 +25,21 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle('Pokédex API')
     .setDescription(
-      'REST API pro procházení katalogu Pokémonů a ukládání oblíbených.',
+      'REST API for exploring the Pokémon catalog and storing favorite Pokémon.',
     )
     .setVersion('1.0.0')
     .addBearerAuth(
       { type: 'http', scheme: 'bearer', bearerFormat: 'JWT' },
-      'bearer',
+      'access-token',
     )
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('/docs', app, document);
+  SwaggerModule.setup('docs', app, document, {
+    swaggerOptions: {
+      persistAuthorization: true,
+    },
+  });
 
   app.getHttpAdapter().get('/openapi.json', (_, res: Response) => {
     res.json(document);

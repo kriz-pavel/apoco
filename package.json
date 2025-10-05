@@ -21,7 +21,6 @@
     "mikro:create": "mikro-orm migration:create",
     "mikro:migrate": "mikro-orm migration:up",
     "seed": "mikro-orm schema:fresh --run --seed=MainSeeder",
-    "seed:fresh": "mikro-orm schema:fresh --run --seed=MainSeeder",
     "prepare": "husky"
   },
   "dependencies": {
@@ -63,6 +62,7 @@
     "globals": "^16.0.0",
     "husky": "^9.1.7",
     "jest": "^30.0.0",
+    "jest-openapi": "^0.14.2",
     "lint-staged": "^16.2.3",
     "prettier": "^3.4.2",
     "source-map-support": "^0.5.21",

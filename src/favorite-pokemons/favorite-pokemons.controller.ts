@@ -5,9 +5,18 @@ import type { AuthenticatedUser } from '../auth/guards/auth-token.guard';
 import { UseGuards } from '@nestjs/common';
 import { AuthUser } from '../auth/decorators/auth-user.decorator';
 import { PokedexIdDto } from '../pokemons/dto/pokedex-id.dto';
-import { ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger';
+import {
+  ApiBadRequestResponse,
+  ApiNoContentResponse,
+  ApiNotFoundResponse,
+  ApiOperation,
+  ApiBearerAuth,
+  ApiUnauthorizedResponse,
+} from '@nestjs/swagger';
+import { ErrorResponseDto } from 'src/common/dto/error-response.dto';
 
 @UseGuards(AuthTokenGuard)
+@ApiBearerAuth('access-token')
 @Controller('me/favorite-pokemon')
 export class FavoritePokemonsController {
   constructor(
@@ -19,26 +28,21 @@ export class FavoritePokemonsController {
   @ApiOperation({
     summary: "Add a Pokemon to the user's favorites",
   })
-  @ApiResponse({
-    status: 204,
+  @ApiNoContentResponse({
     description: "The Pokemon was added to the user's favorites",
+    type: ErrorResponseDto,
   })
-  @ApiResponse({
-    status: 400,
+  @ApiBadRequestResponse({
     description: 'Invalid Pokedex ID',
+    type: ErrorResponseDto,
   })
-  @ApiResponse({
-    status: 401,
+  @ApiUnauthorizedResponse({
     description: 'Unauthorized',
+    type: ErrorResponseDto,
   })
-  @ApiResponse({
-    status: 404,
+  @ApiNotFoundResponse({
     description: 'Pokemon not found',
-  })
-  @ApiParam({
-    name: 'pokedexId',
-    description: 'The Pokedex ID of the Pokemon',
-    type: PokedexIdDto,
+    type: ErrorResponseDto,
   })
   addToFavorites(
     @AuthUser() user: AuthenticatedUser,
@@ -55,21 +59,20 @@ export class FavoritePokemonsController {
   @ApiOperation({
     summary: "Remove a Pokemon from the user's favorites",
   })
-  @ApiResponse({
-    status: 204,
+  @ApiNoContentResponse({
     description: "The Pokemon was removed from the user's favorites",
   })
-  @ApiResponse({
-    status: 400,
+  @ApiBadRequestResponse({
     description: 'Invalid Pokedex ID',
+    type: ErrorResponseDto,
   })
-  @ApiResponse({
-    status: 401,
+  @ApiUnauthorizedResponse({
     description: 'Unauthorized',
+    type: ErrorResponseDto,
   })
-  @ApiResponse({
-    status: 404,
+  @ApiNotFoundResponse({
     description: 'Pokemon not found',
+    type: ErrorResponseDto,
   })
   removeFavoritePokemon(
     @AuthUser() user: AuthenticatedUser,

@@ -1,6 +1,7 @@
 services:
   db:
     image: postgres:16-alpine
+    profiles: ['app']
     env_file:
       - .env
     environment:
@@ -9,7 +10,7 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     # ports: ["5432:5432"]
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}']
       interval: 3s
       timeout: 3s
       retries: 30
@@ -21,7 +22,10 @@ services:
     build:
       context: .
       target: runner
+    profiles: ['app']
     depends_on:
+      seed:
+        condition: service_completed_successfully
       db:
         condition: service_healthy
     env_file:
@@ -30,9 +34,10 @@ services:
       NODE_ENV: ${NODE_ENV}
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
       PORT: ${PORT}
-    ports: ["${API_PORT_HOST}:${PORT}"]
+    ports: ['${API_PORT_HOST}:${PORT}']
     healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://localhost:${PORT}/api/health || exit 1"]
+      test:
+        ['CMD-SHELL', 'wget -qO- http://localhost:${PORT}/api/health || exit 1']
       interval: 5s
       timeout: 3s
       start_period: 20s
@@ -44,7 +49,7 @@ services:
     build:
       context: .
       target: builder
-    profiles: ["migrate"]
+    profiles: ['app']
     depends_on:
       db:
         condition: service_healthy
@@ -52,27 +57,30 @@ services:
       - .env
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
-    command: ["yarn","mikro:migrate"]
+    command: ['yarn', 'mikro:migrate']
+    restart: 'no'
 
   seed:
     build:
       context: .
       target: builder
-    profiles: ["seed"]
+    profiles: ['app']
     depends_on:
       db:
         condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
     env_file:
       - .env
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
-    command: ["yarn","seed"]
+    command: ['yarn', 'seed']
+    restart: 'no'
 
-
-# ---- E2E test runner ----
+  # ---- E2E test runner ----
   db-test:
     image: postgres:16-alpine
-    profiles: ["e2e"]
+    profiles: ['e2e']
     env_file:
       - .env.test
     environment:
@@ -80,43 +88,45 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}']
       interval: 2s
       timeout: 2s
       retries: 40
-    tmpfs: ["/var/lib/postgresql/data:rw"] # ephemeral DB
+    tmpfs: ['/var/lib/postgresql/data:rw'] # ephemeral DB
 
   migrate-test:
     build:
       context: .
       target: builder
-    profiles: ["e2e"]
+    profiles: ['e2e']
     depends_on:
       db-test:
         condition: service_healthy
     env_file: [.env.test]
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db-test:5432/${POSTGRES_DB}
-    command: ["yarn","mikro:migrate"]
+    command: ['yarn', 'mikro:migrate']
+    restart: 'no'
 
   seed-test:
     build:
       context: .
       target: builder
-    profiles: ["e2e"]
+    profiles: ['e2e']
     depends_on:
       migrate-test:
         condition: service_completed_successfully
     env_file: [.env.test]
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db-test:5432/${POSTGRES_DB}
-    command: ["yarn","seed"]
+    command: ['yarn', 'seed']
+    restart: 'no'
 
   api-test:
     build:
       context: .
       target: runner
-    profiles: ["e2e"]
+    profiles: ['e2e']
     depends_on:
       seed-test:
         condition: service_completed_successfully
@@ -125,9 +135,13 @@ services:
       NODE_ENV: test
       PORT: ${PORT:-3000}
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db-test:5432/${POSTGRES_DB}
-    expose: ["${PORT:-3000}"]
+    expose: ['${PORT:-3000}']
     healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://localhost:${PORT:-3000}/api/health || exit 1"]
+      test:
+        [
+          'CMD-SHELL',
+          'wget -qO- http://localhost:${PORT:-3000}/api/health || exit 1',
+        ]
       interval: 4s
       timeout: 3s
       retries: 30
@@ -137,14 +151,13 @@ services:
     build:
       context: .
       target: tester
-    profiles: ["e2e"]
+    profiles: ['e2e']
     depends_on:
       api-test:
         condition: service_healthy
     env_file: [.env.test]
     environment:
       NODE_ENV: test
-      # jestli testy volají HTTP, potřebují URL na api-test
       API_BASE_URL: http://api-test:${PORT:-3000}
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db-test:5432/${POSTGRES_DB}
 

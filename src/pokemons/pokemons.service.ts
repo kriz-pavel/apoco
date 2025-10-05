@@ -14,7 +14,7 @@ import {
   convertGramsToKilogramsString,
   convertCmToMetrsString,
 } from '../common/conversions/conversions';
-import { PokemonListResponseDto } from './dto/pokemon-list-response.dto';
+import { PokemonListDto } from './dto/pokemon-list-response.dto';
 import type { AuthenticatedUser } from '../auth/guards/auth-token.guard';
 
 @Injectable()
@@ -96,11 +96,18 @@ export class PokemonService {
           ...filterQuery.options,
           populate: [
             'types',
+            'classification',
             'resistant',
             'weaknesses',
             'attacks',
+            'attacks.type',
             'evolutions',
+            'evolutions.candy',
+            'evolutions.toPokemon',
             'previousEvolutions',
+            'previousEvolutions.fromPokemon',
+            'favorites',
+            'favorites.user',
           ],
         },
       );
@@ -148,6 +155,7 @@ export class PokemonService {
               'resistant',
               'weaknesses',
               'attacks',
+              'attacks.type',
               'evolutions',
               'evolutions.candy',
               'evolutions.toPokemon',
@@ -180,6 +188,7 @@ export class PokemonService {
         'resistant',
         'weaknesses',
         'attacks',
+        'attacks.type',
         'evolutions',
         'evolutions.candy',
         'evolutions.toPokemon',
@@ -199,7 +208,7 @@ export class PokemonService {
     pokemon,
   }: {
     pokemon: Pokemon[];
-  }): PokemonListResponseDto[] {
+  }): PokemonListDto[] {
     return pokemon.map((pokemon) => {
       const id = convertIdToPokedexIdString(pokemon.pokedexId);
       const attacks = pokemon.attacks.map((attack) => ({
@@ -266,10 +275,12 @@ export class PokemonService {
     const weightMin = convertGramsToKilogramsString(pokemon.weightMin);
     const heightMax = convertCmToMetrsString(pokemon.heightMax);
     const heightMin = convertCmToMetrsString(pokemon.heightMin);
-    const evolutionRequirements = {
-      candy: pokemon.evolutions[0]?.candy.name,
-      candyAmount: pokemon.evolutions[0]?.candyAmount,
-    };
+    const evolutionRequirements = pokemon.evolutions[0]
+      ? {
+          candy: pokemon.evolutions[0].candy.name,
+          candyAmount: pokemon.evolutions[0].candyAmount,
+        }
+      : null;
 
     const evolutions = pokemon.evolutions.map((evolution) => ({
       id: convertIdToPokedexIdString(evolution.toPokemon.pokedexId),
@@ -343,6 +354,7 @@ export class PokemonService {
 
   private buildDbQueryOptions({ filter }: { filter: FilterPokemonQueryDto }) {
     const { page, limit, sortBy, sortDir, types, q } = filter;
+    console.log('types xxx', types);
     return {
       where: {
         ...(q ? { name: { $ilike: `%${q}%` } } : {}),

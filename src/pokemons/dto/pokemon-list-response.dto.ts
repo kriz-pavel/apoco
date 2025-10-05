@@ -1,69 +1,116 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { PokemonType } from 'src/pokemon-types/entities/pokemon-type.entity';
-import { AttackCategory } from 'src/pokemons/entities/attack.entity';
+import { AttackDto } from './attack.dto';
+import { PokemonTypeDto } from './pokemon-type.dto';
 
-type PokemonTypeProjection = {
-  name: PokemonType['name'];
-  slug: PokemonType['slug'];
-};
-
-export class PokemonListResponseDto {
-  @ApiProperty({ description: 'The Pokedex ID of the Pokemon', example: '001' })
+export class PokemonListDto {
+  @ApiProperty({
+    type: String,
+    description: 'The Pokedex ID of the Pokemon',
+    example: '001',
+  })
   id: string;
 
-  @ApiProperty({ description: 'The name of the Pokemon', example: 'Pikachu' })
+  @ApiProperty({
+    type: String,
+    description: 'The name of the Pokemon',
+    example: 'Pikachu',
+  })
   name: string;
 
   @ApiProperty({
+    type: String,
     description: 'The classification of the Pokemon',
     example: 'Mouse Pokémon',
   })
   classification: string;
 
-  @ApiProperty({ description: 'The attacks of the Pokemon' })
-  attacks: {
-    name: string;
-    type: PokemonTypeProjection;
-    damage: number;
-    category: AttackCategory;
-  }[];
+  @ApiProperty({ type: [AttackDto], description: 'The attacks of the Pokemon' })
+  attacks: AttackDto[];
 
   @ApiProperty({
+    type: [PokemonTypeDto],
     description: 'The types of the Pokemon',
-    example: ['Electric'],
   })
-  types: PokemonTypeProjection[];
+  types: PokemonTypeDto[];
 
   @ApiProperty({
+    type: [PokemonTypeDto],
     description: 'The resistant types of the Pokemon',
-    example: ['Electric', 'Flying', 'Steel'],
   })
-  resistant: PokemonTypeProjection[];
+  resistant: PokemonTypeDto[];
 
   @ApiProperty({
+    type: [PokemonTypeDto],
     description: 'The weaknesses of the Pokemon',
-    example: ['Ground'],
   })
-  weaknesses: PokemonTypeProjection[];
+  weaknesses: PokemonTypeDto[];
 
-  @ApiProperty({ description: 'The max CP of the Pokemon', example: 777 })
+  @ApiProperty({
+    type: Number,
+    description: 'The max CP of the Pokemon',
+    example: 777,
+  })
   maxCP: number;
 
-  @ApiProperty({ description: 'The max HP of the Pokemon', example: 887 })
+  @ApiProperty({
+    type: Number,
+    description: 'The max HP of the Pokemon',
+    example: 887,
+  })
   maxHP: number;
 
-  @ApiProperty({ description: 'The flee rate of the Pokemon', example: 0.1 })
+  @ApiProperty({
+    type: Number,
+    description: 'The flee rate of the Pokemon',
+    example: 0.1,
+  })
   fleeRate: number;
 
   @ApiProperty({
+    type: Boolean,
     description: 'Whether the Pokemon is legendary',
     example: false,
   })
   isLegendary: boolean;
 
   @ApiProperty({
+    type: Boolean,
     description: 'Whether the Pokemon is mythical',
     example: false,
   })
   isMythical: boolean;
+}
+
+export class PokemonListResponseDto {
+  @ApiProperty({
+    type: [PokemonListDto],
+    description: 'The list of Pokemons',
+    example: [PokemonListDto],
+  })
+  data: PokemonListDto[];
+
+  @ApiProperty({ type: Number, description: 'The current page', example: 1 })
+  currentPage: number;
+
+  @ApiProperty({ type: Number, description: 'The total pages', example: 1 })
+  pageCount: number;
+
+  @ApiProperty({ type: Number, description: 'The total items', example: 1 })
+  recordCount: number;
+
+  @ApiProperty({
+    type: Number,
+    nullable: true,
+    description: 'The next page',
+    example: 1,
+  })
+  nextPage: number | null;
+
+  @ApiProperty({
+    type: Number,
+    nullable: true,
+    description: 'The previous page',
+    example: 0,
+  })
+  previousPage: number | null;
 }

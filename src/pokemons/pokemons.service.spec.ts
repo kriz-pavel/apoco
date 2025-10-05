@@ -9,7 +9,7 @@ import {
   PokemonSortDir,
 } from './dto/filter-pokemon-query.dto';
 import type { AuthenticatedUser } from '../auth/guards/auth-token.guard';
-import { PokemonListResponseDto } from './dto/pokemon-list-response.dto';
+import { PokemonListDto } from './dto/pokemon-list-response.dto';
 import { mockPokemon } from './mocks/pokemon.mock';
 import {
   ServiceUnavailableException,
@@ -88,7 +88,7 @@ describe('PokemonService', () => {
 
       // Assert
       expect(result).toEqual({
-        data: expect.any(Array) as PokemonListResponseDto[],
+        data: expect.any(Array) as PokemonListDto[],
         recordCount: mockPokemon.length,
         currentPage: 1,
         nextPage: null,
@@ -233,7 +233,7 @@ describe('PokemonService', () => {
 
       // Assert
       expect(result).toEqual({
-        data: expect.any(Array) as PokemonListResponseDto[],
+        data: expect.any(Array) as PokemonListDto[],
         recordCount: 2,
         currentPage: queryWithPagination.page,
         nextPage: null,
@@ -269,7 +269,7 @@ describe('PokemonService', () => {
 
       // Assert
       expect(result).toEqual({
-        data: expect.any(Array) as PokemonListResponseDto[],
+        data: expect.any(Array) as PokemonListDto[],
         recordCount: mockPokemon.length,
         currentPage: queryWithPagination.page,
         nextPage: 4,

@@ -1,8 +1,15 @@
 import { Controller, Post, Body } from '@nestjs/common';
 import { UserService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
-import { ApiResponse, ApiOperation, ApiBody } from '@nestjs/swagger';
-import { User } from './entities/user.entity';
+import {
+  ApiOperation,
+  ApiBody,
+  ApiCreatedResponse,
+  ApiBadRequestResponse,
+  ApiInternalServerErrorResponse,
+} from '@nestjs/swagger';
+import { UserResponseDto } from './dto/user-response.dto';
+import { ErrorResponseDto } from 'src/common/dto/error-response.dto';
 
 @Controller('user')
 export class UserController {
@@ -12,18 +19,17 @@ export class UserController {
   @ApiOperation({
     summary: 'Create a new user',
   })
-  @ApiResponse({
-    status: 201,
+  @ApiCreatedResponse({
     description: 'The created user',
-    type: User,
+    type: UserResponseDto,
   })
-  @ApiResponse({
-    status: 400,
+  @ApiBadRequestResponse({
     description: 'Invalid user',
+    type: ErrorResponseDto,
   })
-  @ApiResponse({
-    status: 500,
+  @ApiInternalServerErrorResponse({
     description: 'Internal server error',
+    type: ErrorResponseDto,
   })
   @ApiBody({
     type: CreateUserDto,

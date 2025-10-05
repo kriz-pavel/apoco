@@ -22,13 +22,13 @@ export enum PokemonSortDir {
 }
 
 export class FilterPokemonQueryDto {
-  @ApiPropertyOptional({ default: 1, minimum: 1 })
+  @ApiPropertyOptional({ type: Number, default: 1, minimum: 1 })
   @Type(() => Number)
   @IsInt()
   @Min(1)
   page = 1;
 
-  @ApiPropertyOptional({ default: 20, minimum: 1, maximum: 100 })
+  @ApiPropertyOptional({ type: Number, default: 20, minimum: 1, maximum: 100 })
   @Type(() => Number)
   @IsInt()
   @Min(1)
@@ -51,15 +51,18 @@ export class FilterPokemonQueryDto {
   q?: string;
 
   @ApiPropertyOptional({
-    description: 'types of pokemon; comma-separated: fire,water',
-    type: [String],
-    example: 'fire,water',
+    description: 'types of pokemon',
+    type: String,
+    isArray: true,
+    example: ['fire', 'water'],
   })
   @IsOptional()
   @IsString({ each: true })
-  @Transform(({ value }: { value: string }) =>
-    value.split(',').map((t) => convertTextToSlug(t.trim())),
-  )
+  @Transform(({ value }: { value: string }) => {
+    return Array.isArray(value)
+      ? value.map((t: string) => convertTextToSlug(t.trim()))
+      : [convertTextToSlug(value.trim())];
+  })
   types?: string[];
 
   @ApiPropertyOptional({ description: 'favorite pokemon' })

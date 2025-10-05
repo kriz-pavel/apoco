@@ -1,6 +1,12 @@
 import { Controller, Get, Header } from '@nestjs/common';
 import { PokemonTypeService } from './pokemon-types.service';
-import { ApiOkResponse, ApiOperation } from '@nestjs/swagger';
+import {
+  ApiOkResponse,
+  ApiOperation,
+  ApiServiceUnavailableResponse,
+} from '@nestjs/swagger';
+import { PokemonTypeResponseDto } from './dto/pokemon-type-response.dto';
+import { ErrorResponseDto } from 'src/common/dto/error-response.dto';
 
 @Controller('types')
 export class PokemonTypeController {
@@ -17,6 +23,11 @@ export class PokemonTypeController {
   })
   @ApiOkResponse({
     description: 'All Pokemon types',
+    type: [PokemonTypeResponseDto],
+  })
+  @ApiServiceUnavailableResponse({
+    description: 'Service unavailable',
+    type: ErrorResponseDto,
   })
   findAll() {
     return this.pokemonTypeService.findAll();

@@ -1,8 +1,17 @@
 import { Controller, Post, Body, HttpCode } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { RotateTokenDto } from './dto/rotate-token.dto';
-import { ApiOperation, ApiResponse, ApiBody } from '@nestjs/swagger';
-
+import {
+  ApiOperation,
+  ApiBody,
+  ApiOkResponse,
+  ApiNotFoundResponse,
+} from '@nestjs/swagger';
+import { ApiBadRequestResponse } from '@nestjs/swagger';
+import { ApiUnauthorizedResponse } from '@nestjs/swagger';
+import { ApiInternalServerErrorResponse } from '@nestjs/swagger';
+import { RotateTokenResponseDto } from './dto/rotate-token-response.dto';
+import { ErrorResponseDto } from 'src/common/dto/error-response.dto';
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
@@ -12,25 +21,28 @@ export class AuthController {
   @ApiOperation({
     summary: 'Rotate a token',
   })
-  @ApiResponse({
-    status: 200,
+  @ApiOkResponse({
+    type: RotateTokenResponseDto,
+    example: {
+      token: '8cff4a54cca5a11096573997e867307e9ec84d413a0259a041886529e5dd778c',
+    },
     description: 'The rotated token',
   })
-  @ApiResponse({
-    status: 400,
+  @ApiBadRequestResponse({
     description: 'Invalid token',
+    type: ErrorResponseDto,
   })
-  @ApiResponse({
-    status: 401,
+  @ApiUnauthorizedResponse({
     description: 'Unauthorized',
+    type: ErrorResponseDto,
   })
-  @ApiResponse({
-    status: 404,
+  @ApiNotFoundResponse({
     description: 'Token not found',
+    type: ErrorResponseDto,
   })
-  @ApiResponse({
-    status: 500,
+  @ApiInternalServerErrorResponse({
     description: 'Internal server error',
+    type: ErrorResponseDto,
   })
   @ApiBody({
     type: RotateTokenDto,
