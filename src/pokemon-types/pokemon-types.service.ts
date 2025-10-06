@@ -1,4 +1,4 @@
-import { Injectable, ServiceUnavailableException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { PokemonType } from './entities/pokemon-type.entity';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { EntityRepository } from '@mikro-orm/postgresql';
@@ -10,11 +10,7 @@ export class PokemonTypeService {
     private readonly repo: EntityRepository<PokemonType>,
   ) {}
 
-  async findAll() {
-    try {
-      return await this.repo.findAll();
-    } catch {
-      throw new ServiceUnavailableException('Failed to fetch Pokemon types');
-    }
+  findAll() {
+    return this.repo.findAll();
   }
 }

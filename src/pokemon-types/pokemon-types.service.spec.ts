@@ -3,7 +3,6 @@ import { getRepositoryToken } from '@mikro-orm/nestjs';
 import { EntityRepository } from '@mikro-orm/postgresql';
 import { PokemonTypeService } from './pokemon-types.service';
 import { PokemonType } from './entities/pokemon-type.entity';
-import { ServiceUnavailableException } from '@nestjs/common';
 
 /* eslint-disable @typescript-eslint/unbound-method */
 
@@ -129,16 +128,12 @@ describe('PokemonTypeService', () => {
       expect(grassType?.name).toBe(originalGrassType?.name);
     });
 
-    it('should throw ServiceUnavailableException when underlying repository fails', async () => {
+    it('should throw when underlying repository fails', async () => {
       // Arrange
-      repository.findAll.mockRejectedValue(
-        new Error('Underlying repository failed'),
-      );
+      repository.findAll.mockRejectedValue(new Error());
 
       // Act & Assert
-      await expect(service.findAll()).rejects.toThrow(
-        ServiceUnavailableException,
-      );
+      await expect(service.findAll()).rejects.toThrow();
       expect(repository.findAll).toHaveBeenCalledTimes(1);
     });
   });

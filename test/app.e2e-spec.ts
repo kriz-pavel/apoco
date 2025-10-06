@@ -429,7 +429,7 @@ describe('Pokemon API (e2e)', () => {
         .set('Authorization', `Bearer ${authToken}`)
         .expect(204)
         .expect((res) => {
-          expect(res.status).toBe(204);
+          expect(res).toSatisfyApiSpec();
         });
 
       // add again should be idempotent

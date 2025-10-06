@@ -30,7 +30,6 @@ export class FavoritePokemonController {
   })
   @ApiNoContentResponse({
     description: "The Pokemon was added to the user's favorites",
-    type: ErrorResponseDto,
   })
   @ApiBadRequestResponse({
     description: 'Invalid Pokedex ID',

@@ -1,10 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@mikro-orm/nestjs';
 import { EntityRepository, EntityManager } from '@mikro-orm/postgresql';
-import {
-  BadRequestException,
-  ServiceUnavailableException,
-} from '@nestjs/common';
+import { BadRequestException } from '@nestjs/common';
 import { UserService } from './users.service';
 import { User } from './entities/user.entity';
 import { Token } from '../auth/entities/token.entity';
@@ -162,9 +159,7 @@ describe('UserService', () => {
       );
 
       // Act & Assert
-      await expect(service.create(mockCreateUserDto)).rejects.toThrow(
-        ServiceUnavailableException,
-      );
+      await expect(service.create(mockCreateUserDto)).rejects.toThrow();
     });
 
     it('should handle auth service errors during token generation', async () => {
@@ -182,9 +177,7 @@ describe('UserService', () => {
       });
 
       // Act & Assert
-      await expect(service.create(mockCreateUserDto)).rejects.toThrow(
-        ServiceUnavailableException,
-      );
+      await expect(service.create(mockCreateUserDto)).rejects.toThrow();
       expect(authService.generateToken).toHaveBeenCalledTimes(1);
     });
 
@@ -210,9 +203,7 @@ describe('UserService', () => {
       entityManager.persistAndFlush.mockRejectedValue(new Error());
 
       // Act & Assert
-      await expect(service.create(mockCreateUserDto)).rejects.toThrow(
-        ServiceUnavailableException,
-      );
+      await expect(service.create(mockCreateUserDto)).rejects.toThrow();
       expect(entityManager.persistAndFlush).toHaveBeenCalledWith([
         mockUser,
         mockToken,
@@ -367,16 +358,14 @@ describe('UserService', () => {
     it('should handle concurrent user creation attempts', async () => {
       // Arrange - Simulate user already exists during the check
       entityManager.transactional.mockImplementation(() => {
-        return Promise.reject(new Error('User already exists'));
+        return Promise.reject(new Error());
       });
 
       // User already exists when we check
       entityManager.findOne.mockResolvedValue(mockUser);
 
       // Act & Assert
-      await expect(service.create(mockCreateUserDto)).rejects.toThrow(
-        new ServiceUnavailableException(),
-      );
+      await expect(service.create(mockCreateUserDto)).rejects.toThrow();
       expect(entityManager.create).not.toHaveBeenCalled();
     });
   });

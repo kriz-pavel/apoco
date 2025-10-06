@@ -1,9 +1,4 @@
-import {
-  BadRequestException,
-  Inject,
-  Injectable,
-  ServiceUnavailableException,
-} from '@nestjs/common';
+import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './entities/user.entity';
 import { EntityManager, EntityRepository } from '@mikro-orm/postgresql';
@@ -20,37 +15,28 @@ export class UserService {
     private readonly authService: AuthService,
   ) {}
 
-  async create(createUserDto: CreateUserDto) {
-    try {
-      return await this.userRepository
-        .getEntityManager()
-        .transactional(async (em) => {
-          await this.checkIfUserExists(em, createUserDto.email);
+  create(createUserDto: CreateUserDto) {
+    return this.userRepository.getEntityManager().transactional(async (em) => {
+      await this.checkIfUserExists(em, createUserDto.email);
 
-          const user = em.create(User, createUserDto);
-          const token = this.authService.generateToken();
-          const tokenEntity = em.create(Token, {
-            user,
-            tokenHash: this.authService.hashToken(token),
-            expiresAt: this.authService.getTokenExpirationTime(),
-          });
+      const user = em.create(User, createUserDto);
+      const token = this.authService.generateToken();
+      const tokenEntity = em.create(Token, {
+        user,
+        tokenHash: this.authService.hashToken(token),
+        expiresAt: this.authService.getTokenExpirationTime(),
+      });
 
-          await em.persistAndFlush([user, tokenEntity]);
+      await em.persistAndFlush([user, tokenEntity]);
 
-          return {
-            user: {
-              name: user.name,
-              email: user.email,
-            },
-            token,
-          };
-        });
-    } catch (error) {
-      if (error instanceof BadRequestException) {
-        throw error;
-      }
-      throw new ServiceUnavailableException();
-    }
+      return {
+        user: {
+          name: user.name,
+          email: user.email,
+        },
+        token,
+      };
+    });
   }
 
   private async checkIfUserExists(em: EntityManager, email: string) {

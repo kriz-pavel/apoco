@@ -19,7 +19,6 @@ import {
   ApiOkResponse,
   ApiInternalServerErrorResponse,
   ApiUnauthorizedResponse,
-  ApiServiceUnavailableResponse,
   ApiNotFoundResponse,
   ApiBadRequestResponse,
   ApiBearerAuth,
@@ -42,6 +41,10 @@ export class PokemonController {
     description: 'All Pokemon with filtering, searching and pagination',
     type: PokemonListResponseDto,
   })
+  @ApiBadRequestResponse({
+    description: 'Invalid query parameters',
+    type: ErrorResponseDto,
+  })
   @ApiUnauthorizedResponse({
     description:
       'Unauthorized if "favorites=true" is present in the query and the user is not authenticated',
@@ -49,10 +52,6 @@ export class PokemonController {
   })
   @ApiInternalServerErrorResponse({
     description: 'Internal server error',
-    type: ErrorResponseDto,
-  })
-  @ApiServiceUnavailableResponse({
-    description: 'Service unavailable',
     type: ErrorResponseDto,
   })
   getAllPokemon(

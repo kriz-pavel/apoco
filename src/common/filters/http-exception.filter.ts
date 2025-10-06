@@ -4,7 +4,6 @@ import {
   ArgumentsHost,
   HttpException,
   HttpStatus,
-  ServiceUnavailableException,
   Logger,
   Inject,
   Optional,
@@ -45,12 +44,6 @@ export class HttpExceptionFilter implements ExceptionFilter {
           ) || ['Unknown error'],
         };
       }
-    } else if (exception instanceof ServiceUnavailableException) {
-      errorDetails = {
-        status: HttpStatus.SERVICE_UNAVAILABLE,
-        error: 'Service unavailable',
-        message: ['Service unavailable'],
-      };
     } else {
       if (this.configService?.isDevelopment) {
         errorDetails = {

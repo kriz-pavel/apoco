@@ -1,7 +1,6 @@
 import {
   Injectable,
   NotFoundException,
-  ServiceUnavailableException,
   UnauthorizedException,
 } from '@nestjs/common';
 import { InjectRepository } from '@mikro-orm/nestjs';
@@ -89,9 +88,59 @@ export class PokemonService {
       filter: query,
     });
 
-    try {
-      const [pokemon, recordCount] = await this.pokemonRepository.findAndCount(
-        filterQuery.where,
+    const [pokemon, recordCount] = await this.pokemonRepository.findAndCount(
+      filterQuery.where,
+      {
+        ...filterQuery.options,
+        populate: [
+          'types',
+          'classification',
+          'resistant',
+          'weaknesses',
+          'attacks',
+          'attacks.type',
+          'evolutions',
+          'evolutions.candy',
+          'evolutions.toPokemon',
+          'previousEvolutions',
+          'previousEvolutions.fromPokemon',
+          'favorites',
+          'favorites.user',
+        ],
+      },
+    );
+
+    return {
+      data: pokemon,
+      recordCount,
+    };
+  }
+
+  private async getFavoritePokemon({
+    user,
+    query,
+  }: {
+    user?: AuthenticatedUser;
+    query: FilterPokemonQueryDto;
+  }): Promise<{ data: Pokemon[]; recordCount: number }> {
+    if (!user) {
+      throw new UnauthorizedException('User not authenticated');
+    }
+
+    const filterQuery = this.buildDbQueryOptions({
+      filter: query,
+    });
+
+    const [favoritePokemon, recordCount] =
+      await this.pokemonRepository.findAndCount(
+        {
+          ...filterQuery.where,
+          favorites: {
+            user: {
+              id: user.id,
+            },
+          },
+        },
         {
           ...filterQuery.options,
           populate: [
@@ -112,68 +161,10 @@ export class PokemonService {
         },
       );
 
-      return {
-        data: pokemon,
-        recordCount,
-      };
-    } catch {
-      throw new ServiceUnavailableException();
-    }
-  }
-
-  private async getFavoritePokemon({
-    user,
-    query,
-  }: {
-    user?: AuthenticatedUser;
-    query: FilterPokemonQueryDto;
-  }): Promise<{ data: Pokemon[]; recordCount: number }> {
-    if (!user) {
-      throw new UnauthorizedException('User not authenticated');
-    }
-
-    const filterQuery = this.buildDbQueryOptions({
-      filter: query,
-    });
-
-    try {
-      const [favoritePokemon, recordCount] =
-        await this.pokemonRepository.findAndCount(
-          {
-            ...filterQuery.where,
-            favorites: {
-              user: {
-                id: user.id,
-              },
-            },
-          },
-          {
-            ...filterQuery.options,
-            populate: [
-              'types',
-              'classification',
-              'resistant',
-              'weaknesses',
-              'attacks',
-              'attacks.type',
-              'evolutions',
-              'evolutions.candy',
-              'evolutions.toPokemon',
-              'previousEvolutions',
-              'previousEvolutions.fromPokemon',
-              'favorites',
-              'favorites.user',
-            ],
-          },
-        );
-
-      return {
-        data: favoritePokemon,
-        recordCount,
-      };
-    } catch {
-      throw new ServiceUnavailableException();
-    }
+    return {
+      data: favoritePokemon,
+      recordCount,
+    };
   }
 
   private async findPokemonDetail({

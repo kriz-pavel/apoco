@@ -1,8 +1,4 @@
-import {
-  Injectable,
-  ServiceUnavailableException,
-  UnauthorizedException,
-} from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { RotateTokenDto } from './dto/rotate-token.dto';
 import * as crypto from 'crypto';
 import {
@@ -51,22 +47,18 @@ export class AuthService {
   }
 
   async getTokenRecord(token: string) {
-    try {
-      const validToken = await this.tokenRepository.findOne(
-        {
-          tokenHash: this.hashToken(token),
-          isRevoked: false,
-        },
-        { populate: ['user'] },
-      );
-      if (!validToken || validToken.expiresAt <= new Date()) {
-        return null;
-      }
-
-      return validToken;
-    } catch {
-      throw new ServiceUnavailableException();
+    const validToken = await this.tokenRepository.findOne(
+      {
+        tokenHash: this.hashToken(token),
+        isRevoked: false,
+      },
+      { populate: ['user'] },
+    );
+    if (!validToken || validToken.expiresAt <= new Date()) {
+      return null;
     }
+
+    return validToken;
   }
 
   generateToken() {

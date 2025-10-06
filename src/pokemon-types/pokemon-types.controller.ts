@@ -3,7 +3,7 @@ import { PokemonTypeService } from './pokemon-types.service';
 import {
   ApiOkResponse,
   ApiOperation,
-  ApiServiceUnavailableResponse,
+  ApiInternalServerErrorResponse,
 } from '@nestjs/swagger';
 import { PokemonTypeResponseDto } from './dto/pokemon-type-response.dto';
 import { ErrorResponseDto } from 'src/common/dto/error-response.dto';
@@ -25,8 +25,8 @@ export class PokemonTypeController {
     description: 'All Pokemon types',
     type: [PokemonTypeResponseDto],
   })
-  @ApiServiceUnavailableResponse({
-    description: 'Service unavailable',
+  @ApiInternalServerErrorResponse({
+    description: 'Internal server error',
     type: ErrorResponseDto,
   })
   findAll() {

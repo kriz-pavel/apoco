@@ -1,9 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import {
-  ExecutionContext,
-  ServiceUnavailableException,
-  UnauthorizedException,
-} from '@nestjs/common';
+import { ExecutionContext, UnauthorizedException } from '@nestjs/common';
 import { AuthTokenGuard } from './auth-token.guard';
 import { AuthService } from '../auth.service';
 import type { AuthRequest } from './auth-token.guard';
@@ -279,19 +275,16 @@ describe('AuthTokenGuard', () => {
       expect(authService.getTokenRecord).toHaveBeenCalledWith('invalid-token');
     });
 
-    it('should throw ServiceUnavailableException when token validation service errors', async () => {
+    it('should throw when token validation service errors', async () => {
       // Arrange
       const context = createMockExecutionContext(
         { favorites: 'true' },
         { authorization: 'Bearer some-token' },
       );
-      const serviceError = new ServiceUnavailableException();
-      authService.getTokenRecord.mockRejectedValue(serviceError);
+      authService.getTokenRecord.mockRejectedValue(new Error());
 
       // Act & Assert
-      await expect(guard.canActivate(context)).rejects.toThrow(
-        new ServiceUnavailableException(),
-      );
+      await expect(guard.canActivate(context)).rejects.toThrow();
       expect(authService.getTokenRecord).toHaveBeenCalledWith('some-token');
     });
   });

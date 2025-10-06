@@ -1,12 +1,7 @@
 import { Controller, Post, Body, HttpCode } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { RotateTokenDto } from './dto/rotate-token.dto';
-import {
-  ApiOperation,
-  ApiBody,
-  ApiOkResponse,
-  ApiNotFoundResponse,
-} from '@nestjs/swagger';
+import { ApiOperation, ApiBody, ApiOkResponse } from '@nestjs/swagger';
 import { ApiBadRequestResponse } from '@nestjs/swagger';
 import { ApiUnauthorizedResponse } from '@nestjs/swagger';
 import { ApiInternalServerErrorResponse } from '@nestjs/swagger';
@@ -29,15 +24,11 @@ export class AuthController {
     description: 'The rotated token',
   })
   @ApiBadRequestResponse({
-    description: 'Invalid token',
+    description: 'Invalid token format',
     type: ErrorResponseDto,
   })
   @ApiUnauthorizedResponse({
-    description: 'Unauthorized',
-    type: ErrorResponseDto,
-  })
-  @ApiNotFoundResponse({
-    description: 'Token not found',
+    description: 'Token not found, revoked, or expired',
     type: ErrorResponseDto,
   })
   @ApiInternalServerErrorResponse({
