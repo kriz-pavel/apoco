@@ -2,6 +2,7 @@ import {
   BaseEntity,
   Collection,
   Entity,
+  Enum,
   ManyToMany,
   ManyToOne,
   OneToMany,
@@ -14,6 +15,12 @@ import { PokemonType } from 'src/pokemon-types/entities/pokemon-type.entity';
 import { Attack } from './attack.entity';
 import { Evolution } from './evolution.entity';
 import { FavoritePokemon } from '../../favorite-pokemon/entities/favorite-pokemon.entity';
+
+export enum Rarity {
+  BASIC = 'basic',
+  MYTHIC = 'mythic',
+  LEGENDARY = 'legendary',
+}
 
 @Entity()
 export class Pokemon extends BaseEntity {
@@ -107,11 +114,8 @@ export class Pokemon extends BaseEntity {
   @Property({ type: 'smallint', check: 'max_hp > 0' })
   maxHP!: number;
 
-  @Property()
-  isLegendary!: boolean;
-
-  @Property()
-  isMythical!: boolean;
+  @Enum(() => Rarity)
+  rarity!: Rarity;
 
   @Property({ nullable: true })
   commonCaptureArea!: string | null;

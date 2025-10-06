@@ -252,23 +252,19 @@
           "nullable": false,
           "mappedType": "smallint"
         },
-        "is_legendary": {
-          "name": "is_legendary",
-          "type": "boolean",
+        "rarity": {
+          "name": "rarity",
+          "type": "text",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "mappedType": "boolean"
-        },
-        "is_mythical": {
-          "name": "is_mythical",
-          "type": "boolean",
-          "unsigned": false,
-          "autoincrement": false,
-          "primary": false,
-          "nullable": false,
-          "mappedType": "boolean"
+          "enumItems": [
+            "basic",
+            "mythic",
+            "legendary"
+          ],
+          "mappedType": "enum"
         },
         "common_capture_area": {
           "name": "common_capture_area",

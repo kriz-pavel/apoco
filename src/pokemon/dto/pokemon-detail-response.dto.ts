@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { AttackCategory } from '../entities/attack.entity';
+import { Rarity } from '../entities/pokemon.entity';
 
 export class EvolutionRequirementsDto {
   @ApiProperty({
@@ -181,18 +182,11 @@ export class PokemonDetailResponseDto {
   fleeRate: number;
 
   @ApiProperty({
-    type: Boolean,
-    description: 'Whether the Pokemon is legendary',
-    example: false,
+    enum: Rarity,
+    description: 'The rarity of the Pokemon',
+    example: Rarity.BASIC,
   })
-  isLegendary: boolean;
-
-  @ApiProperty({
-    type: Boolean,
-    description: 'Whether the Pokemon is mythical',
-    example: false,
-  })
-  isMythical: boolean;
+  rarity: Rarity;
 
   @ApiProperty({
     type: String,

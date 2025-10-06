@@ -388,8 +388,7 @@ describe('PokemonService', () => {
         maxCP: expectedPokemon.maxCP,
         maxHP: expectedPokemon.maxHP,
         fleeRate: expectedPokemon.fleeRate,
-        isLegendary: expectedPokemon.isLegendary,
-        isMythical: expectedPokemon.isMythical,
+        rarity: expectedPokemon.rarity,
       });
     });
 
@@ -450,8 +449,7 @@ describe('PokemonService', () => {
         maxCP: expectedPokemon.maxCP,
         maxHP: expectedPokemon.maxHP,
         fleeRate: expectedPokemon.fleeRate,
-        isLegendary: expectedPokemon.isLegendary,
-        isMythical: expectedPokemon.isMythical,
+        rarity: expectedPokemon.rarity,
       });
     });
 

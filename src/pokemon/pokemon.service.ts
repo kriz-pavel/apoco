@@ -241,8 +241,7 @@ export class PokemonService {
         maxCP: pokemon.maxCP,
         maxHP: pokemon.maxHP,
         fleeRate: pokemon.fleeRate,
-        isLegendary: pokemon.isLegendary,
-        isMythical: pokemon.isMythical,
+        rarity: pokemon.rarity,
       };
     });
   }
@@ -308,8 +307,7 @@ export class PokemonService {
       maxCP: pokemon.maxCP,
       maxHP: pokemon.maxHP,
       fleeRate: pokemon.fleeRate,
-      isLegendary: pokemon.isLegendary,
-      isMythical: pokemon.isMythical,
+      rarity: pokemon.rarity,
       commonCaptureArea: pokemon.commonCaptureArea,
       evolutionRequirements,
       evolutions,
@@ -354,7 +352,6 @@ export class PokemonService {
 
   private buildDbQueryOptions({ filter }: { filter: FilterPokemonQueryDto }) {
     const { page, limit, sortBy, sortDir, types, q } = filter;
-    console.log('types xxx', types);
     return {
       where: {
         ...(q ? { name: { $ilike: `%${q}%` } } : {}),

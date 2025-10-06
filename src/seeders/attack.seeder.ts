@@ -1,10 +1,21 @@
 import { EntityManager } from '@mikro-orm/core';
 import { Seeder } from '@mikro-orm/seeder';
+import { z } from 'zod';
 import { seedPokemonData } from './data/data';
 import { Attack, AttackCategory } from '../pokemon/entities/attack.entity';
 import { PokemonType } from '../pokemon-types/entities/pokemon-type.entity';
-import { PokemonTypeName } from './data/seed-pokemon.types';
+import {
+  PokemonTypeName,
+  Attack as RawAttack,
+} from './data/seed-pokemon.types';
 import { checkExists } from '../common/preconditions/preconditions';
+
+// Zod schema for validating attack data from seed file
+const attackSchema = z.object({
+  name: z.string().min(1, 'Attack name is required'),
+  type: z.string().min(1, 'Attack type is required'),
+  damage: z.number().int().nonnegative('Attack damage must be non-negative'),
+});
 
 type AttackData = Pick<Attack, 'name' | 'type' | 'damage' | 'category'>;
 
@@ -18,7 +29,9 @@ export class AttackSeeder extends Seeder {
     const attacksByNameMap = seedPokemonData.reduce((map, current) => {
       if (current.attacks.fast) {
         current.attacks.fast.forEach((attack) => {
-          const obj: AttackData = {
+          this.validateRawAttack(attack);
+
+          const attackData: AttackData = {
             name: attack.name,
             type: checkExists(
               typesMap.get(attack.type),
@@ -28,15 +41,17 @@ export class AttackSeeder extends Seeder {
             category: AttackCategory.FAST,
           };
 
-          if (!map.has(obj.name)) {
-            map.set(obj.name, obj);
+          if (!map.has(attackData.name)) {
+            map.set(attackData.name, attackData);
           }
         });
       }
 
       if (current.attacks.special) {
         current.attacks.special.forEach((attack) => {
-          const obj: AttackData = {
+          this.validateRawAttack(attack);
+
+          const attackData: AttackData = {
             name: attack.name,
             type: checkExists(
               typesMap.get(attack.type),
@@ -46,8 +61,8 @@ export class AttackSeeder extends Seeder {
             category: AttackCategory.SPECIAL,
           };
 
-          if (!map.has(obj.name)) {
-            map.set(obj.name, obj);
+          if (!map.has(attackData.name)) {
+            map.set(attackData.name, attackData);
           }
         });
       }
@@ -57,5 +72,21 @@ export class AttackSeeder extends Seeder {
     const uniqueAttacks = Array.from(attacksByNameMap.values());
 
     await em.insertMany(Attack, uniqueAttacks);
+  }
+
+  private validateRawAttack(attack: RawAttack) {
+    try {
+      attackSchema.parse(attack);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const errors = error.issues
+          .map((err) => `${err.path.join('.')}: ${err.message}`)
+          .join(', ');
+        throw new Error(
+          `Attack validation failed for ${attack.name}: ${errors}`,
+        );
+      }
+      throw error;
+    }
   }
 }

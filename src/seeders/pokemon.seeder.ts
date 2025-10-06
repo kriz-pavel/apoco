@@ -1,6 +1,6 @@
 import { EntityManager } from '@mikro-orm/core';
 import { Seeder } from '@mikro-orm/seeder';
-import { Pokemon } from '../pokemon/entities/pokemon.entity';
+import { Pokemon, Rarity } from '../pokemon/entities/pokemon.entity';
 import { seedPokemonData } from './data/data';
 import { PokemonType } from '../pokemon-types/entities/pokemon-type.entity';
 import { Classification } from '../pokemon/entities/classification.entity';
@@ -12,6 +12,73 @@ import { Attack } from '../pokemon/entities/attack.entity';
 import { checkExists } from '../common/preconditions/preconditions';
 import { Evolution } from '../pokemon/entities/evolution.entity';
 import { Candy } from '../pokemon/entities/candy.entity';
+import { z } from 'zod';
+
+const pokemonSchema = z.object({
+  id: z.string().min(1, 'Pokemon id is not valid'),
+  name: z.string().min(1, 'Pokemon name is not valid'),
+  classification: z.string().min(1, 'Pokemon classification is not valid'),
+  types: z.array(z.string().min(1, 'Pokemon type is not valid')),
+  resistant: z.array(z.string().min(1, 'Pokemon resistant type is not valid')),
+  weaknesses: z.array(z.string().min(1, 'Pokemon weakness type is not valid')),
+  weight: z.object({
+    maximum: z.string().min(1, 'Pokemon weight maximum is not valid'),
+    minimum: z.string().min(1, 'Pokemon weight minimum is not valid'),
+  }),
+  height: z.object({
+    maximum: z.string().min(1, 'Pokemon height maximum is not valid'),
+    minimum: z.string().min(1, 'Pokemon height minimum is not valid'),
+  }),
+  fleeRate: z.number().nonnegative('Pokemon flee rate must be non-negative'),
+  evolutionRequirements: z
+    .object({
+      amount: z
+        .number()
+        .int()
+        .nonnegative(
+          'Pokemon evolution requirements amount must be non-negative',
+        ),
+      name: z
+        .string()
+        .min(1, 'Pokemon evolution requirements name is not valid'),
+    })
+    .optional(),
+  evolutions: z
+    .array(
+      z.object({
+        id: z.string().min(1, 'Pokemon evolution id is not valid'),
+        name: z.string().min(1, 'Pokemon evolution name is not valid'),
+      }),
+    )
+    .optional(),
+  maxCP: z.number().int().nonnegative('Pokemon max CP must be non-negative'),
+  maxHP: z.number().int().nonnegative('Pokemon max HP must be non-negative'),
+  attacks: z.object({
+    fast: z.array(
+      z.object({
+        name: z.string().min(1, 'Pokemon attack name is not valid'),
+        type: z.string().min(1, 'Pokemon attack type is not valid'),
+        damage: z
+          .number()
+          .int()
+          .nonnegative('Pokemon attack damage must be non-negative'),
+      }),
+    ),
+    special: z.array(
+      z.object({
+        name: z.string().min(1, 'Pokemon attack name is not valid'),
+        type: z.string().min(1, 'Pokemon attack type is not valid'),
+        damage: z
+          .number()
+          .int()
+          .nonnegative('Pokemon attack damage must be non-negative'),
+      }),
+    ),
+  }),
+  LEGENDARY: z.string().optional(),
+  MYTHIC: z.string().optional(),
+  'Common Capture Area': z.string().optional(),
+});
 
 export class PokemonSeeder extends Seeder {
   async run(em: EntityManager): Promise<void> {
@@ -38,6 +105,8 @@ export class PokemonSeeder extends Seeder {
 
     let createdCount = 0;
     for (const pokemon of seedPokemonData) {
+      this.validateRawPokemon(pokemon);
+
       const types = pokemon.types.map((type) =>
         checkExists(typesMap.get(type), `Pokemon type ${type} not found`),
       );
@@ -72,8 +141,7 @@ export class PokemonSeeder extends Seeder {
         fleeRate: pokemon.fleeRate,
         maxCP: pokemon.maxCP,
         maxHP: pokemon.maxHP,
-        isLegendary: !!pokemon.LEGENDARY,
-        isMythical: !!pokemon.MYTHIC,
+        rarity: this.getRarity(pokemon),
         commonCaptureArea: pokemon['Common Capture Area'] || null,
         types: [...types],
         resistant,
@@ -152,6 +220,16 @@ export class PokemonSeeder extends Seeder {
     console.log(`Created ${createdCount} new Pokemon entries`);
   }
 
+  private getRarity(pokemon: PokemonData): Rarity {
+    if (pokemon.LEGENDARY) {
+      return Rarity.LEGENDARY;
+    }
+    if (pokemon.MYTHIC) {
+      return Rarity.MYTHIC;
+    }
+    return Rarity.BASIC;
+  }
+
   private getNormalizedWeightInGrams(weight: string): number {
     const normalizedWeight = Number(weight.replace('kg', '').trim()) * 1000;
     if (isNaN(normalizedWeight)) {
@@ -166,5 +244,21 @@ export class PokemonSeeder extends Seeder {
       throw new Error(`Invalid height: ${height}`);
     }
     return normalizedHeight;
+  }
+
+  private validateRawPokemon(pokemon: PokemonData) {
+    try {
+      pokemonSchema.parse(pokemon);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const errors = error.issues
+          .map((err) => `${err.path.join('.')}: ${err.message}`)
+          .join(', ');
+        throw new Error(
+          `Pokemon validation failed for ${pokemon.name}: ${errors}`,
+        );
+      }
+      throw error;
+    }
   }
 }
