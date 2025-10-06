@@ -70,7 +70,7 @@ export class Pokemon extends BaseEntity {
   })
   weaknesses = new Collection<PokemonType>(this);
 
-  // evolutions from this pokemon
+  // direct next evolution(s) of this pokemon
   @OneToMany(() => Evolution, (e) => e.fromPokemon)
   evolutions = new Collection<Evolution>(this);
 

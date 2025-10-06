@@ -53,6 +53,7 @@ async function bootstrap() {
   const base = `http://localhost:${port}`;
 
   console.log('\n===========================================');
+  console.log(`API Base URL:   ${base}/api`);
   console.log(`Swagger UI:     ${base}/docs`);
   console.log(`OpenAPI JSON:   ${base}/openapi.json`);
   console.log('===========================================\n');

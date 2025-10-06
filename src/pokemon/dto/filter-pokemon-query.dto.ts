@@ -1,4 +1,3 @@
-// src/pokemon/dto/pokemon-list.query.dto.ts
 import { ApiPropertyOptional } from '@nestjs/swagger';
 import {
   IsInt,
@@ -51,10 +50,9 @@ export class FilterPokemonQueryDto {
   q?: string;
 
   @ApiPropertyOptional({
-    description: 'types of pokemon',
+    description: 'types of pokemon (e.g. Fire, Water)',
     type: String,
     isArray: true,
-    example: ['fire', 'water'],
   })
   @IsOptional()
   @IsString({ each: true })

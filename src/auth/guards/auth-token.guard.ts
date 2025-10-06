@@ -1,4 +1,3 @@
-// auth/guards/auth-token.guard.ts
 import {
   CanActivate,
   ExecutionContext,

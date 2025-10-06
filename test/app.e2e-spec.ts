@@ -19,6 +19,11 @@ describe('Pokemon API (e2e)', () => {
   beforeAll(async () => {
     // Load OpenAPI spec for jest-openapi validation
     const openApiResponse = await request(API_BASE_URL).get('/openapi.json');
+
+    if (openApiResponse.status !== 200) {
+      throw new Error('Failed to load OpenAPI spec');
+    }
+
     // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     jestOpenAPI(openApiResponse.body);
 
@@ -34,14 +39,8 @@ describe('Pokemon API (e2e)', () => {
 
     if (createUserResponse.status === 201) {
       testUser = createUserResponse.body.user;
-      // Use the actual token returned from user creation
       authToken = createUserResponse.body.token;
     }
-  });
-
-  afterAll(async () => {
-    // Clean up test user if needed
-    // In production tests, you might want to clean up test data
   });
 
   describe('Health Check', () => {
@@ -418,8 +417,28 @@ describe('Pokemon API (e2e)', () => {
       return request(API_BASE_URL)
         .post('/api/me/favorite-pokemon/1')
         .set('Authorization', `Bearer ${authToken}`)
+        .expect(204)
+        .expect((res) => {
+          expect(res).toSatisfyApiSpec();
+        });
+    });
+
+    it('/api/me/favorite-pokemon/1 (POST) - add to favorites - already added', async () => {
+      await request(API_BASE_URL)
+        .post('/api/me/favorite-pokemon/001')
+        .set('Authorization', `Bearer ${authToken}`)
+        .expect(204)
         .expect((res) => {
           expect(res.status).toBe(204);
+        });
+
+      // add again should be idempotent
+      await request(API_BASE_URL)
+        .post('/api/me/favorite-pokemon/001')
+        .set('Authorization', `Bearer ${authToken}`)
+        .expect(204)
+        .expect((res) => {
+          expect(res).toSatisfyApiSpec();
         });
     });
 

@@ -40,4 +40,3 @@ COPY --chown=node:node package.json yarn.lock ./
 RUN --mount=type=cache,target=/home/node/.cache/yarn yarn install --frozen-lockfile
 COPY --chown=node:node . .
 CMD ["yarn","test:e2e"]
-# CMD ["sh","-c","yarn seed && yarn start:prod && yarn test:e2e"]

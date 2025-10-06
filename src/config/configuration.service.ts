@@ -6,7 +6,6 @@ import { Environment } from './env.validation';
 export class ConfigurationService {
   constructor(private configService: NestConfigService<Environment, true>) {}
 
-  // Application Configuration
   get nodeEnv(): string {
     return this.configService.get('NODE_ENV', { infer: true });
   }
@@ -27,7 +26,6 @@ export class ConfigurationService {
     return this.configService.get('PORT', { infer: true });
   }
 
-  // Database Configuration
   get postgresDb(): string {
     return this.configService.get('POSTGRES_DB', { infer: true });
   }
@@ -44,7 +42,6 @@ export class ConfigurationService {
     return this.configService.get('DATABASE_URL', { infer: true });
   }
 
-  // Optional Configuration
   get apiPortHost(): number | undefined {
     return this.configService.get('API_PORT_HOST', { infer: true });
   }

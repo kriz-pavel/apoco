@@ -10,7 +10,6 @@ import {
 } from './data/seed-pokemon.types';
 import { checkExists } from '../common/preconditions/preconditions';
 
-// Zod schema for validating attack data from seed file
 const attackSchema = z.object({
   name: z.string().min(1, 'Attack name is required'),
   type: z.string().min(1, 'Attack type is required'),

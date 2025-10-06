@@ -3,7 +3,6 @@ import { TsMorphMetadataProvider } from '@mikro-orm/reflection';
 import { SeedManager } from '@mikro-orm/seeder';
 import * as dotenv from 'dotenv';
 
-// Load environment variables
 dotenv.config();
 
 export default defineConfig({
@@ -12,7 +11,6 @@ export default defineConfig({
   entitiesTs: ['src/**/*.entity.ts'],
   metadataProvider: TsMorphMetadataProvider,
   migrations: {
-    // path: 'dist/migrations',
     pathTs: 'src/migrations',
   },
   seeder: {

@@ -18,6 +18,31 @@ services:
       - dbdata:/var/lib/postgresql/data
     restart: unless-stopped
 
+  seed:
+    build:
+      context: .
+      target: builder
+    profiles: ['app']
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+    command:
+      - sh
+      - -c
+      - |
+        TABLE_COUNT=$(psql "$DATABASE_URL" -tAc "SELECT count(*) FROM information_schema.tables WHERE table_schema = 'public'");
+        if [ "$TABLE_COUNT" -eq 0 ]; then
+          echo "🔄 Database is empty, running initial seed..."
+          yarn seed
+        else
+          echo "✅ Database already initialized, skipping seed."
+        fi
+    restart: 'no'
+
   api:
     build:
       context: .
@@ -45,38 +70,6 @@ services:
     init: true
     restart: unless-stopped
 
-  migrate:
-    build:
-      context: .
-      target: builder
-    profiles: ['app']
-    depends_on:
-      db:
-        condition: service_healthy
-    env_file:
-      - .env
-    environment:
-      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
-    command: ['yarn', 'mikro:migrate']
-    restart: 'no'
-
-  seed:
-    build:
-      context: .
-      target: builder
-    profiles: ['app']
-    depends_on:
-      db:
-        condition: service_healthy
-      migrate:
-        condition: service_completed_successfully
-    env_file:
-      - .env
-    environment:
-      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
-    command: ['yarn', 'seed']
-    restart: 'no'
-
   # ---- E2E test runner ----
   db-test:
     image: postgres:16-alpine
@@ -94,6 +87,7 @@ services:
       retries: 40
     tmpfs: ['/var/lib/postgresql/data:rw'] # ephemeral DB
 
+  # run migrations during e2e tests to ensure migrations are correct
   migrate-test:
     build:
       context: .

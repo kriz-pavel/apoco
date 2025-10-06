@@ -1,4 +1,3 @@
-// evolution.entity.ts
 import { Entity, PrimaryKey, Property, ManyToOne } from '@mikro-orm/core';
 import { Pokemon } from './pokemon.entity';
 import { Candy } from './candy.entity';

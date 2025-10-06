@@ -13,12 +13,8 @@ import {
 @Injectable()
 export class FavoritePokemonService {
   constructor(
-    @InjectRepository(Pokemon)
-    private readonly pokemonRepository: EntityRepository<Pokemon>,
     @InjectRepository(FavoritePokemon)
     private readonly favoritePokemonRepository: EntityRepository<FavoritePokemon>,
-    @InjectRepository(User)
-    private readonly userRepository: EntityRepository<User>,
   ) {}
 
   addToFavorites({
@@ -31,6 +27,15 @@ export class FavoritePokemonService {
     try {
       const em = this.favoritePokemonRepository.getEntityManager();
       return em.transactional(async (em) => {
+        const isAlreadyAddedToFavorites = await this.isAlreadyAddedToFavorites({
+          userId,
+          pokedexId,
+          em,
+        });
+        if (isAlreadyAddedToFavorites) {
+          return;
+        }
+
         const user = await this.findUserById({ id: userId, em });
         const pokemon = await this.findPokemonByPokedexId({ pokedexId, em });
         const favoritePokemon = em.create(FavoritePokemon, {
@@ -72,17 +77,30 @@ export class FavoritePokemonService {
     }
   }
 
+  private async isAlreadyAddedToFavorites({
+    userId,
+    pokedexId,
+    em,
+  }: {
+    userId: number;
+    pokedexId: number;
+    em: EntityManager;
+  }): Promise<boolean> {
+    const favoritePokemon = await em.findOne(FavoritePokemon, {
+      user: { id: userId },
+      pokemon: { pokedexId },
+    });
+    return !!favoritePokemon;
+  }
+
   private async findUserById({
     id,
     em,
   }: {
     id: number;
-    em?: EntityManager;
+    em: EntityManager;
   }): Promise<User> {
-    const user = await (em
-      ? em.findOne(User, { id })
-      : this.userRepository.findOne({ id }));
-
+    const user = await em.findOne(User, { id });
     return checkFound(user, 'User not found');
   }
 
@@ -91,12 +109,9 @@ export class FavoritePokemonService {
     em,
   }: {
     pokedexId: number;
-    em?: EntityManager;
+    em: EntityManager;
   }): Promise<Pokemon> {
-    const pokemon = await (em
-      ? em.findOne(Pokemon, { pokedexId })
-      : this.pokemonRepository.findOne({ pokedexId }));
-
+    const pokemon = await em.findOne(Pokemon, { pokedexId });
     return checkFound(pokemon, 'Pokemon not found');
   }
 }
