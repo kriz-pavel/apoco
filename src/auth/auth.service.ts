@@ -24,16 +24,14 @@ export class AuthService {
       .transactional(async (tem) => {
         const token = await tem.findOne(
           Token,
-          { tokenHash: this.hashToken(rotateTokenDto.token) },
+          {
+            tokenHash: this.hashToken(rotateTokenDto.token),
+            isRevoked: false,
+            expiresAt: { $gt: new Date() },
+          },
           { lockMode: LockMode.PESSIMISTIC_WRITE },
         );
         if (!token) {
-          throw new UnauthorizedException();
-        }
-        if (token.isRevoked) {
-          throw new UnauthorizedException();
-        }
-        if (token.expiresAt <= new Date()) {
           throw new UnauthorizedException();
         }
 

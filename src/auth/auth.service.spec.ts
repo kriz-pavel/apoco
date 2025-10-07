@@ -36,18 +36,6 @@ describe('AuthService', () => {
     updatedAt: new Date(),
   } as unknown as Token;
 
-  const mockRevokedToken = {
-    ...mockToken,
-    id: 2,
-    isRevoked: true,
-  } as unknown as Token;
-
-  const mockExpiredToken = {
-    ...mockToken,
-    id: 3,
-    expiresAt: new Date(Date.now() - 1000 * 60 * 60 * 24), // 1 day ago
-  } as unknown as Token;
-
   beforeEach(async () => {
     const mockTokenRepository = {
       findOne: jest.fn(),
@@ -122,7 +110,11 @@ describe('AuthService', () => {
       );
       expect(entityManager.findOne).toHaveBeenCalledWith(
         Token,
-        { tokenHash: hashedOriginalToken },
+        {
+          tokenHash: hashedOriginalToken,
+          isRevoked: false,
+          expiresAt: { $gt: expect.any(Date) as Date },
+        },
         { lockMode: LockMode.PESSIMISTIC_WRITE },
       );
       expect(mockToken.isRevoked).toBe(true);
@@ -151,7 +143,11 @@ describe('AuthService', () => {
 
       expect(entityManager.findOne).toHaveBeenCalledWith(
         Token,
-        { tokenHash: service.hashToken(rotateTokenDto.token) },
+        {
+          tokenHash: service.hashToken(rotateTokenDto.token),
+          isRevoked: false,
+          expiresAt: { $gt: expect.any(Date) as Date },
+        },
         { lockMode: LockMode.PESSIMISTIC_WRITE },
       );
     });
@@ -161,7 +157,8 @@ describe('AuthService', () => {
       entityManager.transactional.mockImplementation((callback) => {
         return Promise.resolve(callback(entityManager));
       });
-      entityManager.findOne.mockResolvedValue(mockRevokedToken);
+      // Since the query now filters out revoked tokens, it will return null
+      entityManager.findOne.mockResolvedValue(null);
 
       // Act & Assert
       await expect(service.rotateToken(rotateTokenDto)).rejects.toThrow(
@@ -171,7 +168,11 @@ describe('AuthService', () => {
       // Assert
       expect(entityManager.findOne).toHaveBeenCalledWith(
         Token,
-        { tokenHash: service.hashToken(rotateTokenDto.token) },
+        {
+          tokenHash: service.hashToken(rotateTokenDto.token),
+          isRevoked: false,
+          expiresAt: { $gt: expect.any(Date) as Date },
+        },
         { lockMode: LockMode.PESSIMISTIC_WRITE },
       );
     });
@@ -181,7 +182,8 @@ describe('AuthService', () => {
       entityManager.transactional.mockImplementation((callback) => {
         return Promise.resolve(callback(entityManager));
       });
-      entityManager.findOne.mockResolvedValue(mockExpiredToken);
+      // Since the query now filters out expired tokens, it will return null
+      entityManager.findOne.mockResolvedValue(null);
 
       // Act & Assert
       await expect(service.rotateToken(rotateTokenDto)).rejects.toThrow(
@@ -191,7 +193,11 @@ describe('AuthService', () => {
       // Assert
       expect(entityManager.findOne).toHaveBeenCalledWith(
         Token,
-        { tokenHash: service.hashToken(rotateTokenDto.token) },
+        {
+          tokenHash: service.hashToken(rotateTokenDto.token),
+          isRevoked: false,
+          expiresAt: { $gt: expect.any(Date) as Date },
+        },
         { lockMode: LockMode.PESSIMISTIC_WRITE },
       );
     });
