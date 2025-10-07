@@ -50,7 +50,7 @@ export class FavoritePokemonService {
     return await em.transactional(async (em) => {
       const user = await this.findUserById({ id: userId, em });
       const pokemon = await this.findPokemonByPokedexId({ pokedexId, em });
-      return void this.favoritePokemonRepository.nativeDelete({
+      return void em.nativeDelete(FavoritePokemon, {
         user,
         pokemon,
       });

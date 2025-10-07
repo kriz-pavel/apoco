@@ -59,6 +59,7 @@ describe('AuthService', () => {
       transactional: jest.fn(),
       findOne: jest.fn(),
       persistAndFlush: jest.fn(),
+      create: jest.fn(),
     } as unknown as jest.Mocked<EntityManager>;
 
     const module: TestingModule = await Test.createTestingModule({
@@ -109,7 +110,7 @@ describe('AuthService', () => {
 
       // Mock creating new token
       const newTokenEntity = { ...mockToken, tokenHash: hashedNewToken };
-      tokenRepository.create.mockReturnValue(newTokenEntity as Token);
+      entityManager.create.mockReturnValue(newTokenEntity as Token);
 
       // Act
       const result = await service.rotateToken(rotateTokenDto);
@@ -126,7 +127,7 @@ describe('AuthService', () => {
       );
       expect(mockToken.isRevoked).toBe(true);
       expect(entityManager.persistAndFlush).toHaveBeenCalledWith(mockToken);
-      expect(tokenRepository.create).toHaveBeenCalledWith({
+      expect(entityManager.create).toHaveBeenCalledWith(Token, {
         tokenHash: hashedNewToken,
         expiresAt: expect.any(Date) as Date,
         user: mockUser,

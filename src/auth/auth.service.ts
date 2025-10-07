@@ -81,7 +81,7 @@ export class AuthService {
   private async createToken(token: Token, tem: EntityManager) {
     const newToken = this.generateToken();
     const newTokenHash = this.hashToken(newToken);
-    const newTokenEntity = this.tokenRepository.create({
+    const newTokenEntity = tem.create(Token, {
       tokenHash: newTokenHash,
       expiresAt: this.getTokenExpirationTime(),
       user: token.user,

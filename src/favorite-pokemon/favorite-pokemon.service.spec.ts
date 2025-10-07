@@ -62,6 +62,7 @@ describe('FavoritePokemonService', () => {
       flush: jest.fn(),
       findOne: jest.fn(),
       remove: jest.fn(),
+      nativeDelete: jest.fn(),
     } as unknown as jest.Mocked<EntityManager>;
 
     const module: TestingModule = await Test.createTestingModule({
@@ -230,7 +231,7 @@ describe('FavoritePokemonService', () => {
       // Assert
       expect(entityManager.transactional).toHaveBeenCalledTimes(1);
       expect(entityManager.findOne).toHaveBeenCalledTimes(2);
-      expect(favoritePokemonRepository.nativeDelete).toHaveBeenCalledWith({
+      expect(entityManager.nativeDelete).toHaveBeenCalledWith(FavoritePokemon, {
         user: mockUser,
         pokemon: mockPokemon,
       });
@@ -252,7 +253,7 @@ describe('FavoritePokemonService', () => {
         service.removeFavoritePokemon({ userId, pokedexId }),
       ).rejects.toThrow('User not found');
 
-      expect(favoritePokemonRepository.nativeDelete).not.toHaveBeenCalled();
+      expect(entityManager.nativeDelete).not.toHaveBeenCalled();
     });
 
     it('should throw NotFoundException when Pokemon not found', async () => {
@@ -287,13 +288,13 @@ describe('FavoritePokemonService', () => {
         .mockResolvedValueOnce(mockUser) // findUserById
         .mockResolvedValueOnce(mockPokemon); // findPokemonByPokedexId
 
-      favoritePokemonRepository.nativeDelete.mockResolvedValue(0);
+      entityManager.nativeDelete.mockResolvedValue(0);
 
       // Act
       await service.removeFavoritePokemon({ userId, pokedexId });
 
       // Assert
-      expect(favoritePokemonRepository.nativeDelete).toHaveBeenCalledWith({
+      expect(entityManager.nativeDelete).toHaveBeenCalledWith(FavoritePokemon, {
         user: mockUser,
         pokemon: mockPokemon,
       });
