@@ -26,6 +26,8 @@ It allows users to:
 $ yarn install
 ```
 
+Don’t forget to create a .env file for the app and a .env.local file for the e2e tests based on the example files in the repo.
+
 ## 🚀 Compile and run the project
 
 ```bash
